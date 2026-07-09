@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Design tokens — the whole site's palette + type lives here.
+   ============================================================ */
+@theme {
+  --color-cream: #faf6ec;
+  --color-cream-deep: #f2ecdb;
+  --color-paper: #fffdf6;
+  --color-charcoal: #2a2e2b;
+  --color-charcoal-soft: #4a504b;
+  --color-moss: #7fa876;
+  --color-moss-deep: #5c8354;
+  --color-leaf: #a9c89b;
+  --color-slate-blue: #5e7f9b;
+  --color-slate-blue-deep: #44607a;
+  --color-amber-soft: #e4c368;
+  --color-amber-deep: #c9a13f;
+
+  --font-display: "Archivo", system-ui, sans-serif;
+  --font-body: "Archivo", system-ui, sans-serif;
+  --font-mono: "Martian Mono", ui-monospace, monospace;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
+  font-family: var(--font-body);
+  font-variation-settings: "wdth" 100;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Wide, heavy "technical" display style used for all big headings */
+.display {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 122;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 0.98;
+  text-transform: uppercase;
+}
+
+.display-mid {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 115;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+}
+
+/* Mono eyebrow labels, e.g. "01 / ABOUT" */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Barely-there cream halo so hero text stays readable over the 3D scene */
+.hero-glow {
+  text-shadow: 0 1px 26px rgba(255, 253, 246, 0.45);
+}
+
+/* Glassy card used across the site + floating 3D labels */
+.glass {
+  background: color-mix(in srgb, var(--color-paper) 72%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid color-mix(in srgb, var(--color-charcoal) 10%, transparent);
+  box-shadow: 0 8px 32px -12px color-mix(in srgb, var(--color-charcoal) 18%, transparent);
+}
+
+/* Sky behind the 3D diorama — cream to muted blue, matches scene fog */
+.sky {
+  background: linear-gradient(
+    to bottom,
+    #dfe9ef 0%,
+    #eef0e4 42%,
+    #faf6ec 78%,
+    #faf6ec 100%
+  );
+}
+
+::selection {
+  background: var(--color-amber-soft);
+  color: var(--color-charcoal);
+}
+
+/* Keyboard focus that fits the palette */
+:focus-visible {
+  outline: 2px solid var(--color-slate-blue);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Gentle float used by the SVG fallback hero (disabled under reduced motion) */
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes dashflow {
+  to {
+    stroke-dashoffset: -120;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-ok {
+    animation: none !important;
+    transition: none !important;
+  }
+}
