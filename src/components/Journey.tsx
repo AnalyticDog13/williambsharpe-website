@@ -10,6 +10,7 @@ import { Scene } from "../three/Scene";
 import { scrollState, INTRO_END } from "../three/scrollState";
 import { site } from "../data/site";
 import { PillLink, ArrowUpRight } from "./Buttons";
+import { ArcTagline } from "./ArcTagline";
 
 /**
  * The 3D scroll journey: a tall scroll container with a sticky viewport
@@ -119,19 +120,20 @@ export function Journey() {
         {/* ---- Hero overlay ---- */}
         <div
           ref={heroRef}
-          className="absolute inset-x-0 top-[19vh] z-10 flex flex-col items-center px-6 text-center pointer-events-none"
+          className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center pointer-events-none"
         >
-          <p className="eyebrow hero-glow text-charcoal mb-5">{site.heroTagline}</p>
-          <h1 className="display text-charcoal text-[clamp(2.6rem,7.5vw,6.5rem)] max-w-5xl">
-            William B.
-            <br />
-            Sharpe
-          </h1>
-          <p className="hero-glow mt-6 max-w-xl text-base md:text-lg font-medium text-charcoal leading-relaxed">
-            Operations Research &amp; Information Engineering at Cornell.
-            <br className="hidden md:block" /> {site.heroSubtitle}
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 pointer-events-auto">
+          <div className="relative mt-[9vh] flex flex-col items-center">
+            {/* tagline arcing over the headline like a rainbow — 2D overlay,
+                painted behind the title, fades with it on scroll */}
+            <div className="absolute -top-[27vh] left-1/2 w-[min(96vw,1400px)] -translate-x-1/2">
+              <ArcTagline text="Operations Research & Information Engineering at Cornell. Building intelligent systems for AI, automation, transportation, and design." />
+            </div>
+            <h1 className="display text-charcoal text-[clamp(2.6rem,7.5vw,6.5rem)] max-w-5xl">
+              William B.
+              <br />
+              Sharpe
+            </h1>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3 pointer-events-auto">
             <PillLink href="#projects" variant="solid">
               View Projects
             </PillLink>
@@ -141,6 +143,7 @@ export function Journey() {
             <PillLink href={site.linkedin} external>
               LinkedIn <ArrowUpRight />
             </PillLink>
+            </div>
           </div>
         </div>
 

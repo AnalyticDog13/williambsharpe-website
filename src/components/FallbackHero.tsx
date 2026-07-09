@@ -11,7 +11,6 @@ import { PillLink, ArrowUpRight } from "./Buttons";
 export function FallbackHero() {
   return (
     <section className="sky relative flex min-h-screen flex-col items-center px-6 pt-28 pb-10" id="top">
-      <p className="eyebrow text-charcoal-soft mb-4">{site.heroTagline}</p>
       <h1 className="display text-charcoal text-[clamp(2.4rem,10vw,4.5rem)] text-center">
         William B.
         <br />

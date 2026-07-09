@@ -35,7 +35,6 @@ export function MobileHero() {
       </div>
 
       <div className="relative z-10 flex flex-col items-center px-6 pt-24 text-center pointer-events-none">
-        <p className="eyebrow hero-glow text-charcoal mb-4">{site.heroTagline}</p>
         <h1 className="display text-charcoal text-[clamp(2.4rem,11vw,3.6rem)]">
           William B.
           <br />
