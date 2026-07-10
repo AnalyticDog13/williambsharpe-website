@@ -1,8 +1,6 @@
 import { site } from "../data/site";
 import { Reveal } from "./Reveal";
 
-const INTERESTS = ["AI", "Optimization", "Transportation", "Design", "Automation"];
-
 export function About() {
   return (
     <section id="about" className="mx-auto max-w-6xl px-6 py-28 md:py-36">
@@ -10,23 +8,11 @@ export function About() {
         <Reveal>
           <p className="eyebrow text-moss-deep mb-4">01 / About</p>
           <h2 className="display text-charcoal text-[clamp(1.9rem,4.5vw,3.2rem)]">
-            Systems,
-            <br />
-            made legible
+            ABOUT ME
           </h2>
           <p className="mt-7 text-lg leading-relaxed text-charcoal-soft">
             {site.about}
           </p>
-          <div className="mt-8 flex flex-wrap gap-2.5">
-            {INTERESTS.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full border border-charcoal/15 bg-paper px-4 py-1.5 font-mono text-[10px] font-semibold tracking-[0.14em] uppercase text-charcoal-soft"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
         </Reveal>
 
         {/* LA → Cornell route card */}
@@ -55,9 +41,9 @@ export function About() {
               </div>
             </div>
             <p className="mt-7 border-t border-charcoal/10 pt-5 text-sm leading-relaxed text-charcoal-soft">
-              Operations Research &amp; Information Engineering: the math and
-              engineering of making complex systems — supply chains, transit
-              networks, markets, algorithms — run better.
+              Operations Research: an interdisciplinary field of applied
+              mathematics and computer science that uses advanced analytical,
+              statistical, and modeling techniques to make optimal decisions.
             </p>
           </div>
         </Reveal>

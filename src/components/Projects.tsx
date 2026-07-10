@@ -28,7 +28,7 @@ export function Projects() {
           <div>
             <p className="eyebrow text-moss-deep mb-4">02 / Projects</p>
             <h2 className="display text-charcoal text-[clamp(1.9rem,4.5vw,3.2rem)]">
-              Things I’m building
+              My Projects
             </h2>
           </div>
           <p className="max-w-xs text-sm leading-relaxed text-charcoal-soft">

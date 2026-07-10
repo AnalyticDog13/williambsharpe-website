@@ -20,7 +20,7 @@ export const site = {
 
   // ---- About copy ----
   about:
-    "I’m William B. Sharpe, a Cornell University student from Los Angeles studying Operations Research and Information Engineering. I’m interested in building intelligent systems that combine AI, automation, optimization, transportation, and design — and in turning complex ideas into useful, visual, and functional tools.",
+    "Hi, I’m William B. Sharpe, a Cornell University student studying Operations Research and Information Engineering. I am interested in AI, programming, design, real-world problem solving, and data modeling. My goal is to use advanced computing and data-driven systems to change the world for the better.",
 
   // ---- Contact CTA ----
   contactCta:

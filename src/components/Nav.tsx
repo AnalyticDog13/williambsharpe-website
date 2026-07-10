@@ -16,7 +16,6 @@ export function Nav() {
           className="font-mono text-xs font-bold tracking-[0.2em] text-charcoal"
         >
           {site.initials}
-          <span className="text-amber-deep">●</span>
         </a>
         <div className="flex items-center gap-3.5 md:gap-7">
           {LINKS.map((l) => (
