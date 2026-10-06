@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luisa Monâ — FAQ</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; min-height: 100%; background: #F1ECE4; font-family: 'Courier New', Courier, monospace; }
+
+    #site-header {
+      position: fixed; top: -24px; left: 0; right: 0; z-index: 100;
+      background: #F1ECE4; border-bottom: 1px solid rgba(0,0,0,0.15);
+      display: flex; align-items: center; padding: 10px 32px 0; height: 100px;
+    }
+    #site-header::before { content: ''; position: absolute; top: -20px; left: 0; right: 0; height: 20px; background: #F1ECE4; }
+    #logo-link { position: absolute; left: 50%; transform: translateX(-50%) translateY(6px); line-height: 0; }
+    #logo { width: 200px; display: block; }
+    #menu-btn { font-family: 'Courier New', Courier, monospace; font-size: 0.78vw; font-weight: 900; -webkit-text-stroke: 0.4px black; letter-spacing: 0.04em; color: #000; cursor: pointer; user-select: none; display: flex; align-items: center; gap: 7px;  transform: translateY(7px);}
+    #contact-btn { font-family: 'Courier New', Courier, monospace; font-size: 0.78vw; font-weight: 900; -webkit-text-stroke: 0.4px black; letter-spacing: 0.04em; color: #000; cursor: pointer; user-select: none; margin-left: auto;  transform: translateY(7px);}
+    .menu-lines { display: inline-flex; flex-direction: column; gap: 3px; }
+    .menu-lines span { display: block; width: 1.1em; height: 0.13em; background: #000; }
+
+    #sidebar-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.4);
+      z-index: 150; opacity: 0; pointer-events: none; transition: opacity 0.35s ease;
+    }
+    #sidebar-overlay.open { opacity: 1; pointer-events: all; }
+
+    #sidebar {
+      position: fixed; top: 0; left: 0; right: auto;
+      width: min(400px, 88vw); height: 100%; background: #F1ECE4;
+      z-index: 200; transform: translateX(-101%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex; flex-direction: column; padding: 0 44px;
+    }
+    #sidebar.open { transform: translateX(0%); }
+    #sidebar-top { display: flex; justify-content: space-between; align-items: center; padding-top: 32px; padding-bottom: 48px; }
+    #sidebar-label, #sidebar-close { font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 1; font-weight: 900; -webkit-text-stroke: 0.4px black; letter-spacing: 0.04em; color: #000; user-select: none; display: inline-block; vertical-align: middle; } #sidebar-close { cursor: pointer; }
+    #sidebar-nav { display: flex; flex-direction: column; }
+    #sidebar-nav a { font-family: 'Courier New', Courier, monospace; font-size: clamp(22px, 3.2vw, 38px); font-weight: 900; line-height: 1.35; letter-spacing: 0.03em; color: #000; text-decoration: none; -webkit-text-stroke: 0.5px black; }
+    #sidebar-nav a:hover { text-decoration: underline; }
+    .sidebar-divider { height: 1px; background: #000; opacity: 0.15; margin: 22px 0; }
+    #contact-sidebar { position: fixed; top: 0; right: 0; left: auto; width: min(400px, 88vw); height: 100%; background: #F1ECE4; z-index: 200; transform: translateX(101%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; padding: 0 44px; }
+    #contact-sidebar.open { transform: translateX(0%); }
+    #contact-sidebar-top { display: flex; justify-content: space-between; align-items: center; padding-top: 32px; padding-bottom: 48px; }
+    #contact-sidebar-label, #contact-sidebar-close { font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 1; font-weight: 900; -webkit-text-stroke: 0.4px black; letter-spacing: 0.04em; color: #000; user-select: none; display: inline-block; vertical-align: middle; } #contact-sidebar-close { cursor: pointer; }
+    .contact-email { font-family: 'Courier New', Courier, monospace; font-size: clamp(14px, 1.8vw, 22px); font-weight: 900; letter-spacing: 0.03em; color: #000; text-decoration: none; -webkit-text-stroke: 0.4px black; line-height: 1.4; }
+    .contact-email:hover { opacity: 0.6; }
+    .policy-links { display: flex; flex-direction: column; margin-top: auto; padding-bottom: 48px; }
+    .policy-links a { font-family: 'Courier New', Courier, monospace; font-size: clamp(13px, 1.4vw, 18px); font-weight: 900; line-height: 1.5; letter-spacing: 0.03em; color: #000; text-decoration: none; -webkit-text-stroke: 0.3px black; opacity: 0.55; }
+    .policy-links a:hover { opacity: 1; }
+
+    .page-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 120px 44px 80px;
+    }
+
+    .page-content h1 {
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      -webkit-text-stroke: 0.8px black;
+      margin-bottom: 56px;
+    }
+
+    .faq-item {
+      border-top: 1px solid rgba(0,0,0,0.12);
+      padding: 28px 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: 1px solid rgba(0,0,0,0.12);
+    }
+
+    .faq-item h2 {
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      -webkit-text-stroke: 0.4px black;
+      margin-bottom: 14px;
+      cursor: pointer;
+    }
+
+    .faq-item p {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.9;
+      letter-spacing: 0.03em;
+      color: #000;
+      opacity: 0.75;
+    }
+  </style>
+</head>
+<body>
+  <header id="site-header">
+    <div id="menu-btn">
+      <span class="menu-lines"><span></span><span></span><span></span></span>
+      MENU
+    </div>
+    <a href="index.html" id="logo-link"><img id="logo" src="logo.svg" alt="Luisa Monâ"></a>
+    <div id="contact-btn">CONTACT</div>
+  </header>
+
+  <div class="page-content">
+    <h1>FREQUENTLY ASKED<br>QUESTIONS</h1>
+
+    <div class="faq-item">
+      <h2>WHAT SIZES DO YOU CARRY?</h2>
+      <p>Luisa Monâ offers sizing from XS to XXL across most categories. Select styles are available in extended sizing. Each product page includes a detailed size guide with measurements in both US and EU standards. If you are between sizes, we generally recommend sizing up for a relaxed fit.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2>HOW DO I CARE FOR MY GARMENTS?</h2>
+      <p>Care instructions vary by material and are printed on the label of each garment. As a general rule, we recommend dry cleaning for tailored pieces and cold machine washing on a gentle cycle for knitwear and casual items. Never tumble dry structured garments. Store leather goods in the dust bags provided.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2>CAN I MODIFY OR CANCEL MY ORDER?</h2>
+      <p>Orders can be modified or cancelled within 1 hour of placement by contacting support@luisamona.com. After this window, orders enter processing and can no longer be changed. If your order has already shipped, you may initiate a return once it is delivered.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2>DO YOU OFFER GIFT WRAPPING?</h2>
+      <p>Yes. Gift wrapping is available at checkout for a flat fee of $12. Orders arrive in our signature matte black box with tissue paper and a hand-tied ribbon. A personalized note card can be included at no additional charge. Gift wrapping is not available for oversized or furniture items.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2>ARE YOUR PRODUCTS ETHICALLY MADE?</h2>
+      <p>All Luisa Monâ garments are produced in small-batch facilities across Italy, Portugal, and Japan. We maintain direct relationships with our manufacturing partners and conduct annual audits to ensure fair wages and safe working conditions. We are committed to responsible sourcing and minimizing our environmental footprint.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2>DO YOU HAVE PHYSICAL STORES?</h2>
+      <p>Luisa Monâ currently operates by appointment only from our Los Angeles atelier. To schedule a visit, please reach out to support@luisamona.com at least 48 hours in advance. We are exploring retail partnerships in New York and Paris for the coming season.</p>
+    </div>
+
+    <div class="faq-item">
+      <h2>HOW DO I KNOW MY PAYMENT IS SECURE?</h2>
+      <p>All transactions on luisamona.com are encrypted using industry-standard TLS technology. We accept Visa, Mastercard, American Express, and PayPal. We do not store full card details on our servers. For additional security, 3D Secure authentication is enabled on all card payments.</p>
+    </div>
+  </div>
+
+  <div id="sidebar-overlay"></div>
+  <div id="contact-sidebar">
+    <div id="contact-sidebar-top"><span id="contact-sidebar-label">CONTACT</span><span id="contact-sidebar-close">CLOSE</span></div>
+    <div style="display:flex;flex-direction:column;flex:1;">
+      <a class="contact-email" href="mailto:support@luisamona.com">support@luisamona.com</a>
+      <div class="sidebar-divider" style="margin-top:32px;"></div>
+      <div class="policy-links">
+        <div class="sidebar-divider" style="margin-bottom:18px;"></div>
+        <a href="returns.html">RETURN POLICY &amp; REFUNDS</a>
+        <a href="shipping.html">SHIPPING</a>
+        <a href="faq.html">FREQUENTLY ASKED QUESTIONS</a>
+      </div>
+    </div>
+  </div>
+  <div id="sidebar">
+    <div id="sidebar-top"><span id="sidebar-label">MENU</span><span id="sidebar-close">CLOSE</span></div>
+    <nav id="sidebar-nav">
+      <a href="men.html">MEN</a>
+      <a href="women.html">WOMEN</a>
+      <a href="kids.html">KIDS</a>
+      <a href="bags.html">BAGS</a>
+      <a href="accessories.html">ACCESSORIES</a>
+      <a href="collections.html">COLLECTIONS</a>
+      <div class="sidebar-divider"></div>
+      <a href="scents.html">SCENTS</a>
+      <a href="furniture.html">FURNITURE</a>
+      <a href="exhibitions.html">EXHIBITIONS</a>
+    </nav>
+  </div>
+
+  <script>
+    (function () {
+      var menuBtn        = document.getElementById('menu-btn');
+      var contactBtn     = document.getElementById('contact-btn');
+      var sidebar        = document.getElementById('sidebar');
+      var contactSidebar = document.getElementById('contact-sidebar');
+      var overlay        = document.getElementById('sidebar-overlay');
+      var closeBtn       = document.getElementById('sidebar-close');
+      var contactClose   = document.getElementById('contact-sidebar-close');
+      function closeAll() { sidebar.classList.remove('open'); contactSidebar.classList.remove('open'); overlay.classList.remove('open'); }
+      menuBtn.addEventListener('click', function () { closeAll(); sidebar.classList.add('open'); overlay.classList.add('open'); });
+      contactBtn.addEventListener('click', function () { closeAll(); contactSidebar.classList.add('open'); overlay.classList.add('open'); });
+      closeBtn.addEventListener('click', closeAll);
+      contactClose.addEventListener('click', closeAll);
+      overlay.addEventListener('click', closeAll);
+    })();
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

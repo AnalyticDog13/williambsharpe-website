@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luisa Monâ — Bags</title>
+  <link rel="stylesheet" href="lm-styles.css">
+</head>
+<body>
+  <div class="page-header">
+    <h1 class="page-title">BAGS</h1>
+    <p class="page-subtitle">LEATHER GOODS &amp; CARRY</p>
+  </div>
+  <div class="product-grid" id="product-grid"></div>
+  <footer class="site-footer"><span>LUISA MONÂ</span><span>&copy; 2024</span></footer>
+  <script src="lm-store.js"></script>
+  <script src="lm-ui.js"></script>
+  <script>
+    LMPage.renderGrid([
+      { id:'b1', name:'STRUCTURED TOTE', price:980,
+        desc:'Open-top tote in full-grain vegetable-tanned leather. Internal zip pocket. Natural cotton lining. Develops a patina with use. Made in Italy.',
+        img:'https://loremflickr.com/800/1000/leather,tote?lock=41',
+        sizes:[],
+        colors:[{name:'BLACK',hex:'#1C1C1C'},{name:'TAN',hex:'#C4955A'},{name:'COGNAC',hex:'#8B4513'}] },
+      { id:'b2', name:'CROSSBODY POUCH', price:620,
+        desc:'Compact crossbody pouch in smooth calfskin. Adjustable webbing strap. One interior card slot. Magnetic closure. Made in Spain.',
+        img:'https://loremflickr.com/800/1000/crossbody,bag?lock=42',
+        sizes:[],
+        colors:[{name:'BLACK',hex:'#1C1C1C'},{name:'TAN',hex:'#C4955A'}] },
+      { id:'b3', name:'SOFT BUCKET BAG', price:850,
+        desc:'Drawstring bucket bag in supple nappa leather. Detachable shoulder strap. Suede interior. Comes with a cotton dust bag.',
+        img:'https://loremflickr.com/800/1000/bucket,bag?lock=43',
+        sizes:[],
+        colors:[{name:'BLACK',hex:'#1C1C1C'},{name:'COGNAC',hex:'#8B4513'},{name:'SAND',hex:'#C4BBAD'}] },
+      { id:'b4', name:'FLAT DOCUMENT CASE', price:540,
+        desc:'Slim document folio in full-grain leather. Press-stud closure. Interior organizer with card slots and pen loop. A4 documents fit flat.',
+        img:'https://loremflickr.com/800/1000/leather,briefcase?lock=44',
+        sizes:[],
+        colors:[{name:'BLACK',hex:'#1C1C1C'},{name:'TOBACCO',hex:'#8B6543'}] },
+      { id:'b5', name:'SHOPPER TOTE', price:780,
+        desc:'Oversized shopper in waxed cotton canvas with leather handles and base. Fully washable. A workhorse that grows more beautiful with time.',
+        img:'https://loremflickr.com/800/1000/shopper,bag?lock=45',
+        sizes:[] },
+      { id:'b6', name:'MINI SADDLE BAG', price:720,
+        desc:'Classic saddle silhouette reinterpreted in vegetable-tanned leather. Flap with press stud. Detachable strap. Small but generous inside.',
+        img:'https://loremflickr.com/800/1000/saddle,bag?lock=46',
+        sizes:[] },
+      { id:'b7', name:'WOVEN MARKET TOTE', price:340,
+        desc:'Hand-woven cotton market tote with leather trim. Natural undyed cotton. A considered everyday object. Fair-trade production.',
+        img:'https://loremflickr.com/800/1000/woven,bag?lock=47',
+        sizes:[] },
+      { id:'b8', name:'CARRYALL WEEKENDER', price:1240,
+        desc:'Full-grain leather weekender. Top zip, two end pockets. Removable shoulder strap. Fits carry-on overhead. Made in Italy.',
+        img:'https://loremflickr.com/800/1000/weekender,luggage?lock=48',
+        sizes:[] }
+    ]);
+  </script>
+</body>
+</html>

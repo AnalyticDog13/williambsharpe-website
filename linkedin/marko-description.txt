@@ -1,0 +1,7 @@
+marko: 2nd Place, BigRed//Hacks 2026
+
+Indoor maps show you the layout, but not where you are. marko fixes that with AR navigation for indoor spaces, built from nothing more than a floor plan and one walk through the building with an iPhone. Point your phone down the hallway and marko works out exactly where you're standing from the camera alone (no Bluetooth beacons, no QR codes), then draws a glowing route onto the floor and talks you to your destination. Ask it "where can I grab lunch?" and it takes you there.
+
+Under the hood, we turned phone video and LiDAR from four capture walks into a 3D digital twin of Cornell's Physical Sciences Building and Clark Hall: 1.1 million LiDAR points, 61 labelled rooms and landmarks, and a walkable graph of every floor. I built the 3D models and that graph, implemented Dijkstra routing between places, and worked on camera-to-map localization, the piece that turns a single photo into a position on the map. I also led business strategy and branding: venues get free setup and pay for a dashboard showing foot traffic, failed searches, and where visitors get lost. I pitched marko to the judges and presented the final demo to 180+ attendees. Built with Mateo del Rio Lanse, Neekon Tabatabai, and Maxwell Li.
+
+Skills: Python · Computer Vision · Structure-from-Motion · LiDAR / Point Clouds · Visual Localization · Graph Algorithms (Dijkstra) · 3D Modeling (Blender) · Augmented Reality · Product Strategy · Branding · Pitching

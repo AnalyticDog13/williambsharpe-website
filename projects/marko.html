@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>marko · William Sharpe</title>
+  <meta name="description" content="marko: indoor AR wayfinding built from a floor plan and a single phone scan. 2nd place at BigRed//Hacks 2026.">
+  <meta property="og:title" content="marko · William Sharpe">
+  <meta property="og:image" content="/assets/img/marko-demo-cover.webp">
+  <link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?v=6">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/" aria-label="William Sharpe, home">William Sharpe</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/#work">Work</a>
+        <a href="/#about" class="hide-sm">About</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="p-hero">
+      <a class="back" href="/#work"><span class="arrow">←</span> All work</a>
+      <span class="label" style="display:block;margin-bottom:16px">2nd Place · BigRed//Hacks 2026 · Cornell</span>
+      <h1>marko</h1>
+      <p class="lede">AR navigation for indoor spaces, built from a floor plan and a single phone scan. Hold up your phone and marko works out where you are from the camera alone, with no beacons and no QR codes, then draws your route right onto the hallway.</p>
+      <dl class="meta-row">
+        <div><dt>Role</dt><dd>Co-developer · Business lead</dd></div>
+        <div><dt>Team</dt><dd>4 Cornell students</dd></div>
+        <div><dt>Award</dt><dd>2nd Place, BigRed//Hacks 2026</dd></div>
+        <div><dt>Demo</dt><dd>Presented to 180+</dd></div>
+      </dl>
+      <div class="cta-row">
+        <a class="link" href="https://github.com/mdelriolanse/marko" target="_blank" rel="noopener">View the code on GitHub ↗</a>
+        <a class="link" href="https://claude.ai/artifact/VGTCPMB6yEjCY9VPXVbqFs" target="_blank" rel="noopener">Interactive 3D map ↗</a>
+      </div>
+    </section>
+
+    <figure class="p-figure">
+      <div class="video" data-yt="3NhzazVjEco">
+        <a class="video-link" href="https://www.youtube.com/watch?v=3NhzazVjEco" target="_blank" rel="noopener" aria-label="Play the marko demo video">
+          <img src="/assets/img/marko-demo-cover.webp" alt="marko demo: a person walking a hallway with the AR route on screen" width="1400" height="810">
+          <span class="play"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 1l11 6-11 6z"/></svg>Watch the demo</span>
+        </a>
+      </div>
+      <figcaption>Filmed live in Cornell's Physical Sciences Building.</figcaption>
+    </figure>
+
+    <section class="p-section">
+      <h2><span class="label">01</span>The problem</h2>
+      <div class="prose">
+        <p>Indoor maps show you the layout, but not <strong>where you are</strong> or which way to go. GPS stops working at the front door. The systems that do work indoors rely on Bluetooth beacons or kiosks, which cost venues tens of thousands of dollars to install and maintain, so most malls, hospitals, and campuses simply don't have them.</p>
+        <p>We wanted indoor navigation that a venue could set up in an afternoon with a phone.</p>
+      </div>
+    </section>
+
+    <section class="p-section">
+      <h2><span class="label">02</span>How it works</h2>
+      <div class="prose">
+        <ol class="steps">
+          <li><b>Scan</b><span>One walk through the building with an iPhone records video, motion data, and LiDAR depth.</span></li>
+          <li><b>Build a digital twin</b><span>Keyframes are matched and triangulated into a 3D model (structure-from-motion), fused with the LiDAR into a dense point cloud and a walkable graph of the floor.</span></li>
+          <li><b>Locate</b><span>A photo from the user's camera is matched against the twin. Dense feature matching plus a PnP pose solve gives position and heading, and strict inlier checks reject uncertain fixes.</span></li>
+          <li><b>Route</b><span>Dijkstra's algorithm finds the shortest path across the walkable graph to any of the labelled places.</span></li>
+          <li><b>Guide</b><span>An AR ribbon on the floor, a Find My-style arrow, and a voice assistant that answers "where can I grab lunch?"</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <figure class="p-figure full">
+      <a href="https://claude.ai/artifact/VGTCPMB6yEjCY9VPXVbqFs" target="_blank" rel="noopener"><img src="/assets/img/marko-artifact.webp" alt="3D point-cloud map of Cornell's Physical Sciences Building with labelled rooms and a route" loading="lazy" width="1600" height="756"></a>
+      <div class="stats" style="margin-top:20px">
+        <div><b>1.1M</b><span>LiDAR points in the dense twin</span></div>
+        <div><b>61</b><span>labelled places across two buildings</span></div>
+        <div><b>4</b><span>capture walks merged into one map</span></div>
+      </div>
+      <figcaption>The localization map of the Physical Sciences Building and Clark Hall, with the walkable graph and a route from the entrance to room 294G. <a class="link" href="https://claude.ai/artifact/VGTCPMB6yEjCY9VPXVbqFs" target="_blank" rel="noopener">Explore the interactive 3D map ↗</a></figcaption>
+    </figure>
+
+
+    <section class="p-section">
+      <h2><span class="label">03</span>The app</h2>
+      <div class="prose">
+        <p>Search for a room, restroom, or café and marko locks on with one camera fix, then keeps tracking with ARKit as you walk. Distance and the next turn stay pinned to the bottom of the screen.</p>
+      </div>
+    </section>
+
+    <div class="phones" style="margin-bottom:clamp(48px,7vw,80px)">
+      <img src="/assets/img/marko-app-1795.webp" alt="marko search screen" loading="lazy" width="600" height="1304">
+      <img src="/assets/img/marko-app-1798.webp" alt="marko locating the user from the camera" loading="lazy" width="600" height="1304">
+      <img src="/assets/img/marko-app-ar.webp" alt="marko AR route drawn down the hallway, 35 meters to go" loading="lazy" width="600" height="1304">
+      <img src="/assets/img/marko-app-1800.webp" alt="marko direction arrow with 23 meters remaining" loading="lazy" width="600" height="1304">
+    </div>
+
+    <section class="p-section">
+      <h2><span class="label">04</span>The business</h2>
+      <div class="prose">
+        <p>Setup is free for the venue. marko earns money from what navigation reveals: a dashboard showing foot traffic, what visitors search for and fail to find, and where people get lost. Malls come first, then hospitals and universities.</p>
+      </div>
+    </section>
+
+    <div class="gallery natural" style="margin-bottom:clamp(48px,7vw,80px)">
+      <figure class="wide"><a href="/assets/img/marko-dash-overview.webp" target="_blank" rel="noopener"><img src="/assets/img/marko-dash-overview.webp" alt="marko venue dashboard: navigation sessions, unique visitors, arrival rate, a 30-day sessions chart, and a live foot-traffic map" loading="lazy" width="1490" height="1130"></a><figcaption>Overview: sessions, arrival rate, and a live foot-traffic map of the building.</figcaption></figure>
+      <figure><a href="/assets/img/marko-dash-traffic.webp" target="_blank" rel="noopener"><img src="/assets/img/marko-dash-traffic.webp" alt="3D traffic view with heat-colored pins over the floor plan and a ranked list of top places by foot traffic" loading="lazy" width="1490" height="1425"></a><figcaption>3D traffic view: taller, hotter pins mean more visitors.</figcaption></figure>
+      <div class="stack">
+        <figure><a href="/assets/img/marko-dash-places.webp" target="_blank" rel="noopener"><img src="/assets/img/marko-dash-places.webp" alt="Most searched places and longest average visit, as bar charts" loading="lazy" width="1490" height="720"></a><figcaption>What visitors search for, and where they stay.</figcaption></figure>
+        <figure><a href="/assets/img/marko-dash-movement.webp" target="_blank" rel="noopener"><img src="/assets/img/marko-dash-movement.webp" alt="Busiest-times heatmap by weekday and hour, and a search-to-arrival funnel" loading="lazy" width="1490" height="625"></a><figcaption>Busiest hours, and where visitors drop off between search and arrival.</figcaption></figure>
+      </div>
+      <p class="gallery-note">Venue dashboard prototype, shown with sample data.</p>
+    </div>
+
+    <section class="p-section">
+      <h2><span class="label">05</span>Pitch deck</h2>
+      <div class="prose">
+        <p>I led business strategy and branding, and pitched marko to the judges.</p>
+      </div>
+    </section>
+
+    <figure class="p-figure">
+      <div class="deck" tabindex="0" aria-label="marko pitch deck. Use the arrow keys to change slides.">
+        <div class="deck-stage">
+          <img class="on" src="/assets/slides/01.webp" alt="Slide 1: marko">
+          <img src="/assets/slides/02.webp" loading="lazy" alt="Slide 2: AR maps for commercial spaces">
+          <img src="/assets/slides/03.webp" loading="lazy" alt="Slide 3: Solution">
+          <img src="/assets/slides/04.webp" loading="lazy" alt="Slide 4: Watch the demo">
+          <img src="/assets/slides/05.webp" loading="lazy" alt="Slide 5: Venues already pay for wayfinding">
+          <img src="/assets/slides/06.webp" loading="lazy" alt="Slide 6: Market opportunity">
+          <img src="/assets/slides/07.webp" loading="lazy" alt="Slide 7: The market opportunity">
+          <img src="/assets/slides/08.webp" loading="lazy" alt="Slide 8: Business model">
+          <img src="/assets/slides/09.webp" loading="lazy" alt="Slide 9: Competitive advantages">
+          <img src="/assets/slides/10.webp" loading="lazy" alt="Slide 10: A crowded field, a different approach">
+          <img src="/assets/slides/11.webp" loading="lazy" alt="Slide 11: Competitors">
+          <img src="/assets/slides/12.webp" loading="lazy" alt="Slide 12: Our team">
+          <img src="/assets/slides/13.webp" loading="lazy" alt="Slide 13: Our product, AR navigation">
+          <img src="/assets/slides/14.webp" loading="lazy" alt="Slide 14: Our product, AI assistant">
+          <img src="/assets/slides/15.webp" loading="lazy" alt="Slide 15: Our product, commercial dashboard">
+        </div>
+        <div class="deck-bar">
+          <span class="deck-count">15 slides · swipe to browse</span>
+          <span class="ctrls">
+            <button type="button" data-prev aria-label="Previous slide">←</button>
+            <button type="button" data-next aria-label="Next slide">→</button>
+          </span>
+        </div>
+      </div>
+      <div class="cta-row">
+        <a class="link" href="/assets/media/marko-pitch-deck.pdf" target="_blank" rel="noopener">Download the deck (PDF) ↓</a>
+        <a class="link" href="https://www.youtube.com/watch?v=3NhzazVjEco" target="_blank" rel="noopener">Demo on YouTube ↗</a>
+      </div>
+    </figure>
+
+    <section class="p-section">
+      <h2><span class="label">06</span>My role</h2>
+      <div class="prose">
+        <ul>
+          <li>Built the 3D models of the building and the walkable graph they sit on.</li>
+          <li>Implemented Dijkstra routing between labelled places.</li>
+          <li>Worked on camera-to-map localization, the step that turns a single photo into a position on the map.</li>
+          <li>Led business strategy and branding, pitched to the judges, and presented the final demo to 180+ attendees.</li>
+        </ul>
+        <p>Built with <a class="link" href="https://www.linkedin.com/in/mdelriolanse" target="_blank" rel="noopener">Mateo del Rio Lanse</a>, <a class="link" href="https://www.linkedin.com/in/neekon-tabatabai" target="_blank" rel="noopener">Neekon Tabatabai</a>, and <a class="link" href="https://www.linkedin.com/in/maxwell-kaiyang-li" target="_blank" rel="noopener">Maxwell Li</a>.</p>
+      </div>
+    </section>
+
+    <section class="p-section">
+      <h2><span class="label">07</span>Skills applied</h2>
+      <div class="prose">
+        <ul class="skills">
+          <li>Python</li>
+          <li>Computer vision</li>
+          <li>Structure-from-motion</li>
+          <li>LiDAR point clouds</li>
+          <li>Visual localization (PnP)</li>
+          <li>Graph algorithms · Dijkstra</li>
+          <li>3D modeling · Blender</li>
+          <li>Augmented reality</li>
+          <li>Product strategy</li>
+          <li>Branding</li>
+          <li>Pitching</li>
+        </ul>
+      </div>
+    </section>
+
+    <a class="next-project" href="/projects/kalshi-weather-bot">
+      <div><span class="label">Next project</span><h3>Kalshi Weather Trading Bot</h3></div>
+      <span class="arrow">→</span>
+    </a>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap"><span>© 2026 William Sharpe</span><a href="/#contact">Get in touch →</a></div>
+  </footer>
+  <script src="/assets/js/main.js?v=6"></script>
+</body>
+</html>

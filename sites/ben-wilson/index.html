@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ben Wilson Pictures | Unit Still Photographer</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body class="home-page">
+
+  <!-- Top Bar -->
+  <header class="site-header">
+    <div class="header-left">
+      <a href="index.html" class="logo-link">
+        <img src="logo.png" alt="Ben Wilson Logo" class="logo-img" />
+        <span class="logo-name">Ben Wilson</span>
+      </a>
+    </div>
+    <div class="header-right">
+      <span class="contact-info">
+        <a href="mailto:ben@benwilsonpictures.com">ben@benwilsonpictures.com</a>
+        <span class="location">Los Angeles / Cincinnati / Colorado</span>
+      </span>
+    </div>
+  </header>
+
+  <!-- Three.js Canvas -->
+  <canvas id="universe-canvas"></canvas>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-btn active">Home</a>
+    <a href="unit-stills.html" class="nav-btn">Unit Stills</a>
+    <a href="key-art.html" class="nav-btn">Key Art</a>
+    <a href="set-portraits.html" class="nav-btn">Set Portraits</a>
+    <a href="editorial.html" class="nav-btn">Editorial</a>
+    <a href="events.html" class="nav-btn">Events</a>
+    <button class="nav-btn more-btn" id="moreBtn">More ▲</button>
+  </nav>
+
+  <!-- More Dropdown (slides up from bottom) -->
+  <div class="more-menu" id="moreMenu">
+    <a href="about.html" class="more-item">About / Contact</a>
+    <a href="director.html" class="more-item">Director / Cinematography</a>
+    <a href="architecture.html" class="more-item">Architecture / Locations</a>
+    <a href="concert.html" class="more-item">Concert</a>
+    <a href="product.html" class="more-item">Product</a>
+    <a href="weddings.html" class="more-item">Weddings</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="js/universe.js"></script>
+  <script src="js/nav.js"></script>
+</body>
+</html>

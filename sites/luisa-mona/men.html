@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luisa Monâ — Men</title>
+  <link rel="stylesheet" href="lm-styles.css">
+</head>
+<body>
+  <div class="page-header">
+    <h1 class="page-title">MEN</h1>
+    <p class="page-subtitle">READY-TO-WEAR &amp; FOOTWEAR</p>
+  </div>
+  <div class="product-grid" id="product-grid"></div>
+  <footer class="site-footer"><span>LUISA MONÂ</span><span>&copy; 2024</span></footer>
+  <script src="lm-store.js"></script>
+  <script src="lm-ui.js"></script>
+  <script>
+    LMPage.renderGrid([
+      { id:'m1', name:'STRUCTURED OVERCOAT', price:1850,
+        desc:'Double-faced wool overcoat with dropped shoulders and clean seaming. Horn buttons. Fully lined in cupro. Made in Italy.',
+        img:'https://loremflickr.com/800/1000/overcoat,fashion?lock=11',
+        sizes:['XS','S','M','L','XL'],
+        colors:[{name:'BLACK',hex:'#1C1C1C'},{name:'CHARCOAL',hex:'#3D3D3D'},{name:'CAMEL',hex:'#C19A6B'}] },
+      { id:'m2', name:'WIDE-LEG TROUSERS', price:680,
+        desc:'High-waisted wide-leg trousers in heavyweight wool gabardine. Side adjusters. Double pleat front. Unfinished hems available on request.',
+        img:'https://loremflickr.com/800/1000/trousers,fashion?lock=12',
+        sizes:['28','30','32','34','36'],
+        colors:[{name:'CHARCOAL',hex:'#3D3D3D'},{name:'STONE',hex:'#C4BBAD'},{name:'BLACK',hex:'#1C1C1C'}] },
+      { id:'m3', name:'COLLARLESS JACKET', price:1240,
+        desc:'Unlined single-breasted jacket in boiled wool. No collar, welt pockets. A considered reduction of the tailored jacket form.',
+        img:'https://loremflickr.com/800/1000/jacket,fashion?lock=13',
+        sizes:['XS','S','M','L','XL'],
+        colors:[{name:'ECRU',hex:'#EDE6DA',light:true},{name:'BLACK',hex:'#1C1C1C'},{name:'GREY',hex:'#8A8A8A'}] },
+      { id:'m4', name:'DRAPED SILK SHIRT', price:385,
+        desc:'Asymmetric draped shirt in washed silk-cotton blend. Intentional creasing encouraged. Oversized fit — consider sizing down for a tailored silhouette.',
+        img:'https://loremflickr.com/800/1000/shirt,fashion?lock=14',
+        sizes:['XS','S','M','L','XL'],
+        colors:[{name:'IVORY',hex:'#F5F0E8',light:true},{name:'CLAY',hex:'#A0856C'},{name:'BLACK',hex:'#1C1C1C'}] },
+      { id:'m5', name:'ELONGATED RIB KNIT', price:520,
+        desc:'Drop-shoulder ribbed knit in 100% merino wool. Extended sleeves with optional thumbhole. Ecru and charcoal.',
+        img:'https://loremflickr.com/800/1000/knitwear,fashion?lock=15',
+        sizes:['S','M','L','XL'],
+        colors:[{name:'ECRU',hex:'#EDE6DA',light:true},{name:'CHARCOAL',hex:'#3D3D3D'}] },
+      { id:'m6', name:'CHELSEA BOOT', price:890,
+        desc:'Hand-stitched Chelsea boot in smooth calfskin. Elasticated gusset. Leather sole with recessed rubber insert. Made in Spain.',
+        img:'https://loremflickr.com/800/1000/chelsea,boot?lock=16',
+        sizes:['39','40','41','42','43','44','45'],
+        colors:[{name:'BLACK',hex:'#1C1C1C'},{name:'COGNAC',hex:'#8B4513'}] },
+      { id:'m7', name:'LINEN WIDE SHIRT', price:295,
+        desc:'Stonewashed enzyme-treated linen with exaggerated proportions. Single patch pocket. Relaxed — machine washable at 30°.',
+        img:'https://loremflickr.com/800/1000/linen,shirt?lock=17',
+        sizes:['XS','S','M','L','XL'],
+        colors:[{name:'ECRU',hex:'#EDE6DA',light:true},{name:'STONE',hex:'#C4BBAD'},{name:'BLACK',hex:'#1C1C1C'}] },
+      { id:'m8', name:'SUEDE DERBY', price:760,
+        desc:'Derby shoe in fine grain suede. Single leather sole. Welt-constructed for durability and ease of resoling. Made in Portugal.',
+        img:'https://loremflickr.com/800/1000/derby,shoe?lock=18',
+        sizes:['39','40','41','42','43','44','45'],
+        colors:[{name:'TOBACCO',hex:'#8B6543'},{name:'BLACK',hex:'#1C1C1C'},{name:'GREY',hex:'#8A8A8A'}] }
+    ]);
+  </script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web Design Agency · William Sharpe</title>
+  <meta name="description" content="A web design agency for local businesses, powered by an AI pipeline that finds, audits, scores, and pitches businesses with weak websites.">
+  <meta property="og:title" content="AI-Powered Web Design Agency · William Sharpe">
+  <meta property="og:image" content="/assets/img/og.png">
+  <link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?v=6">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/" aria-label="William Sharpe, home">William Sharpe</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/#work">Work</a>
+        <a href="/#about" class="hide-sm">About</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="p-hero">
+      <a class="back" href="/#work"><span class="arrow">←</span> All work</a>
+      <span class="label" style="display:block;margin-bottom:16px">Founder · May–Aug 2026 · Los Angeles</span>
+      <h1>AI-Powered Web Design Agency for Local Businesses</h1>
+      <p class="lede">Plenty of great neighborhood businesses have no website, or one that doesn't work on a phone. I started an agency to fix that, and built an AI pipeline to do the hardest part of the job: finding them and starting the conversation.</p>
+      <dl class="meta-row">
+        <div><dt>Role</dt><dd>Founder</dd></div>
+        <div><dt>Reach</dt><dd>300+ businesses contacted</dd></div>
+        <div><dt>Result</dt><dd>Closed a paying client</dd></div>
+        <div><dt>Stack</dt><dd>Claude · Google Maps · Instantly</dd></div>
+      </dl>
+      <div class="cta-row">
+        <a class="link" href="https://github.com/AnalyticDog13/website-lead-and-outreach" target="_blank" rel="noopener">Outreach engine on GitHub ↗</a>
+        <a class="link" href="https://github.com/AnalyticDog13/website-lead-finder" target="_blank" rel="noopener">Lead finder ↗</a>
+        <a class="link" href="https://github.com/AnalyticDog13/email-pipeline-convert-leads" target="_blank" rel="noopener">Email pipeline ↗</a>
+      </div>
+    </section>
+
+    <figure class="p-figure full">
+      <img src="/assets/img/agency-pipeline-score.webp" alt="Outreach pipeline dashboard: a lead scored 96 out of 100, with each scoring reason listed" width="1600" height="843">
+      <figcaption>The pipeline's control panel. Every lead shows why it scored the way it did. (Demo run with sample data.)</figcaption>
+    </figure>
+
+    <section class="p-section">
+      <h2><span class="label">01</span>The pipeline</h2>
+      <div class="prose">
+        <p>Cold outreach only works if it's specific. A generic "need a website?" email gets ignored. So every business gets audited first, and the pitch is built from what's actually wrong with its current site.</p>
+        <ol class="steps">
+          <li><b>Find</b><span>Searches Google Maps by category and neighborhood (coffee shops, barbers, med spas, landscapers) and de-duplicates the results into a lead database.</span></li>
+          <li><b>Find a contact</b><span>Crawls each business's site for a real email, decodes obfuscated addresses, and falls back to search when the homepage comes up empty.</span></li>
+          <li><b>Audit</b><span>Screenshots the site and checks the fundamentals: HTTPS, mobile layout, load speed, SEO, and accessibility.</span></li>
+          <li><b>Score</b><span>Combines those checks into a single opportunity score (higher means the site needs more help), with an optional AI visual review of the screenshot.</span></li>
+          <li><b>Draft</b><span>Writes a short, personal pitch that names the specific problems and offers a free homepage mockup up front.</span></li>
+          <li><b>Send</b><span>Pushes approved emails to Instantly campaigns, with opt-out and do-not-contact lists checked at three separate stages.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <figure class="p-figure full">
+      <img src="/assets/img/agency-pipeline-audit.webp" alt="Audit findings for a lead: mobile, performance, conversion, and design issues, plus suggested outreach angles" loading="lazy" width="1600" height="843">
+      <figcaption>Audit findings become outreach angles: plain-language problems the owner will recognize.</figcaption>
+    </figure>
+
+    <div class="gallery" style="margin-bottom:clamp(48px,7vw,80px)">
+      <div class="chart">
+        <div class="chart-title">What makes a good lead</div>
+        <div class="chart-sub">Points added to a business's opportunity score</div>
+        <div class="bars">
+          <div class="bar"><span>No website at all</span><span class="t"><span class="f" style="width:100%"></span></span><span class="n">+60</span></div>
+          <div class="bar"><span>Breaks on mobile</span><span class="t"><span class="f" style="width:25%"></span></span><span class="n">+15</span></div>
+          <div class="bar"><span>Slow to load</span><span class="t"><span class="f" style="width:25%"></span></span><span class="n">+15</span></div>
+          <div class="bar"><span>No HTTPS</span><span class="t"><span class="f" style="width:16.7%"></span></span><span class="n">+10</span></div>
+          <div class="bar"><span>Weak SEO</span><span class="t"><span class="f" style="width:13.3%"></span></span><span class="n">+8</span></div>
+          <div class="bar"><span>Accessibility issues</span><span class="t"><span class="f" style="width:8.3%"></span></span><span class="n">+5</span></div>
+        </div>
+      </div>
+      <div class="chart">
+        <div class="chart-title">From a map search to an inbox</div>
+        <div class="chart-sub">Summer 2026, Los Angeles</div>
+        <div class="funnel">
+          <div style="width:100%"><span>Businesses found</span><b>682</b></div>
+          <div style="width:86%"><span>With a reachable email</span><b>358</b></div>
+          <div style="width:72%"><span>Contacted</span><b>300+</b></div>
+        </div>
+      </div>
+    </div>
+
+    <section class="p-section">
+      <h2><span class="label">02</span>The work</h2>
+      <div class="prose">
+        <p>The pipeline opens the door, and the site has to close the deal. I design every site around the business's own personality instead of a template, and use AI tools heavily to move from mockup to finished build quickly.</p>
+        <h3>Ben Wilson Pictures</h3>
+        <p>A portfolio for a unit-still photographer working between Los Angeles, Cincinnati, and Colorado. The homepage is a slowly drifting collage of his work. From there, ten galleries (unit stills, key art, set portraits, editorial, events, and more) open into clean grids with a full-screen lightbox, all kept quiet so the photography does the talking.</p>
+        <h3>Luisa Monâ <a class="link" style="font-size:14px;margin-left:8px" href="https://github.com/AnalyticDog13/LuisaMona" target="_blank" rel="noopener">Code ↗</a></h3>
+        <p>A Los Angeles fashion brand that wanted something closer to an art piece than a storefront. The landing page is a looping ASCII-art film. Clicking sends a wave across the character grid that reveals the store underneath: men's, women's, collections, scents, furniture, and exhibitions.</p>
+        <p>Both sites are embedded below. Click in and browse them right here.</p>
+      </div>
+    </section>
+
+    <figure class="p-figure">
+      <div class="live-site">
+        <div class="live-bar">
+          <span class="live-name">Ben Wilson Pictures</span>
+          <a class="link" href="/sites/ben-wilson/index.html" target="_blank" rel="noopener">Open full screen ↗</a>
+        </div>
+        <div class="live-stage">
+          <a class="live-cover" href="/sites/ben-wilson/index.html" target="_blank" rel="noopener" data-live="/sites/ben-wilson/index.html" data-title="Ben Wilson Pictures website">
+            <img src="/assets/img/ben-wilson-home.webp" alt="Ben Wilson Pictures homepage: a collage of photographs floating across the page" loading="lazy" width="1600" height="1009">
+            <span class="play">Explore the live site →</span>
+          </a>
+        </div>
+      </div>
+      <figcaption>Ben Wilson Pictures. Gallery images are stand-ins until his own photography is loaded in.</figcaption>
+    </figure>
+
+    <figure class="p-figure">
+      <div class="live-site">
+        <div class="live-bar">
+          <span class="live-name">Luisa Monâ</span>
+          <a class="link" href="/sites/luisa-mona/index.html" target="_blank" rel="noopener">Open full screen ↗</a>
+        </div>
+        <div class="live-stage">
+          <a class="live-cover" href="/sites/luisa-mona/index.html" target="_blank" rel="noopener" data-live="/sites/luisa-mona/index.html" data-title="Luisa Monâ website">
+            <img src="/assets/img/luisa-landing.webp" alt="Luisa Monâ landing page: two figures rendered in ASCII characters" loading="lazy" width="1600" height="832">
+            <span class="play">Explore the live site →</span>
+          </a>
+        </div>
+      </div>
+      <figcaption>Luisa Monâ. The animated landing page is a large file, so it loads only when you click in.</figcaption>
+    </figure>
+
+    <section class="p-section">
+      <h2><span class="label">03</span>What I learned</h2>
+      <div class="prose">
+        <p>Automation can handle the volume, but trust still has to be earned one business at a time. That's why every pitch leads with a specific problem and a free mockup rather than a sales line. Running the business end to end (prospecting, pitching, pricing, design, and delivery) taught me as much about sales as about software.</p>
+      </div>
+    </section>
+
+    <section class="p-section">
+      <h2><span class="label">04</span>Skills applied</h2>
+      <div class="prose">
+        <ul class="skills">
+          <li>Python</li>
+          <li>Claude API</li>
+          <li>Claude Code</li>
+          <li>Google Maps Places API</li>
+          <li>Instantly</li>
+          <li>Web scraping</li>
+          <li>Lighthouse auditing</li>
+          <li>Lead scoring</li>
+          <li>Web &amp; brand design</li>
+          <li>Cold outreach</li>
+          <li>Sales &amp; pricing</li>
+          <li>Entrepreneurship</li>
+        </ul>
+      </div>
+    </section>
+
+    <a class="next-project" href="/projects/marko">
+      <div><span class="label">Next project</span><h3>marko</h3></div>
+      <span class="arrow">→</span>
+    </a>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap"><span>© 2026 William Sharpe</span><a href="/#contact">Get in touch →</a></div>
+  </footer>
+  <script src="/assets/js/main.js?v=6"></script>
+</body>
+</html>

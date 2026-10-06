@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luisa Monâ — Kids</title>
+  <link rel="stylesheet" href="lm-styles.css">
+</head>
+<body>
+  <div class="page-header">
+    <h1 class="page-title">KIDS</h1>
+    <p class="page-subtitle">AGES 2 – 12</p>
+  </div>
+  <div class="product-grid" id="product-grid"></div>
+  <footer class="site-footer"><span>LUISA MONÂ</span><span>&copy; 2024</span></footer>
+  <script src="lm-store.js"></script>
+  <script src="lm-ui.js"></script>
+  <script>
+    LMPage.renderGrid([
+      { id:'k1', name:'LINEN BLOUSON', price:195,
+        desc:'Relaxed linen blouson in natural ecru. Elasticated cuffs. Two side pockets. Pre-washed for softness. Machine washable.',
+        img:'https://loremflickr.com/800/1000/children,fashion?lock=31',
+        sizes:['2Y','3Y','4Y','5Y','6Y','7Y','8Y'],
+        colors:[{name:'ECRU',hex:'#EDE6DA',light:true},{name:'STONE',hex:'#C4BBAD'},{name:'PINE',hex:'#4A6741'}] },
+      { id:'k2', name:'WIDE CORD TROUSER', price:145,
+        desc:'Wide-leg corduroy trousers in chocolate and stone. Elasticated back waistband. Durable enough for daily use — made to last.',
+        img:'https://loremflickr.com/800/1000/kids,clothing?lock=32',
+        sizes:['2Y','3Y','4Y','5Y','6Y','7Y','8Y'],
+        colors:[{name:'CHOCOLATE',hex:'#5C3317'},{name:'STONE',hex:'#C4BBAD'}] },
+      { id:'k3', name:'COLLARLESS SHIRT DRESS', price:175,
+        desc:'Lightweight cotton collarless shirt dress. A-line cut, drop shoulder. Made from organic cotton. Three buttons at placket.',
+        img:'https://loremflickr.com/800/1000/children,dress?lock=33',
+        sizes:['2Y','4Y','6Y','8Y','10Y','12Y'],
+        colors:[{name:'ECRU',hex:'#EDE6DA',light:true},{name:'SLATE BLUE',hex:'#6B7B8D'},{name:'DUSTY ROSE',hex:'#C9948A'}] },
+      { id:'k4', name:'MERINO ROLL NECK', price:160,
+        desc:'Slim ribbed roll neck in extra-fine merino wool. Machine washable at 30°. Available in ivory, storm grey, and rust.',
+        img:'https://loremflickr.com/800/1000/kids,sweater?lock=34',
+        sizes:['2Y','3Y','4Y','5Y','6Y','7Y','8Y'],
+        colors:[{name:'IVORY',hex:'#F5F0E8',light:true},{name:'STORM',hex:'#6B7B8D'},{name:'RUST',hex:'#B85C38'}] },
+      { id:'k5', name:'CANVAS SNEAKER', price:120,
+        desc:'Unbleached cotton canvas low-top sneaker with natural rubber sole. Durable and washable. Minimal by design.',
+        img:'https://loremflickr.com/800/1000/kids,sneaker?lock=35',
+        sizes:['EU 24','EU 26','EU 28','EU 30','EU 32','EU 34'] },
+      { id:'k6', name:'QUILTED OVERSHIRT', price:210,
+        desc:'Lightly quilted overshirt in a fine wool-cotton blend. Button front, two chest pockets. Versatile as a jacket or layering piece.',
+        img:'https://loremflickr.com/800/1000/children,jacket?lock=36',
+        sizes:['2Y','4Y','6Y','8Y','10Y','12Y'] }
+    ]);
+  </script>
+</body>
+</html>

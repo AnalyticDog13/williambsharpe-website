@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luisa Monâ — Scents</title>
+  <link rel="stylesheet" href="lm-styles.css">
+</head>
+<body>
+  <div class="page-header">
+    <h1 class="page-title">SCENTS</h1>
+    <p class="page-subtitle">EAU DE PARFUM &amp; HOME</p>
+  </div>
+  <div class="product-grid col-2" id="product-grid"></div>
+  <footer class="site-footer"><span>LUISA MONÂ</span><span>&copy; 2024</span></footer>
+  <script src="lm-store.js"></script>
+  <script src="lm-ui.js"></script>
+  <script>
+    LMPage.renderGrid([
+      { id:'s1', name:'N°01 — CENDRE', price:195,
+        desc:'An ash-forward woody fragrance with vetiver, orris root, and a clean smoke accord. The scent of late autumn in an empty room. Long-lasting sillage.',
+        img:'https://loremflickr.com/800/1000/perfume,bottle?lock=61',
+        sizes:['30ML','50ML','100ML'] },
+      { id:'s2', name:'N°02 — TERRACOTTA', price:195,
+        desc:'Warm, mineral, and slightly animalic. Ambergris, cistus, and dry cedar. An olfactive study in earth and sunlight.',
+        img:'https://loremflickr.com/800/1000/fragrance,perfume?lock=62',
+        sizes:['30ML','50ML','100ML'] },
+      { id:'s3', name:'N°03 — NOCTURNE', price:210,
+        desc:'Dark florals on a base of black musks. Tuberose, narcissus absolute, ambrette seed. Intimate and unsettling.',
+        img:'https://loremflickr.com/800/1000/perfume,dark?lock=63',
+        sizes:['30ML','50ML','100ML'] },
+      { id:'s4', name:'N°04 — SEL BLANC', price:185,
+        desc:'A coastal mineral fragrance. Ambrette, grey amber, sea salt accord, and driftwood. Clean without sweetness. Unisex.',
+        img:'https://loremflickr.com/800/1000/perfume,minimal?lock=64',
+        sizes:['30ML','50ML','100ML'] },
+      { id:'s5', name:'MAISON CANDLE — CENDRE', price:95,
+        desc:'N°01 in a hand-poured soy wax candle. Cotton wick. 280g. Approximately 60 hours burn time. Heavy matte glass vessel — refillable on request.',
+        img:'https://loremflickr.com/800/1000/candle,luxury?lock=65',
+        sizes:[] },
+      { id:'s6', name:'ROOM DIFFUSER SET', price:115,
+        desc:'Reed diffuser in three Luisa Monâ scents. 200ml per bottle. Includes 8 rattan reeds. Refills available. Presented in a linen-wrapped box.',
+        img:'https://loremflickr.com/800/1000/reed,diffuser?lock=66',
+        sizes:[] }
+    ], 'col-2');
+  </script>
+</body>
+</html>

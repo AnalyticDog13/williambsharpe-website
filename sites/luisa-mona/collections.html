@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luisa Monâ — Collections</title>
+  <link rel="stylesheet" href="lm-styles.css">
+</head>
+<body>
+  <div class="page-header">
+    <h1 class="page-title">COLLECTIONS</h1>
+    <p class="page-subtitle">SEASONAL READY-TO-WEAR</p>
+  </div>
+  <div class="product-grid col-2" id="product-grid"></div>
+  <footer class="site-footer"><span>LUISA MONÂ</span><span>&copy; 2024</span></footer>
+  <script src="lm-store.js"></script>
+  <script src="lm-ui.js"></script>
+  <script>
+    LMPage.renderGrid([
+      { id:'c1', name:'AW24 — DISSOLUTION', price:1650, landscape:true,
+        desc:'The autumn/winter 2024 collection explores the deconstruction of formal dress codes. Unlined tailoring, raw hems, and deliberately unfinished seaming. 18 pieces. Shown in Paris, October 2024.',
+        img:'https://loremflickr.com/800/1000/fashion,editorial?lock=81',
+        meta:'AUTUMN / WINTER 2024',
+        sizes:['XS','S','M','L','XL'] },
+      { id:'c2', name:'SS24 — TERRACOTTA REVERIE', price:1280, landscape:true,
+        desc:'Sun-baked tones and intentionally weathered surfaces. Linen, ramie, and unbleached cotton. The spring/summer 2024 collection is an ode to slow Mediterranean afternoons.',
+        img:'https://loremflickr.com/800/1000/fashion,summer?lock=82',
+        meta:'SPRING / SUMMER 2024',
+        sizes:['XS','S','M','L','XL'] },
+      { id:'c3', name:'AW23 — NOCTURNE', price:1940, landscape:true,
+        desc:'Heavy wool, dark velvet, and oxidised metals. The AW23 collection is a study in shadows — dramatic proportions, muted palette, and deeply tactile surfaces.',
+        img:'https://loremflickr.com/800/1000/fashion,winter?lock=83',
+        meta:'AUTUMN / WINTER 2023',
+        sizes:['XS','S','M','L','XL'] },
+      { id:'c4', name:'SS23 — MINERAL', price:1150, landscape:true,
+        desc:'Chalky whites, stone greys, and bleached naturals. The SS23 collection draws on geological forms — slow, ancient, and without pretension.',
+        img:'https://loremflickr.com/800/1000/fashion,minimal?lock=84',
+        meta:'SPRING / SUMMER 2023',
+        sizes:['XS','S','M','L','XL'] },
+      { id:'c5', name:'AW22 — RESIDUE', price:1380, landscape:true,
+        desc:'The collection that introduced the Luisa Monâ overcoat and the draped shirt. Archive pieces. Limited availability — please contact us directly for stock information.',
+        img:'https://loremflickr.com/800/1000/fashion,coat?lock=85',
+        meta:'AUTUMN / WINTER 2022 — ARCHIVE',
+        sizes:['XS','S','M','L'] },
+      { id:'c6', name:'SS22 — FIRST LIGHT', price:980, landscape:true,
+        desc:'The inaugural collection. Linen and silk in four tones — chalk, stone, straw, and peat. Simple. Honest. The beginning of a vocabulary.',
+        img:'https://loremflickr.com/800/1000/fashion,linen?lock=86',
+        meta:'SPRING / SUMMER 2022 — ARCHIVE',
+        sizes:['XS','S','M','L'] }
+    ], 'col-2');
+  </script>
+</body>
+</html>

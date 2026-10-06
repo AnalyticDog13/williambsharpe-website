@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luisa Monâ</title>
+  <link rel="stylesheet" href="lm-styles.css">
+  <style>
+    /* Entry overlay — covers flash between wave and page render */
+    #page-entry {
+      position: fixed; inset: 0; background: #F1ECE4; z-index: 9999;
+      animation: entryFade 0.25s ease 0.05s forwards;
+      pointer-events: none;
+    }
+    @keyframes entryFade { from { opacity: 1; } to { opacity: 0; } }
+
+    html, body { height: 100%; overflow: hidden; }
+    body { display: flex; flex-direction: column; }
+
+    /* ── STORE SHELL (everything below the injected header) ── */
+    #store-shell { flex: 1; display: flex; flex-direction: column; overflow: hidden; min-height: 0; }
+
+    /* ── MAIN BODY: left nav + hero + right nav ── */
+    #store-body {
+      flex: 1; display: flex; overflow: hidden; min-height: 0;
+    }
+
+    /* ── SIDE NAV ── */
+    .side-nav {
+      width: 130px; flex-shrink: 0; display: flex; flex-direction: column;
+      justify-content: center; gap: 2px; padding: 0 0 0 32px;
+    }
+    .side-nav.right { padding: 0 32px 0 0; align-items: flex-end; }
+
+    .side-nav a {
+      display: block; font-family: 'Courier New', Courier, monospace;
+      font-size: 10px; font-weight: 900; letter-spacing: 0.14em; color: #000;
+      text-decoration: none; padding: 9px 0; opacity: 0.45;
+      border-bottom: 1px solid transparent;
+      transition: opacity 0.2s, border-color 0.2s;
+      -webkit-text-stroke: 0.2px #000;
+    }
+    .side-nav a:hover { opacity: 1; border-bottom-color: rgba(0,0,0,0.25); }
+
+    /* ── HERO ── */
+    #hero-wrap {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; position: relative; overflow: hidden;
+      padding: 20px 0;
+    }
+
+    #hero-frame {
+      position: relative; height: 100%; max-height: calc(100% - 40px);
+      aspect-ratio: 2/3; overflow: hidden; flex-shrink: 0;
+    }
+
+    #hero-img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 8s ease;
+    }
+    #hero-img:hover { transform: scale(1.03); }
+
+    #hero-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 40px 22px 18px;
+      background: linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 100%);
+      color: #F1ECE4;
+      display: flex; justify-content: space-between; align-items: flex-end;
+    }
+    #hero-caption .caption-left { display: flex; flex-direction: column; gap: 4px; }
+    .caption-season { font-size: 8px; font-weight: 900; letter-spacing: 0.18em; opacity: 0.75; }
+    .caption-title { font-size: 13px; font-weight: 900; letter-spacing: 0.1em; }
+    #hero-cta {
+      font-size: 9px; font-weight: 900; letter-spacing: 0.14em; color: #F1ECE4;
+      text-decoration: none; border-bottom: 1px solid rgba(241,236,228,0.5);
+      padding-bottom: 2px; transition: border-color 0.2s;
+    }
+    #hero-cta:hover { border-bottom-color: #F1ECE4; }
+
+    /* ── BOTTOM TICKER ── */
+    #ticker-wrap {
+      height: 82px; flex-shrink: 0; border-top: 1px solid rgba(0,0,0,0.12);
+      overflow: hidden; display: flex; align-items: center; background: #F1ECE4;
+    }
+
+    #ticker-track {
+      display: flex; align-items: center;
+      animation: tickerScroll 38s linear infinite;
+      white-space: nowrap;
+    }
+    #ticker-track:hover { animation-play-state: paused; }
+
+    @keyframes tickerScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .ticker-item {
+      display: inline-flex; align-items: center; gap: 14px;
+      padding: 0 32px; border-right: 1px solid rgba(0,0,0,0.1); cursor: pointer;
+      text-decoration: none; color: #000; flex-shrink: 0;
+    }
+    .ticker-item:hover .ticker-name { opacity: 1; }
+
+    .ticker-thumb {
+      width: 48px; height: 60px; object-fit: cover; display: block;
+      background: #F1ECE4; flex-shrink: 0;
+    }
+
+    .ticker-info { display: flex; flex-direction: column; gap: 4px; }
+    .ticker-name {
+      font-size: 9px; font-weight: 900; letter-spacing: 0.12em;
+      opacity: 0.7; transition: opacity 0.2s; max-width: 140px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .ticker-price { font-size: 9px; font-weight: 900; letter-spacing: 0.07em; opacity: 0.4; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 780px) {
+      .side-nav { width: 90px; padding: 0 0 0 16px; }
+      .side-nav.right { padding: 0 16px 0 0; }
+      .side-nav a { font-size: 9px; letter-spacing: 0.1em; }
+      #hero-frame { aspect-ratio: 3/4; }
+    }
+    @media (max-width: 540px) {
+      .side-nav { width: 68px; padding: 0 0 0 10px; gap: 0; }
+      .side-nav.right { padding: 0 10px 0 0; }
+      .side-nav a { font-size: 8px; padding: 7px 0; letter-spacing: 0.06em; }
+      #ticker-wrap { height: 68px; }
+      .ticker-thumb { width: 38px; height: 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="page-entry"></div>
+  <div id="store-shell">
+    <div id="store-body">
+
+      <!-- LEFT NAV -->
+      <nav class="side-nav left">
+        <a href="men.html">MEN</a>
+        <a href="women.html">WOMEN</a>
+        <a href="kids.html">KIDS</a>
+        <a href="bags.html">BAGS</a>
+        <a href="accessories.html">ACCESSORIES</a>
+      </nav>
+
+      <!-- HERO -->
+      <div id="hero-wrap">
+        <div id="hero-frame">
+          <img id="hero-img"
+            src="https://loremflickr.com/1000/1500/fashion,editorial?lock=1"
+            alt="AW24 Collection">
+          <div id="hero-caption">
+            <div class="caption-left">
+              <span class="caption-season">AUTUMN / WINTER 2024</span>
+              <span class="caption-title">DISSOLUTION</span>
+            </div>
+            <a href="collections.html" id="hero-cta">SHOP COLLECTION</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT NAV -->
+      <nav class="side-nav right">
+        <a href="collections.html">COLLECTIONS</a>
+        <a href="scents.html">SCENTS</a>
+        <a href="furniture.html">FURNITURE</a>
+        <a href="exhibitions.html">EXHIBITIONS</a>
+      </nav>
+
+    </div>
+
+    <!-- BOTTOM TICKER -->
+    <div id="ticker-wrap">
+      <div id="ticker-track"></div>
+    </div>
+  </div>
+
+  <script src="lm-store.js"></script>
+  <script src="lm-ui.js"></script>
+  <script>
+    var TICKER = [
+      { id:'m1', name:'STRUCTURED OVERCOAT', price:1850,
+        desc:'Double-faced wool overcoat with dropped shoulders and clean seaming. Horn buttons. Fully lined in cupro. Made in Italy.',
+        img:'https://loremflickr.com/800/1000/overcoat,fashion?lock=11',
+        sizes:['XS','S','M','L','XL'] },
+      { id:'w1', name:'DRAPED COLUMN DRESS', price:1450,
+        desc:'Floor-length column dress in fluid matte crêpe. Asymmetric draped neckline. Side slit. Fully lined in ivory silk. Made in France.',
+        img:'https://loremflickr.com/800/1000/dress,fashion?lock=21',
+        sizes:['XS','S','M','L','XL'] },
+      { id:'s1', name:'N°01 — CENDRE', price:195,
+        desc:'An ash-forward woody fragrance with vetiver, orris root, and a clean smoke accord. The scent of late autumn in an empty room.',
+        img:'https://loremflickr.com/800/1000/perfume,bottle?lock=61',
+        sizes:['30ML','50ML','100ML'] },
+      { id:'b1', name:'STRUCTURED TOTE', price:980,
+        desc:'Open-top tote in full-grain vegetable-tanned leather. Internal zip pocket. Natural cotton lining. Develops a patina with use. Made in Italy.',
+        img:'https://loremflickr.com/800/1000/leather,tote?lock=41',
+        sizes:[] },
+      { id:'f1', name:'LOW SOFA — ECRU', price:4200,
+        desc:'Low-slung three-seater sofa in ecru boucle wool with an exposed walnut frame. Foam and feather cushions. Made to order — 8 weeks lead time.',
+        img:'https://loremflickr.com/800/1000/sofa,interior?lock=71',
+        sizes:[] },
+      { id:'m3', name:'COLLARLESS JACKET', price:1240,
+        desc:'Unlined single-breasted jacket in boiled wool. No collar, welt pockets. A considered reduction of the tailored jacket form.',
+        img:'https://loremflickr.com/800/1000/jacket,fashion?lock=13',
+        sizes:['XS','S','M','L','XL'] },
+      { id:'a2', name:'SHIELD SUNGLASSES', price:320,
+        desc:'Oversized shield frame in acetate. UV400 lenses. Spring hinges. Comes with a suede pouch and hard case.',
+        img:'https://loremflickr.com/800/1000/sunglasses,fashion?lock=52',
+        sizes:[] },
+      { id:'w2', name:'COCOON COAT', price:2100,
+        desc:'Oversized cocoon silhouette in boiled cashmere-wool. No closures — the form is the function. Fully lined in sand-toned cupro.',
+        img:'https://loremflickr.com/800/1000/coat,fashion?lock=22',
+        sizes:['XS','S','M','L','XL'] },
+      { id:'f2', name:'BARREL ARMCHAIR', price:1850,
+        desc:'Barrel-shaped armchair in natural linen. Solid ash legs. Seat height 40cm. Generous and enveloping — designed for long reading sessions.',
+        img:'https://loremflickr.com/800/1000/armchair,interior?lock=72',
+        sizes:[] },
+      { id:'b3', name:'SOFT BUCKET BAG', price:850,
+        desc:'Drawstring bucket bag in supple nappa leather. Detachable shoulder strap. Suede interior. Comes with a cotton dust bag.',
+        img:'https://loremflickr.com/800/1000/bucket,bag?lock=43',
+        sizes:[] },
+      { id:'w5', name:'WIDE PLEAT TROUSER', price:720,
+        desc:'High-rise wide-leg trousers with triple forward pleat. Silk-cotton blend. The weight creates its own architecture when worn.',
+        img:'https://loremflickr.com/800/1000/trousers,women?lock=25',
+        sizes:['XS','S','M','L','XL'] },
+      { id:'k4', name:'MERINO ROLL NECK', price:160,
+        desc:'Slim ribbed roll neck in extra-fine merino wool. Machine washable at 30°. Available in ivory, storm grey, and rust.',
+        img:'https://loremflickr.com/800/1000/kids,sweater?lock=34',
+        sizes:['2Y','3Y','4Y','5Y','6Y','7Y','8Y'] },
+    ];
+
+    /* Build ticker — duplicate for seamless loop */
+    var track = document.getElementById('ticker-track');
+    [TICKER, TICKER].forEach(function(set) {
+      set.forEach(function(item) {
+        var el = document.createElement('div');
+        el.className = 'ticker-item';
+        el.style.cursor = 'pointer';
+        el.innerHTML =
+          '<img class="ticker-thumb" src="' + item.img + '" alt="' + item.name + '" loading="lazy">' +
+          '<div class="ticker-info">' +
+            '<div class="ticker-name">' + item.name + '</div>' +
+            '<div class="ticker-price">€' + item.price.toLocaleString() + '</div>' +
+          '</div>';
+        el.addEventListener('click', function() { LMPage.openModal(item); });
+        track.appendChild(el);
+      });
+    });
+
+    /* Pause ticker on sidebar open */
+    document.addEventListener('click', function(e) {
+      var open = document.querySelector('.sidebar-panel.open');
+      track.style.animationPlayState = open ? 'paused' : 'running';
+    });
+  </script>
+</body>
+</html>

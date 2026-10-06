@@ -1,0 +1,675 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luisa Monâ</title>
+  <link rel="prefetch" href="main.html">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      cursor: default;
+      background: #F1ECE4;
+    }
+
+    .bg-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    #logo {
+      position: fixed;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      width: 245px;
+    }
+
+    #logo path {
+      stroke: #F1ECE4;
+      stroke-width: 8;
+      paint-order: stroke fill;
+    }
+
+    #hdr-right-group {
+      position: fixed;
+      top: 32px;
+      right: 32px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transform: translateY(-50%);
+    }
+
+    #contact-btn {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 900;
+      -webkit-text-stroke: 0.4px black;
+      letter-spacing: 0.04em;
+      color: #000;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .idx-icon {
+      display: flex; align-items: center; cursor: pointer; color: #000;
+      text-decoration: none; position: relative;
+    }
+    .idx-icon svg { width: 18px; height: 18px; }
+    .idx-icon:hover { opacity: 0.6; }
+    #idx-cart-badge {
+      position: absolute; top: -6px; right: -8px;
+      background: #000; color: #F1ECE4; font-size: 8px; font-weight: 900;
+      width: 14px; height: 14px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Courier New', Courier, monospace; opacity: 0; transition: opacity 0.2s;
+    }
+
+    #menu-btn {
+      position: fixed;
+      top: 32px;
+      left: 32px;
+      z-index: 10;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 900;
+      -webkit-text-stroke: 0.4px black;
+      letter-spacing: 0.04em;
+      color: #000;
+      cursor: pointer;
+      user-select: none;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .menu-lines {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .menu-lines span {
+      display: block;
+      width: 1.1em;
+      height: 0.13em;
+      background: #000;
+    }
+
+    #sidebar-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 150;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+
+    #sidebar-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    #sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: auto;
+      width: min(400px, 88vw);
+      height: 100%;
+      background: #F1ECE4;
+      z-index: 200;
+      transform: translateX(-101%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      padding: 0 44px;
+    }
+
+    #sidebar.open {
+      transform: translateX(0%);
+    }
+
+    #sidebar-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-top: 32px;
+      padding-bottom: 48px;
+    }
+
+    #sidebar-label, #sidebar-close {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 900;
+      -webkit-text-stroke: 0.4px black;
+      letter-spacing: 0.04em;
+      color: #000;
+      user-select: none;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    #sidebar-close { cursor: pointer; }
+
+    #sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    #sidebar-nav a {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: clamp(22px, 3.2vw, 38px);
+      font-weight: 900;
+      line-height: 1.35;
+      letter-spacing: 0.03em;
+      color: #000;
+      text-decoration: none;
+      -webkit-text-stroke: 0.5px black;
+    }
+
+    #sidebar-nav a:hover {
+      text-decoration: underline;
+    }
+
+    .sidebar-divider {
+      height: 1px;
+      background: #000;
+      opacity: 0.15;
+      margin: 22px 0;
+    }
+
+    #contact-sidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: auto;
+      width: min(400px, 88vw);
+      height: 100%;
+      background: #F1ECE4;
+      z-index: 200;
+      transform: translateX(101%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      padding: 0 44px;
+    }
+
+    #contact-sidebar.open {
+      transform: translateX(0%);
+    }
+
+    #contact-sidebar-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-top: 32px;
+      padding-bottom: 48px;
+    }
+
+    #contact-sidebar-label, #contact-sidebar-close {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 900;
+      -webkit-text-stroke: 0.4px black;
+      letter-spacing: 0.04em;
+      color: #000;
+      user-select: none;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    #contact-sidebar-close { cursor: pointer; }
+
+    #contact-sidebar-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    #contact-sidebar-body .contact-email {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: clamp(14px, 1.8vw, 22px);
+      font-weight: 900;
+      letter-spacing: 0.03em;
+      color: #000;
+      text-decoration: none;
+      -webkit-text-stroke: 0.4px black;
+      line-height: 1.4;
+    }
+
+    #contact-sidebar-body .contact-email:hover {
+      opacity: 0.6;
+    }
+
+    #contact-sidebar-body .policy-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: auto;
+      padding-bottom: 48px;
+    }
+
+    #contact-sidebar-body .policy-links a {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: clamp(13px, 1.4vw, 18px);
+      font-weight: 900;
+      line-height: 1.5;
+      letter-spacing: 0.03em;
+      color: #000;
+      text-decoration: none;
+      -webkit-text-stroke: 0.3px black;
+      opacity: 0.55;
+    }
+
+    #contact-sidebar-body .policy-links a:hover {
+      opacity: 1;
+    }
+
+    #cursor-label::before {
+      content: '';
+      position: absolute;
+      width: var(--rect-w, 40px);
+      height: var(--rect-h, 13px);
+      background: #F1ECE4;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+
+    #cursor-label {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 5;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 900;
+      -webkit-text-stroke: 0.4px black;
+      letter-spacing: 0.04em;
+      color: #000;
+      transform: translate(-100%, -38%);
+      opacity: 0;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+
+  <img id="bg1" class="bg-layer" src="new.gif" alt="">
+  <a href="index.html" style="position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:10;display:block;width:245px;"><img id="logo" src="logo.svg" alt="Luisa Monâ" style="width:100%;display:block;"></a>
+
+  <!-- ══ WAVE TRANSITION  ·  delete these two elements + the wave-transition script below to disable ══ -->
+  <div id="store" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#F1ECE4;z-index:2;display:none;"></div>
+  <canvas id="wave-canvas" style="position:fixed;top:0;left:0;pointer-events:none;z-index:50;display:none;"></canvas>
+  <!-- ══ / WAVE TRANSITION ══ -->
+
+  <div id="menu-btn">
+    <span class="menu-lines"><span></span><span></span><span></span></span>
+    MENU
+  </div>
+
+  <div id="hdr-right-group">
+    <div id="contact-btn">CONTACT</div>
+    <a href="account.html" class="idx-icon" title="Account">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+      </svg>
+    </a>
+    <a href="cart.html" class="idx-icon" title="Cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
+      <span id="idx-cart-badge"></span>
+    </a>
+  </div>
+
+  <div id="sidebar-overlay"></div>
+  <div id="contact-sidebar">
+    <div id="contact-sidebar-top">
+      <span id="contact-sidebar-label">CONTACT</span>
+      <span id="contact-sidebar-close">CLOSE</span>
+    </div>
+    <div id="contact-sidebar-body">
+      <a class="contact-email" href="mailto:support@luisamona.com">support@luisamona.com</a>
+      <div class="sidebar-divider" style="margin-top:32px;"></div>
+      <div class="policy-links">
+        <div class="sidebar-divider" style="margin-bottom:18px;"></div>
+        <a href="returns.html">RETURN POLICY &amp; REFUNDS</a>
+        <a href="shipping.html">SHIPPING</a>
+        <a href="faq.html">FREQUENTLY ASKED QUESTIONS</a>
+      </div>
+    </div>
+  </div>
+  <div id="sidebar">
+    <div id="sidebar-top">
+      <span id="sidebar-label">MENU</span>
+      <span id="sidebar-close">CLOSE</span>
+    </div>
+    <nav id="sidebar-nav">
+      <a href="men.html">MEN</a>
+      <a href="women.html">WOMEN</a>
+      <a href="kids.html">KIDS</a>
+      <a href="bags.html">BAGS</a>
+      <a href="accessories.html">ACCESSORIES</a>
+      <a href="collections.html">COLLECTIONS</a>
+      <div class="sidebar-divider"></div>
+      <a href="scents.html">SCENTS</a>
+      <a href="furniture.html">FURNITURE</a>
+      <a href="exhibitions.html">EXHIBITIONS</a>
+    </nav>
+  </div>
+
+  <span id="cursor-label">CLICK TO EXPLORE</span>
+
+  <script>
+    (function () {
+
+      var GIF_W    = 2044;
+      var GIF_H    = 1152;
+      var CELL_W   = 10;
+      var CELL_H   = 16;
+      var OFFSET_X = 137;
+      var OFFSET_Y = 311;
+
+      function coverTransform() {
+        var vpW = window.innerWidth, vpH = window.innerHeight;
+        var scale = Math.max(vpW / GIF_W, vpH / GIF_H);
+        return { scale: scale, ox: (vpW - GIF_W * scale) / 2, oy: (vpH - GIF_H * scale) / 2 };
+      }
+
+      var contactBtn = document.getElementById('contact-btn');
+      var menuBtn    = document.getElementById('menu-btn');
+      var sidebar    = document.getElementById('sidebar');
+      var label      = document.getElementById('cursor-label');
+      var logo       = document.getElementById('logo');
+      var EASE       = 0.12;
+      var NEAR_PX    = 50;
+
+      var mouseX = window.innerWidth  / 2;
+      var mouseY = window.innerHeight / 2;
+      var curX   = mouseX;
+      var curY   = mouseY;
+      var inside = false;
+
+      document.addEventListener('mousemove', function (e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        inside = true;
+      });
+
+      document.addEventListener('mouseleave', function () {
+        inside = false;
+        label.style.opacity = '0';
+      });
+
+      function snapToGrid(mx, my) {
+        var t    = coverTransform();
+        var gifX = (mx - t.ox) / t.scale;
+        var gifY = (my - t.oy) / t.scale;
+        var col  = Math.round((gifX - OFFSET_X) / CELL_W);
+        var row  = Math.round((gifY - OFFSET_Y) / CELL_H);
+        return {
+          x     : (col * CELL_W + OFFSET_X) * t.scale + t.ox,
+          y     : (row * CELL_H + OFFSET_Y) * t.scale + t.oy - 1,
+          scale : t.scale
+        };
+      }
+
+      function nearRect(r, px, py, pad) {
+        return px >= r.left - pad && px <= r.right  + pad &&
+               py >= r.top  - pad && py <= r.bottom + pad;
+      }
+
+      function tick() {
+        curX += (mouseX - curX) * EASE;
+        curY += (mouseY - curY) * EASE;
+
+        var t  = coverTransform();
+        var fs = CELL_H * t.scale;
+
+        /* align MENU + right group vertically with logo center */
+        var rLogo  = logo.getBoundingClientRect();
+        var logoCY = rLogo.top + rLogo.height / 2;
+        var rightGroup = document.getElementById('hdr-right-group');
+        if (rightGroup) { rightGroup.style.top = (logoCY - 15) + 'px'; rightGroup.style.fontSize = fs + 'px'; }
+        contactBtn.style.fontSize = fs + 'px';
+        menuBtn.style.top         = (logoCY - 15) + 'px';
+        menuBtn.style.fontSize    = fs + 'px';
+
+        /* cart badge */
+        (function() {
+          try {
+            var cart = JSON.parse(localStorage.getItem('lm_cart')) || [];
+            var n = cart.reduce(function(s,i){return s+i.qty;},0);
+            var badge = document.getElementById('idx-cart-badge');
+            if (badge) { badge.textContent = n>0?n:''; badge.style.opacity = n>0?'1':'0'; }
+          } catch(e) {}
+        })();
+
+        var s        = snapToGrid(curX, curY);
+        var labelW   = CELL_W * 16 * t.scale + 4;   /* "CLICK TO EXPLORE" = 16 chars */
+        var label2W  = CELL_W * 8  * t.scale + 4;   /* "CLICK TO"          =  8 chars */
+        var stackW   = CELL_W * 7  * t.scale + 4;   /* "EXPLORE"           =  7 chars */
+        var rContact = contactBtn.getBoundingClientRect();
+        var rMenu    = menuBtn.getBoundingClientRect();
+
+        var hideForLogo    = mouseX >= rLogo.left && mouseX <= rLogo.right + 120 &&
+                             mouseY >= rLogo.top  && mouseY <= rLogo.bottom;
+        var hideForContact = nearRect(rContact, mouseX, mouseY, NEAR_PX);
+        var hideForMenu    = mouseX >= rMenu.left && mouseX <= rMenu.right + 120 &&
+                             mouseY >= rMenu.top - 25 && mouseY <= rMenu.bottom + 25;
+        var hideForSidebar = sidebar.classList.contains('open') || document.getElementById('contact-sidebar').classList.contains('open');
+
+        label.style.left     = s.x + 'px';
+        label.style.top      = s.y + 'px';
+        label.style.fontSize = fs + 'px';
+
+        if (!inside || hideForLogo || hideForContact || hideForMenu || hideForSidebar) {
+          label.style.opacity = '0';
+        } else if (s.x - label2W < 0) {
+          /* fully stacked: CLICK / TO / EXPLORE */
+          label.innerHTML = 'CLICK<br>TO<br>EXPLORE';
+          label.style.transform = 'translate(0%, -38%)';
+          label.style.setProperty('--rect-w', stackW + 'px');
+          label.style.setProperty('--rect-h', (fs * 3) + 'px');
+          label.style.opacity = '1';
+        } else if (s.x - labelW < 0) {
+          /* two-line: CLICK TO / EXPLORE */
+          label.innerHTML = 'CLICK TO<br>EXPLORE';
+          label.style.transform = 'translate(0%, -38%)';
+          label.style.setProperty('--rect-w', label2W + 'px');
+          label.style.setProperty('--rect-h', (fs * 2) + 'px');
+          label.style.opacity = '1';
+        } else {
+          /* normal: CLICK TO EXPLORE */
+          label.innerHTML = 'CLICK TO EXPLORE';
+          label.style.transform = 'translate(-100%, -38%)';
+          label.style.setProperty('--rect-w', labelW + 'px');
+          label.style.setProperty('--rect-h', fs + 'px');
+          label.style.opacity = '1';
+        }
+
+        requestAnimationFrame(tick);
+      }
+
+      requestAnimationFrame(tick);
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var menuBtn        = document.getElementById('menu-btn');
+      var contactBtn     = document.getElementById('contact-btn');
+      var sidebar        = document.getElementById('sidebar');
+      var contactSidebar = document.getElementById('contact-sidebar');
+      var overlay        = document.getElementById('sidebar-overlay');
+      var closeBtn       = document.getElementById('sidebar-close');
+      var contactClose   = document.getElementById('contact-sidebar-close');
+
+      function closeAll() {
+        sidebar.classList.remove('open');
+        contactSidebar.classList.remove('open');
+        overlay.classList.remove('open');
+      }
+
+      menuBtn.addEventListener('click', function () {
+        closeAll();
+        sidebar.classList.add('open');
+        overlay.classList.add('open');
+      });
+
+      contactBtn.addEventListener('click', function () {
+        closeAll();
+        contactSidebar.classList.add('open');
+        overlay.classList.add('open');
+      });
+
+      closeBtn.addEventListener('click', closeAll);
+      contactClose.addEventListener('click', closeAll);
+      overlay.addEventListener('click', closeAll);
+    })();
+  </script>
+
+  <!-- ══ WAVE TRANSITION  ·  delete this script + the two wave elements above to disable ══ -->
+  <script>
+    (function () {
+      var POOL         = '!#%*+=?@0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      var GIF_W        = 2044, GIF_H = 1152, CELL_W = 10, CELL_H = 16;
+      var PHASE_DUR    = 700;   /* ms per phase: fill screen, then exit off top */
+      var SIN_FREQ     = 0.38;  /* horizontal ripple frequency (rad / col) */
+      var SIN_AMP_TOP  = 3;     /* leading-edge ripple amplitude (rows) */
+      var SIN_AMP_BOT  = 2;     /* trailing-edge ripple amplitude (rows) */
+      var RIPPLE_SPEED = 0.004; /* ripple animation speed (rad / ms) */
+      var OSC_AMP      = 160;   /* horizontal oscillation amplitude (px) */
+      var OSC_FREQ     = (2 * Math.PI) / 4000; /* one full cycle over 4 s */
+      var EXTRA_PX     = 200;   /* canvas overhang on each side (must exceed OSC_AMP) */
+
+      function getScale() {
+        return Math.max(window.innerWidth / GIF_W, window.innerHeight / GIF_H);
+      }
+      function randCh() { return POOL[Math.floor(Math.random() * POOL.length)]; }
+      function ease(t)  { return t * t * (3 - 2 * t); }
+      function clamp(v, lo, hi) { return v < lo ? lo : v > hi ? hi : v; }
+
+      var cvs     = document.getElementById('wave-canvas');
+      var ctx     = cvs.getContext('2d');
+      var store   = document.getElementById('store');
+      var label   = document.getElementById('cursor-label');
+      var bg      = document.getElementById('bg1');
+      var contact = document.getElementById('contact-btn');
+      var menu    = document.getElementById('menu-btn');
+      var active  = false;
+      var done    = false;
+      var t0      = 0;
+      var storeUp = false;
+
+      function resize() {
+        cvs.width  = window.innerWidth  + EXTRA_PX * 2;
+        cvs.height = window.innerHeight;
+        cvs.style.left   = -EXTRA_PX + 'px';
+        cvs.style.width  = cvs.width  + 'px';
+        cvs.style.height = cvs.height + 'px';
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      function startWave() {
+        if (active || done) return;
+        if (label.style.opacity !== '1') return;
+        active = true;
+        cvs.style.display    = 'block';
+        label.style.opacity         = '0';
+        label.style.pointerEvents   = 'none';
+        contact.style.pointerEvents = 'none';
+        menu.style.pointerEvents    = 'none';
+        setTimeout(function () { label.style.display = 'none'; }, 900);
+        t0 = performance.now();
+        requestAnimationFrame(drawFrame);
+      }
+
+      document.addEventListener('click', startWave);
+
+      function drawFrame(now) {
+        var elapsed = now - t0;
+        var p1 = ease(clamp(elapsed / PHASE_DUR, 0, 1));
+        var p2 = ease(clamp((elapsed - PHASE_DUR) / PHASE_DUR, 0, 1));
+
+        /* reveal store page the instant phase 2 begins */
+        if (p2 > 0 && !storeUp) {
+          store.style.display = 'block';
+          store.style.zIndex = '15';
+          storeUp = true;
+        }
+
+        var sc      = getScale();
+        var cw      = CELL_W * sc;
+        var ch      = CELL_H * sc;
+        var cols    = Math.ceil(cvs.width  / cw) + 1;
+        var rows    = Math.ceil(cvs.height / ch) + 1;
+        var rip    = now * RIPPLE_SPEED;
+        var xShift = Math.sin(elapsed * OSC_FREQ) * OSC_AMP;
+
+        ctx.clearRect(0, 0, cvs.width, cvs.height);
+        ctx.save();
+        ctx.translate(EXTRA_PX + xShift, 0);
+        ctx.font         = '900 ' + ch + 'px "Courier New"';
+        ctx.textBaseline = 'top';
+
+        for (var c = 0; c < cols; c++) {
+          var sin = Math.sin(c * SIN_FREQ + rip);
+
+          /* leading edge (top of wave band) — ripples and rises first */
+          var wTop = rows * (1 - p1) - rows * p2 + sin * SIN_AMP_TOP;
+          /* trailing edge (bottom of wave band) — rises only in phase 2 */
+          var wBot = rows * (1 - p2) + sin * SIN_AMP_BOT;
+
+          var rStart = Math.max(0,    Math.floor(wTop));
+          var rEnd   = Math.min(rows, Math.ceil(wBot));
+
+          for (var r = rStart; r < rEnd; r++) {
+            var x = (c - Math.ceil(EXTRA_PX / cw)) * cw, y = r * ch;
+            ctx.fillStyle = '#F1ECE4';
+            ctx.fillRect(x, y, cw, ch);
+            ctx.fillStyle = '#000';
+            ctx.fillText(randCh(), x, y);
+          }
+        }
+        ctx.restore();
+
+        if (p1 < 1 || p2 < 1) {
+          requestAnimationFrame(drawFrame);
+        } else {
+          done = true;
+          window.location.href = 'main.html';
+        }
+      }
+    })();
+  </script>
+  <!-- ══ / WAVE TRANSITION ══ -->
+
+</body>
+</html>
+

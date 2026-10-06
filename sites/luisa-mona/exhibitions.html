@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luisa Monâ — Exhibitions</title>
+  <link rel="stylesheet" href="lm-styles.css">
+</head>
+<body>
+  <div class="page-header">
+    <h1 class="page-title">EXHIBITIONS</h1>
+    <p class="page-subtitle">PROGRAMME &amp; INSTALLATIONS</p>
+  </div>
+  <div class="product-grid col-2" id="product-grid"></div>
+  <footer class="site-footer"><span>LUISA MONÂ</span><span>&copy; 2024</span></footer>
+  <script src="lm-store.js"></script>
+  <script src="lm-ui.js"></script>
+  <script>
+    LMPage.renderGrid([
+      { id:'e1', type:'exhibition', name:'THE WEIGHT OF CLOTH', landscape:true,
+        desc:'A group exhibition exploring the phenomenology of dress — how garments hold memory, body, and time. Curated by Luisa Monâ in collaboration with Studio Vero.',
+        img:'https://loremflickr.com/800/1000/art,gallery?lock=91',
+        meta:'ONGOING',
+        dates:'14 Sep — 28 Dec 2024',
+        venue:'Luisa Monâ Space, Ground Floor',
+        location:'12 Rue du Temple, Paris 75004' },
+      { id:'e2', type:'exhibition', name:'MINERAL STUDIES', landscape:true,
+        desc:'Photography and textile work by four artists responding to the SS23 Mineral collection. Stone surfaces, erosion, and the beauty of geological time.',
+        img:'https://loremflickr.com/800/1000/exhibition,stone?lock=92',
+        meta:'PAST',
+        dates:'8 Mar — 30 Jun 2023',
+        venue:'Luisa Monâ Space',
+        location:'12 Rue du Temple, Paris 75004' },
+      { id:'e3', type:'exhibition', name:'RESIDUE — AN ARCHIVE', landscape:true,
+        desc:'A complete presentation of the AW22 inaugural collection alongside process work, fabric samples, and rejected prototypes. An honest look at how the clothes came to be.',
+        img:'https://loremflickr.com/800/1000/fashion,archive?lock=93',
+        meta:'PAST',
+        dates:'19 Nov — 20 Jan 2023',
+        venue:'Espace Kléber',
+        location:'16 Avenue Kléber, Paris 75116' },
+      { id:'e4', type:'exhibition', name:'NOCTURNE SOUND INSTALLATION', landscape:true,
+        desc:'An immersive audio environment composed by Milo Brandt to accompany the AW23 collection. Visitors enter a darkened room with the scent N°03 diffused through the space.',
+        img:'https://loremflickr.com/800/1000/sound,installation?lock=94',
+        meta:'UPCOMING',
+        dates:'10 Jan — 28 Feb 2025',
+        venue:'Le Centquatre',
+        location:'5 Rue Curial, Paris 75019' }
+    ], 'col-2');
+  </script>
+</body>
+</html>

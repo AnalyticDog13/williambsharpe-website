@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luisa Monâ — Returns & Refunds</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; min-height: 100%; background: #F1ECE4; font-family: 'Courier New', Courier, monospace; }
+
+    #site-header {
+      position: fixed; top: -24px; left: 0; right: 0; z-index: 100;
+      background: #F1ECE4; border-bottom: 1px solid rgba(0,0,0,0.15);
+      display: flex; align-items: center; padding: 10px 32px 0; height: 100px;
+    }
+    #site-header::before { content: ''; position: absolute; top: -20px; left: 0; right: 0; height: 20px; background: #F1ECE4; }
+    #logo-link { position: absolute; left: 50%; transform: translateX(-50%) translateY(6px); line-height: 0; }
+    #logo { width: 200px; display: block; }
+    #menu-btn { font-family: 'Courier New', Courier, monospace; font-size: 0.78vw; font-weight: 900; -webkit-text-stroke: 0.4px black; letter-spacing: 0.04em; color: #000; cursor: pointer; user-select: none; display: flex; align-items: center; gap: 7px;  transform: translateY(7px);}
+    #contact-btn { font-family: 'Courier New', Courier, monospace; font-size: 0.78vw; font-weight: 900; -webkit-text-stroke: 0.4px black; letter-spacing: 0.04em; color: #000; cursor: pointer; user-select: none; margin-left: auto;  transform: translateY(7px);}
+    .menu-lines { display: inline-flex; flex-direction: column; gap: 3px; }
+    .menu-lines span { display: block; width: 1.1em; height: 0.13em; background: #000; }
+
+    #sidebar-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.4);
+      z-index: 150; opacity: 0; pointer-events: none; transition: opacity 0.35s ease;
+    }
+    #sidebar-overlay.open { opacity: 1; pointer-events: all; }
+
+    #sidebar {
+      position: fixed; top: 0; left: 0; right: auto;
+      width: min(400px, 88vw); height: 100%; background: #F1ECE4;
+      z-index: 200; transform: translateX(-101%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex; flex-direction: column; padding: 0 44px;
+    }
+    #sidebar.open { transform: translateX(0%); }
+    #sidebar-top { display: flex; justify-content: space-between; align-items: center; padding-top: 32px; padding-bottom: 48px; }
+    #sidebar-label, #sidebar-close { font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 1; font-weight: 900; -webkit-text-stroke: 0.4px black; letter-spacing: 0.04em; color: #000; user-select: none; display: inline-block; vertical-align: middle; } #sidebar-close { cursor: pointer; }
+    #sidebar-nav { display: flex; flex-direction: column; }
+    #sidebar-nav a { font-family: 'Courier New', Courier, monospace; font-size: clamp(22px, 3.2vw, 38px); font-weight: 900; line-height: 1.35; letter-spacing: 0.03em; color: #000; text-decoration: none; -webkit-text-stroke: 0.5px black; }
+    #sidebar-nav a:hover { text-decoration: underline; }
+    .sidebar-divider { height: 1px; background: #000; opacity: 0.15; margin: 22px 0; }
+    #contact-sidebar { position: fixed; top: 0; right: 0; left: auto; width: min(400px, 88vw); height: 100%; background: #F1ECE4; z-index: 200; transform: translateX(101%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; padding: 0 44px; }
+    #contact-sidebar.open { transform: translateX(0%); }
+    #contact-sidebar-top { display: flex; justify-content: space-between; align-items: center; padding-top: 32px; padding-bottom: 48px; }
+    #contact-sidebar-label, #contact-sidebar-close { font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 1; font-weight: 900; -webkit-text-stroke: 0.4px black; letter-spacing: 0.04em; color: #000; user-select: none; display: inline-block; vertical-align: middle; } #contact-sidebar-close { cursor: pointer; }
+    .contact-email { font-family: 'Courier New', Courier, monospace; font-size: clamp(14px, 1.8vw, 22px); font-weight: 900; letter-spacing: 0.03em; color: #000; text-decoration: none; -webkit-text-stroke: 0.4px black; line-height: 1.4; }
+    .contact-email:hover { opacity: 0.6; }
+    .policy-links { display: flex; flex-direction: column; margin-top: auto; padding-bottom: 48px; }
+    .policy-links a { font-family: 'Courier New', Courier, monospace; font-size: clamp(13px, 1.4vw, 18px); font-weight: 900; line-height: 1.5; letter-spacing: 0.03em; color: #000; text-decoration: none; -webkit-text-stroke: 0.3px black; opacity: 0.55; }
+    .policy-links a:hover { opacity: 1; }
+
+    .page-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 120px 44px 80px;
+    }
+
+    .page-content h1 {
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      -webkit-text-stroke: 0.8px black;
+      margin-bottom: 56px;
+    }
+
+    .policy-section {
+      margin-bottom: 48px;
+    }
+
+    .policy-section h2 {
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      -webkit-text-stroke: 0.4px black;
+      margin-bottom: 16px;
+      opacity: 0.5;
+    }
+
+    .policy-section p {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.9;
+      letter-spacing: 0.03em;
+      color: #000;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <header id="site-header">
+    <div id="menu-btn">
+      <span class="menu-lines"><span></span><span></span><span></span></span>
+      MENU
+    </div>
+    <a href="index.html" id="logo-link"><img id="logo" src="logo.svg" alt="Luisa Monâ"></a>
+    <div id="contact-btn">CONTACT</div>
+  </header>
+
+  <div class="page-content">
+    <h1>RETURN POLICY<br>&amp; REFUNDS</h1>
+
+    <div class="policy-section">
+      <h2>ELIGIBILITY</h2>
+      <p>Items may be returned within 30 days of the delivery date. To be eligible for a return, items must be unused, unworn, and in their original condition with all tags attached and original packaging intact. Items marked as final sale are not eligible for return or exchange.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>HOW TO INITIATE A RETURN</h2>
+      <p>To begin the return process, please contact us at support@luisamona.com with your order number and the reason for your return. Our team will respond within 2 business days with a return authorization number and shipping instructions. Returns submitted without prior authorization will not be accepted.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>REFUNDS</h2>
+      <p>Once your return is received and inspected, we will notify you of the approval or rejection of your refund. If approved, your refund will be processed to the original method of payment within 7–10 business days. Original shipping costs are non-refundable. If your order qualified for free shipping, a standard shipping fee of $15 will be deducted from your refund.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>EXCHANGES</h2>
+      <p>We offer exchanges for a different size or color of the same item, subject to availability. To request an exchange, follow the same process as a return and indicate your preferred replacement item. Exchanges are processed at no additional shipping cost within the continental United States.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>DAMAGED OR INCORRECT ITEMS</h2>
+      <p>If you receive a damaged or incorrect item, please contact us within 48 hours of delivery at support@luisamona.com with your order number and photographs of the item. We will arrange a replacement or full refund at no cost to you.</p>
+    </div>
+  </div>
+
+  <div id="sidebar-overlay"></div>
+  <div id="contact-sidebar">
+    <div id="contact-sidebar-top"><span id="contact-sidebar-label">CONTACT</span><span id="contact-sidebar-close">CLOSE</span></div>
+    <div style="display:flex;flex-direction:column;flex:1;">
+      <a class="contact-email" href="mailto:support@luisamona.com">support@luisamona.com</a>
+      <div class="sidebar-divider" style="margin-top:32px;"></div>
+      <div class="policy-links">
+        <div class="sidebar-divider" style="margin-bottom:18px;"></div>
+        <a href="returns.html">RETURN POLICY &amp; REFUNDS</a>
+        <a href="shipping.html">SHIPPING</a>
+        <a href="faq.html">FREQUENTLY ASKED QUESTIONS</a>
+      </div>
+    </div>
+  </div>
+  <div id="sidebar">
+    <div id="sidebar-top"><span id="sidebar-label">MENU</span><span id="sidebar-close">CLOSE</span></div>
+    <nav id="sidebar-nav">
+      <a href="men.html">MEN</a>
+      <a href="women.html">WOMEN</a>
+      <a href="kids.html">KIDS</a>
+      <a href="bags.html">BAGS</a>
+      <a href="accessories.html">ACCESSORIES</a>
+      <a href="collections.html">COLLECTIONS</a>
+      <div class="sidebar-divider"></div>
+      <a href="scents.html">SCENTS</a>
+      <a href="furniture.html">FURNITURE</a>
+      <a href="exhibitions.html">EXHIBITIONS</a>
+    </nav>
+  </div>
+
+  <script>
+    (function () {
+      var menuBtn        = document.getElementById('menu-btn');
+      var contactBtn     = document.getElementById('contact-btn');
+      var sidebar        = document.getElementById('sidebar');
+      var contactSidebar = document.getElementById('contact-sidebar');
+      var overlay        = document.getElementById('sidebar-overlay');
+      var closeBtn       = document.getElementById('sidebar-close');
+      var contactClose   = document.getElementById('contact-sidebar-close');
+      function closeAll() { sidebar.classList.remove('open'); contactSidebar.classList.remove('open'); overlay.classList.remove('open'); }
+      menuBtn.addEventListener('click', function () { closeAll(); sidebar.classList.add('open'); overlay.classList.add('open'); });
+      contactBtn.addEventListener('click', function () { closeAll(); contactSidebar.classList.add('open'); overlay.classList.add('open'); });
+      closeBtn.addEventListener('click', closeAll);
+      contactClose.addEventListener('click', closeAll);
+      overlay.addEventListener('click', closeAll);
+    })();
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luisa Monâ — Account</title>
+  <link rel="stylesheet" href="lm-styles.css">
+</head>
+<body>
+  <div class="page-header">
+    <h1 class="page-title">ACCOUNT</h1>
+  </div>
+  <div class="account-layout">
+    <div class="account-box">
+      <div class="account-tabs">
+        <button class="account-tab active" id="tab-signin">SIGN IN</button>
+        <button class="account-tab" id="tab-create">CREATE ACCOUNT</button>
+      </div>
+
+      <!-- SIGN IN -->
+      <div id="form-signin">
+        <form class="account-form" onsubmit="handleSignIn(event)">
+          <input type="email" placeholder="EMAIL ADDRESS" required autocomplete="email">
+          <input type="password" placeholder="PASSWORD" required autocomplete="current-password">
+          <button type="submit" class="account-submit">SIGN IN</button>
+        </form>
+        <div class="account-message" id="msg-signin">
+          <strong>SIGNED IN.</strong><br>
+          Welcome back to Luisa Monâ. You will be redirected shortly.<br>
+          <span style="opacity:.45;font-weight:400;">(This is a demo — no account was actually created.)</span>
+        </div>
+        <p class="account-note">Forgot your password? Contact us at support@luisamona.com</p>
+      </div>
+
+      <!-- CREATE ACCOUNT -->
+      <div id="form-create" style="display:none;">
+        <form class="account-form" onsubmit="handleCreate(event)">
+          <div class="account-form-row">
+            <input type="text" placeholder="FIRST NAME" required>
+            <input type="text" placeholder="LAST NAME" required>
+          </div>
+          <input type="email" placeholder="EMAIL ADDRESS" required autocomplete="email">
+          <input type="password" placeholder="PASSWORD" required autocomplete="new-password" minlength="8">
+          <input type="password" placeholder="CONFIRM PASSWORD" required autocomplete="new-password" minlength="8">
+          <button type="submit" class="account-submit">CREATE ACCOUNT</button>
+        </form>
+        <div class="account-message" id="msg-create">
+          <strong>ACCOUNT CREATED.</strong><br>
+          Welcome to Luisa Monâ. Your account has been registered.<br>
+          <span style="opacity:.45;font-weight:400;">(This is a demo — no account was actually created.)</span>
+        </div>
+        <p class="account-note">By creating an account you agree to receive occasional communications about new collections and events. You can unsubscribe at any time.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="site-footer"><span>LUISA MONÂ</span><span>&copy; 2024</span></footer>
+
+  <script src="lm-store.js"></script>
+  <script src="lm-ui.js"></script>
+  <script>
+    document.getElementById('tab-signin').addEventListener('click', function () {
+      this.classList.add('active');
+      document.getElementById('tab-create').classList.remove('active');
+      document.getElementById('form-signin').style.display = '';
+      document.getElementById('form-create').style.display = 'none';
+    });
+    document.getElementById('tab-create').addEventListener('click', function () {
+      this.classList.add('active');
+      document.getElementById('tab-signin').classList.remove('active');
+      document.getElementById('form-create').style.display = '';
+      document.getElementById('form-signin').style.display = 'none';
+    });
+
+    function handleSignIn(e) {
+      e.preventDefault();
+      e.target.style.display = 'none';
+      document.getElementById('msg-signin').classList.add('visible');
+    }
+
+    function handleCreate(e) {
+      e.preventDefault();
+      var inputs = e.target.querySelectorAll('input[type=password]');
+      if (inputs[0].value !== inputs[1].value) {
+        inputs[1].setCustomValidity('Passwords do not match');
+        inputs[1].reportValidity();
+        return;
+      }
+      e.target.style.display = 'none';
+      document.getElementById('msg-create').classList.add('visible');
+    }
+  </script>
+</body>
+</html>

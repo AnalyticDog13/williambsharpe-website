@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luisa Monâ — Cart</title>
+  <link rel="stylesheet" href="lm-styles.css">
+</head>
+<body>
+  <div class="page-header">
+    <h1 class="page-title">CART</h1>
+  </div>
+  <div id="cart-root"></div>
+  <footer class="site-footer"><span>LUISA MONÂ</span><span>&copy; 2024</span></footer>
+  <script src="lm-store.js"></script>
+  <script src="lm-ui.js"></script>
+  <script>
+    var TAX_RATE = 0.08;
+    var FREE_SHIPPING_THRESHOLD = 500;
+    var SHIPPING_COST = 18;
+
+    function fmt(n) { return '€' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+
+    function render() {
+      var cart = LMStore.get();
+      var root = document.getElementById('cart-root');
+
+      if (!cart.length) {
+        root.innerHTML = '<div class="cart-empty">YOUR CART IS EMPTY.</div>';
+        return;
+      }
+
+      var subtotal = cart.reduce(function (s, i) { return s + i.price * i.qty; }, 0);
+      var shipping = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_COST;
+      var tax = (subtotal + shipping) * TAX_RATE;
+      var total = subtotal + shipping + tax;
+
+      var itemsHtml = cart.map(function (item) {
+        return '<div class="cart-item" data-k="' + item.k + '">' +
+          '<img class="cart-item-img" src="' + item.img + '" alt="' + item.name + '">' +
+          '<div>' +
+            '<div class="cart-item-name">' + item.name + '</div>' +
+            (item.size && item.size !== 'ONE SIZE' ? '<div class="cart-item-size">' + item.size + '</div>' : '') +
+            '<div class="cart-item-price">' + fmt(item.price) + '</div>' +
+            '<div class="cart-qty">' +
+              '<button class="qty-btn" data-action="dec" data-k="' + item.k + '">−</button>' +
+              '<span class="qty-num">' + item.qty + '</span>' +
+              '<button class="qty-btn" data-action="inc" data-k="' + item.k + '">+</button>' +
+              '<button class="cart-remove" data-action="rem" data-k="' + item.k + '">REMOVE</button>' +
+            '</div>' +
+          '</div>' +
+          '<div style="font-size:10px;font-weight:900;letter-spacing:.06em;opacity:.7;align-self:start;padding-top:2px;">' + fmt(item.price * item.qty) + '</div>' +
+        '</div>';
+      }).join('');
+
+      var summaryHtml = '<div class="order-summary">' +
+        '<div class="summary-title">ORDER SUMMARY</div>' +
+        '<div class="summary-line"><span>SUBTOTAL</span><span>' + fmt(subtotal) + '</span></div>' +
+        '<div class="summary-line"><span>SHIPPING</span><span>' + (shipping === 0 ? 'FREE' : fmt(shipping)) + '</span></div>' +
+        '<div class="summary-line"><span>TAX (8%)</span><span>' + fmt(tax) + '</span></div>' +
+        '<div class="summary-line total"><span>TOTAL</span><span>' + fmt(total) + '</span></div>' +
+        (shipping > 0 ? '<div style="font-size:9px;font-weight:900;letter-spacing:.08em;opacity:.4;margin-top:10px;">FREE SHIPPING ON ORDERS OVER €' + FREE_SHIPPING_THRESHOLD + '</div>' : '') +
+        '<button class="checkout-btn" id="checkout-btn">PROCEED TO CHECKOUT</button>' +
+        '<div class="checkout-demo-notice" id="demo-notice">' +
+          '<strong>PAYMENT NOT AVAILABLE IN THIS DEMO</strong><br><br>' +
+          'This is a prototype storefront. No real transactions will be processed. ' +
+          'In a live deployment this step would integrate with a payment provider (Stripe, Adyen, etc.).<br><br>' +
+          '<strong>ORDER TOTAL: ' + fmt(total) + '</strong>' +
+        '</div>' +
+      '</div>';
+
+      root.innerHTML = '<div class="cart-layout"><div id="cart-items">' + itemsHtml + '</div>' + summaryHtml + '</div>';
+
+      document.getElementById('checkout-btn').addEventListener('click', function () {
+        var notice = document.getElementById('demo-notice');
+        notice.classList.add('visible');
+        this.disabled = true;
+        this.textContent = 'ORDER SUBMITTED';
+        this.style.opacity = '0.4';
+      });
+
+      root.addEventListener('click', function (e) {
+        var btn = e.target.closest('[data-action]');
+        if (!btn) return;
+        var k = btn.dataset.k, action = btn.dataset.action;
+        if (action === 'inc') LMStore.update(k, 1);
+        else if (action === 'dec') LMStore.update(k, -1);
+        else if (action === 'rem') LMStore.remove(k);
+        render();
+      });
+    }
+
+    document.addEventListener('lmcart', render);
+    render();
+  </script>
+</body>
+</html>

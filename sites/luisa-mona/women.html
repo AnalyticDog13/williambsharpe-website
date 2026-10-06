@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luisa Monâ — Women</title>
+  <link rel="stylesheet" href="lm-styles.css">
+</head>
+<body>
+  <div class="page-header">
+    <h1 class="page-title">WOMEN</h1>
+    <p class="page-subtitle">READY-TO-WEAR &amp; FOOTWEAR</p>
+  </div>
+  <div class="product-grid" id="product-grid"></div>
+  <footer class="site-footer"><span>LUISA MONÂ</span><span>&copy; 2024</span></footer>
+  <script src="lm-store.js"></script>
+  <script src="lm-ui.js"></script>
+  <script>
+    LMPage.renderGrid([
+      { id:'w1', name:'DRAPED COLUMN DRESS', price:1450,
+        desc:'Floor-length column dress in fluid matte crêpe. Asymmetric draped neckline. Side slit. Fully lined in ivory silk. Made in France.',
+        img:'https://loremflickr.com/800/1000/dress,fashion?lock=21',
+        sizes:['XS','S','M','L','XL'],
+        colors:[{name:'IVORY',hex:'#F5F0E8',light:true},{name:'BLACK',hex:'#1C1C1C'},{name:'SLATE',hex:'#6B7B8D'}] },
+      { id:'w2', name:'COCOON COAT', price:2100,
+        desc:'Oversized cocoon silhouette in boiled cashmere-wool. No closures — the form is the function. Fully lined in sand-toned cupro.',
+        img:'https://loremflickr.com/800/1000/coat,fashion?lock=22',
+        sizes:['XS','S','M','L','XL'],
+        colors:[{name:'CAMEL',hex:'#C19A6B'},{name:'BLACK',hex:'#1C1C1C'},{name:'STONE',hex:'#C4BBAD'}] },
+      { id:'w3', name:'BIAS-CUT SKIRT', price:680,
+        desc:'Bias-cut midi skirt in lightweight satin-back crêpe. Invisible zip closure. Moves beautifully — cut on the true bias at 45°.',
+        img:'https://loremflickr.com/800/1000/skirt,fashion?lock=23',
+        sizes:['XS','S','M','L','XL'],
+        colors:[{name:'BLACK',hex:'#1C1C1C'},{name:'IVORY',hex:'#F5F0E8',light:true},{name:'BLUSH',hex:'#E8C4B8'}] },
+      { id:'w4', name:'STRUCTURED BLAZER', price:1180,
+        desc:'Sharply tailored single-breasted blazer in double-faced virgin wool. Padded shoulders. Patch pockets. Fully canvassed. Made in Italy.',
+        img:'https://loremflickr.com/800/1000/blazer,fashion?lock=24',
+        sizes:['XS','S','M','L','XL'],
+        colors:[{name:'BLACK',hex:'#1C1C1C'},{name:'GREY',hex:'#8A8A8A'},{name:'NAVY',hex:'#1B2A4A'}] },
+      { id:'w5', name:'WIDE PLEAT TROUSER', price:720,
+        desc:'High-rise wide-leg trousers with triple forward pleat. Silk-cotton blend. The weight creates its own architecture when worn.',
+        img:'https://loremflickr.com/800/1000/trousers,women?lock=25',
+        sizes:['XS','S','M','L','XL'],
+        colors:[{name:'BLACK',hex:'#1C1C1C'},{name:'STONE',hex:'#C4BBAD'},{name:'SLATE',hex:'#6B7B8D'}] },
+      { id:'w6', name:'CASHMERE WRAP BLOUSE', price:490,
+        desc:'Lightweight cashmere wrap with adjustable tie. Relaxed and unstructured — effortless when worn open over a column dress.',
+        img:'https://loremflickr.com/800/1000/blouse,fashion?lock=26',
+        sizes:['XS','S','M','L'],
+        colors:[{name:'IVORY',hex:'#F5F0E8',light:true},{name:'CAMEL',hex:'#C19A6B'},{name:'BLUSH',hex:'#E8C4B8'}] },
+      { id:'w7', name:'POINTED KITTEN MULE', price:840,
+        desc:'Pointed toe mule in supple nappa leather. Kitten heel. Slip-on silhouette. Leather and rubber outsole. Made in Italy.',
+        img:'https://loremflickr.com/800/1000/mule,shoe?lock=27',
+        sizes:['35','36','37','38','39','40','41'],
+        colors:[{name:'BLACK',hex:'#1C1C1C'},{name:'NUDE',hex:'#D4A899'},{name:'COGNAC',hex:'#8B4513'}] },
+      { id:'w8', name:'SHEER LAYER BLOUSE', price:360,
+        desc:'Silk organza blouse with layered hem detail. Deliberately sheer — intended to be worn over a camisole or slip. Hand wash only.',
+        img:'https://loremflickr.com/800/1000/organza,fashion?lock=28',
+        sizes:['XS','S','M','L','XL'],
+        colors:[{name:'IVORY',hex:'#F5F0E8',light:true},{name:'BLACK',hex:'#1C1C1C'},{name:'BLUSH',hex:'#E8C4B8'}] }
+    ]);
+  </script>
+</body>
+</html>

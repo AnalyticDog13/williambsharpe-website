@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luisa Monâ — Shipping</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; min-height: 100%; background: #F1ECE4; font-family: 'Courier New', Courier, monospace; }
+
+    #site-header {
+      position: fixed; top: -24px; left: 0; right: 0; z-index: 100;
+      background: #F1ECE4; border-bottom: 1px solid rgba(0,0,0,0.15);
+      display: flex; align-items: center; padding: 10px 32px 0; height: 100px;
+    }
+    #site-header::before { content: ''; position: absolute; top: -20px; left: 0; right: 0; height: 20px; background: #F1ECE4; }
+    #logo-link { position: absolute; left: 50%; transform: translateX(-50%) translateY(6px); line-height: 0; }
+    #logo { width: 200px; display: block; }
+    #menu-btn { font-family: 'Courier New', Courier, monospace; font-size: 0.78vw; font-weight: 900; -webkit-text-stroke: 0.4px black; letter-spacing: 0.04em; color: #000; cursor: pointer; user-select: none; display: flex; align-items: center; gap: 7px;  transform: translateY(7px);}
+    #contact-btn { font-family: 'Courier New', Courier, monospace; font-size: 0.78vw; font-weight: 900; -webkit-text-stroke: 0.4px black; letter-spacing: 0.04em; color: #000; cursor: pointer; user-select: none; margin-left: auto;  transform: translateY(7px);}
+    .menu-lines { display: inline-flex; flex-direction: column; gap: 3px; }
+    .menu-lines span { display: block; width: 1.1em; height: 0.13em; background: #000; }
+
+    #sidebar-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.4);
+      z-index: 150; opacity: 0; pointer-events: none; transition: opacity 0.35s ease;
+    }
+    #sidebar-overlay.open { opacity: 1; pointer-events: all; }
+
+    #sidebar {
+      position: fixed; top: 0; left: 0; right: auto;
+      width: min(400px, 88vw); height: 100%; background: #F1ECE4;
+      z-index: 200; transform: translateX(-101%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex; flex-direction: column; padding: 0 44px;
+    }
+    #sidebar.open { transform: translateX(0%); }
+    #sidebar-top { display: flex; justify-content: space-between; align-items: center; padding-top: 32px; padding-bottom: 48px; }
+    #sidebar-label, #sidebar-close { font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 1; font-weight: 900; -webkit-text-stroke: 0.4px black; letter-spacing: 0.04em; color: #000; user-select: none; display: inline-block; vertical-align: middle; } #sidebar-close { cursor: pointer; }
+    #sidebar-nav { display: flex; flex-direction: column; }
+    #sidebar-nav a { font-family: 'Courier New', Courier, monospace; font-size: clamp(22px, 3.2vw, 38px); font-weight: 900; line-height: 1.35; letter-spacing: 0.03em; color: #000; text-decoration: none; -webkit-text-stroke: 0.5px black; }
+    #sidebar-nav a:hover { text-decoration: underline; }
+    .sidebar-divider { height: 1px; background: #000; opacity: 0.15; margin: 22px 0; }
+    #contact-sidebar { position: fixed; top: 0; right: 0; left: auto; width: min(400px, 88vw); height: 100%; background: #F1ECE4; z-index: 200; transform: translateX(101%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; padding: 0 44px; }
+    #contact-sidebar.open { transform: translateX(0%); }
+    #contact-sidebar-top { display: flex; justify-content: space-between; align-items: center; padding-top: 32px; padding-bottom: 48px; }
+    #contact-sidebar-label, #contact-sidebar-close { font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 1; font-weight: 900; -webkit-text-stroke: 0.4px black; letter-spacing: 0.04em; color: #000; user-select: none; display: inline-block; vertical-align: middle; } #contact-sidebar-close { cursor: pointer; }
+    .contact-email { font-family: 'Courier New', Courier, monospace; font-size: clamp(14px, 1.8vw, 22px); font-weight: 900; letter-spacing: 0.03em; color: #000; text-decoration: none; -webkit-text-stroke: 0.4px black; line-height: 1.4; }
+    .contact-email:hover { opacity: 0.6; }
+    .policy-links { display: flex; flex-direction: column; margin-top: auto; padding-bottom: 48px; }
+    .policy-links a { font-family: 'Courier New', Courier, monospace; font-size: clamp(13px, 1.4vw, 18px); font-weight: 900; line-height: 1.5; letter-spacing: 0.03em; color: #000; text-decoration: none; -webkit-text-stroke: 0.3px black; opacity: 0.55; }
+    .policy-links a:hover { opacity: 1; }
+
+    .page-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 120px 44px 80px;
+    }
+
+    .page-content h1 {
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      -webkit-text-stroke: 0.8px black;
+      margin-bottom: 56px;
+    }
+
+    .policy-section {
+      margin-bottom: 48px;
+    }
+
+    .policy-section h2 {
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      -webkit-text-stroke: 0.4px black;
+      margin-bottom: 16px;
+      opacity: 0.5;
+    }
+
+    .policy-section p {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.9;
+      letter-spacing: 0.03em;
+      color: #000;
+      opacity: 0.8;
+    }
+
+    .shipping-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+
+    .shipping-table th,
+    .shipping-table td {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-align: left;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      opacity: 0.8;
+    }
+
+    .shipping-table th {
+      font-weight: 900;
+      opacity: 0.45;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+    }
+  </style>
+</head>
+<body>
+  <header id="site-header">
+    <div id="menu-btn">
+      <span class="menu-lines"><span></span><span></span><span></span></span>
+      MENU
+    </div>
+    <a href="index.html" id="logo-link"><img id="logo" src="logo.svg" alt="Luisa Monâ"></a>
+    <div id="contact-btn">CONTACT</div>
+  </header>
+
+  <div class="page-content">
+    <h1>SHIPPING</h1>
+
+    <div class="policy-section">
+      <h2>DOMESTIC SHIPPING</h2>
+      <p>All domestic orders are processed within 1–2 business days. Orders placed on weekends or public holidays will be processed the following business day. Once shipped, you will receive a confirmation email with tracking information.</p>
+      <br>
+      <table class="shipping-table">
+        <thead>
+          <tr>
+            <th>METHOD</th>
+            <th>DELIVERY TIME</th>
+            <th>COST</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Standard Ground</td><td>5–7 business days</td><td>$10</td></tr>
+          <tr><td>Expedited</td><td>2–3 business days</td><td>$22</td></tr>
+          <tr><td>Overnight</td><td>1 business day</td><td>$38</td></tr>
+          <tr><td>Free Shipping</td><td>5–7 business days</td><td>Orders over $250</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="policy-section">
+      <h2>INTERNATIONAL SHIPPING</h2>
+      <p>Luisa Monâ ships to over 40 countries worldwide. International orders are subject to customs duties and taxes imposed by the destination country, which are the sole responsibility of the recipient. Delivery times may vary due to customs processing.</p>
+      <br>
+      <table class="shipping-table">
+        <thead>
+          <tr>
+            <th>REGION</th>
+            <th>DELIVERY TIME</th>
+            <th>COST</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Canada &amp; Mexico</td><td>7–12 business days</td><td>$25</td></tr>
+          <tr><td>Europe</td><td>10–16 business days</td><td>$40</td></tr>
+          <tr><td>Asia Pacific</td><td>12–20 business days</td><td>$50</td></tr>
+          <tr><td>Rest of World</td><td>14–25 business days</td><td>$55</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="policy-section">
+      <h2>ORDER TRACKING</h2>
+      <p>Once your order has shipped, a tracking number will be emailed to the address provided at checkout. You can use this number to track your package directly through the carrier's website. Please allow up to 24 hours for tracking information to become active.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>LOST OR DELAYED PACKAGES</h2>
+      <p>If your package appears lost or has not arrived within the expected delivery window, please contact us at support@luisamona.com. We will work with the carrier to locate your shipment. Luisa Monâ is not responsible for delays caused by customs, weather, or carrier disruptions beyond our control.</p>
+    </div>
+  </div>
+
+  <div id="sidebar-overlay"></div>
+  <div id="contact-sidebar">
+    <div id="contact-sidebar-top"><span id="contact-sidebar-label">CONTACT</span><span id="contact-sidebar-close">CLOSE</span></div>
+    <div style="display:flex;flex-direction:column;flex:1;">
+      <a class="contact-email" href="mailto:support@luisamona.com">support@luisamona.com</a>
+      <div class="sidebar-divider" style="margin-top:32px;"></div>
+      <div class="policy-links">
+        <div class="sidebar-divider" style="margin-bottom:18px;"></div>
+        <a href="returns.html">RETURN POLICY &amp; REFUNDS</a>
+        <a href="shipping.html">SHIPPING</a>
+        <a href="faq.html">FREQUENTLY ASKED QUESTIONS</a>
+      </div>
+    </div>
+  </div>
+  <div id="sidebar">
+    <div id="sidebar-top"><span id="sidebar-label">MENU</span><span id="sidebar-close">CLOSE</span></div>
+    <nav id="sidebar-nav">
+      <a href="men.html">MEN</a>
+      <a href="women.html">WOMEN</a>
+      <a href="kids.html">KIDS</a>
+      <a href="bags.html">BAGS</a>
+      <a href="accessories.html">ACCESSORIES</a>
+      <a href="collections.html">COLLECTIONS</a>
+      <div class="sidebar-divider"></div>
+      <a href="scents.html">SCENTS</a>
+      <a href="furniture.html">FURNITURE</a>
+      <a href="exhibitions.html">EXHIBITIONS</a>
+    </nav>
+  </div>
+
+  <script>
+    (function () {
+      var menuBtn        = document.getElementById('menu-btn');
+      var contactBtn     = document.getElementById('contact-btn');
+      var sidebar        = document.getElementById('sidebar');
+      var contactSidebar = document.getElementById('contact-sidebar');
+      var overlay        = document.getElementById('sidebar-overlay');
+      var closeBtn       = document.getElementById('sidebar-close');
+      var contactClose   = document.getElementById('contact-sidebar-close');
+      function closeAll() { sidebar.classList.remove('open'); contactSidebar.classList.remove('open'); overlay.classList.remove('open'); }
+      menuBtn.addEventListener('click', function () { closeAll(); sidebar.classList.add('open'); overlay.classList.add('open'); });
+      contactBtn.addEventListener('click', function () { closeAll(); contactSidebar.classList.add('open'); overlay.classList.add('open'); });
+      closeBtn.addEventListener('click', closeAll);
+      contactClose.addEventListener('click', closeAll);
+      overlay.addEventListener('click', closeAll);
+    })();
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luisa Monâ — Furniture</title>
+  <link rel="stylesheet" href="lm-styles.css">
+</head>
+<body>
+  <div class="page-header">
+    <h1 class="page-title">FURNITURE</h1>
+    <p class="page-subtitle">OBJECTS FOR LIVING</p>
+  </div>
+  <div class="product-grid col-2" id="product-grid"></div>
+  <footer class="site-footer"><span>LUISA MONÂ</span><span>&copy; 2024</span></footer>
+  <script src="lm-store.js"></script>
+  <script src="lm-ui.js"></script>
+  <script>
+    LMPage.renderGrid([
+      { id:'f1', name:'LOW SOFA', price:4200,
+        desc:'Low-slung three-seater sofa with an exposed walnut frame. Foam and feather cushions. Removable covers. Made to order — 8 weeks lead time.',
+        img:'https://loremflickr.com/800/1000/sofa,interior?lock=71',
+        sizes:[],
+        colors:[{name:'ECRU',hex:'#EDE6DA',light:true},{name:'STONE',hex:'#C4BBAD'},{name:'CHARCOAL',hex:'#3D3D3D'}] },
+      { id:'f2', name:'BARREL ARMCHAIR', price:1850,
+        desc:'Barrel-shaped armchair in natural linen. Solid ash legs. Seat height 40cm. Generous and enveloping — designed for long reading sessions.',
+        img:'https://loremflickr.com/800/1000/armchair,interior?lock=72',
+        sizes:[],
+        colors:[{name:'NATURAL',hex:'#D4C5A9'},{name:'STONE',hex:'#C4BBAD'},{name:'CHARCOAL',hex:'#3D3D3D'}] },
+      { id:'f3', name:'TRAVERTINE SIDE TABLE', price:1100,
+        desc:'Solid travertine side table with a hand-polished top and raw edges on three sides. Each piece is unique. Weight approx. 18kg.',
+        img:'https://loremflickr.com/800/1000/marble,table?lock=73',
+        sizes:[] },
+      { id:'f4', name:'PAPER FLOOR LAMP', price:680,
+        desc:'Floor lamp with a hand-formed washi paper shade and a powder-coated steel base. E27 bulb not included. H 165cm.',
+        img:'https://loremflickr.com/800/1000/lamp,interior?lock=74',
+        sizes:[] },
+      { id:'f5', name:'OAK DAYBED', price:3100,
+        desc:'Minimal daybed in solid European white oak. Linen-covered mattress. 200 × 80 × 38cm. Frame available in oiled or smoked finish.',
+        img:'https://loremflickr.com/800/1000/daybed,interior?lock=75',
+        sizes:[] },
+      { id:'f6', name:'CERAMIC BOWL COLLECTION', price:320,
+        desc:'Set of three hand-thrown stoneware bowls in graduating sizes. Matte volcanic glaze. Dishwasher safe. Each set is slightly different.',
+        img:'https://loremflickr.com/800/1000/ceramic,bowl?lock=76',
+        sizes:[] }
+    ], 'col-2');
+  </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luisa Monâ — Accessories</title>
+  <link rel="stylesheet" href="lm-styles.css">
+</head>
+<body>
+  <div class="page-header">
+    <h1 class="page-title">ACCESSORIES</h1>
+    <p class="page-subtitle">JEWELLERY, BELTS &amp; OBJECTS</p>
+  </div>
+  <div class="product-grid col-4" id="product-grid"></div>
+  <footer class="site-footer"><span>LUISA MONÂ</span><span>&copy; 2024</span></footer>
+  <script src="lm-store.js"></script>
+  <script src="lm-ui.js"></script>
+  <script>
+    LMPage.renderGrid([
+      { id:'a1', name:'SLIM LEATHER BELT', price:195,
+        desc:'20mm belt in smooth full-grain leather with a matte brass pin buckle. Available in black and tobacco. Made in Italy.',
+        img:'https://loremflickr.com/800/1000/belt,leather?lock=51',
+        sizes:['70cm','75cm','80cm','85cm','90cm','95cm'],
+        colors:[{name:'BLACK',hex:'#1C1C1C'},{name:'TOBACCO',hex:'#8B6543'}] },
+      { id:'a2', name:'SHIELD SUNGLASSES', price:320,
+        desc:'Oversized shield frame in acetate. UV400 lenses. Spring hinges. Comes with a suede pouch and hard case.',
+        img:'https://loremflickr.com/800/1000/sunglasses,fashion?lock=52',
+        sizes:[] },
+      { id:'a3', name:'SCULPTURAL RING', price:580,
+        desc:'Sand-cast silver ring with an intentionally irregular surface. Each piece is unique. Oxidised to a dark pewter finish. Unisex.',
+        img:'https://loremflickr.com/800/1000/ring,silver?lock=53',
+        sizes:['50','52','54','56','58','60'] },
+      { id:'a4', name:'CHAIN NECKLACE', price:440,
+        desc:'Heavy gauge sterling silver chain necklace. Lobster clasp. 55cm length. Can be worn double-looped. Tarnish-resistant finish.',
+        img:'https://loremflickr.com/800/1000/necklace,silver?lock=54',
+        sizes:[] },
+      { id:'a5', name:'MERINO SCARF', price:165,
+        desc:'Double-layered merino scarf in naturally undyed fleece. Generous 200 × 70cm. Lightweight yet warm. Zero finishing — raw edges.',
+        img:'https://loremflickr.com/800/1000/scarf,wool?lock=55',
+        sizes:[],
+        colors:[{name:'ECRU',hex:'#EDE6DA',light:true},{name:'BLACK',hex:'#1C1C1C'},{name:'STONE',hex:'#C4BBAD'}] },
+      { id:'a6', name:'CASHMERE BEANIE', price:145,
+        desc:'Ribbed pure cashmere beanie. Slim fold. Available in storm, ecru, and black. One size fits most.',
+        img:'https://loremflickr.com/800/1000/beanie,hat?lock=56',
+        sizes:[],
+        colors:[{name:'STORM',hex:'#6B7B8D'},{name:'ECRU',hex:'#EDE6DA',light:true},{name:'BLACK',hex:'#1C1C1C'}] },
+      { id:'a7', name:'STUD EARRINGS', price:280,
+        desc:'Architectural oxidised silver studs. 12mm diameter. Butterfly fastening. Sold as a pair. Hypoallergenic posts.',
+        img:'https://loremflickr.com/800/1000/earrings,jewelry?lock=57',
+        sizes:[] },
+      { id:'a8', name:'CARD HOLDER', price:110,
+        desc:'Slim vegetable-tanned card holder with four slots. Natural patina develops over time. Holds 8–10 cards when broken in.',
+        img:'https://loremflickr.com/800/1000/wallet,leather?lock=58',
+        sizes:[] }
+    ], 'col-4');
+  </script>
+</body>
+</html>
