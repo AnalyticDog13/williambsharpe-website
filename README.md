@@ -12,7 +12,7 @@ tools/build_charts.py          pre-renders the Kalshi charts into the HTML (not 
 assets/img, assets/slides      screenshots and Marko pitch-deck slides (webp)
 assets/media                   Marko pitch deck PDF
 sites/ben-wilson, sites/luisa-mona   copies of client sites, embedded live on the agency page (noindex)
-linkedin/                      full-size images for LinkedIn (not deployed, see .vercelignore)
+project_imgs/                  full-size images for LinkedIn (not deployed, see .vercelignore)
 ```
 
 ## Run locally
