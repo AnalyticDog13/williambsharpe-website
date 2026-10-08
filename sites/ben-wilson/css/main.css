@@ -158,6 +158,19 @@ html, body {
   position: relative;
 }
 
+/* Narrow screens: the tabs (~720px) don't fit, so let the bar scroll sideways
+   instead of centering it and pushing Home / More off both edges */
+@media (max-width: 760px) {
+  .bottom-nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 0 12px;
+  }
+  .bottom-nav::-webkit-scrollbar { display: none; }
+  .nav-btn { flex-shrink: 0; padding: 8px 10px; }
+}
+
 /* ---- More Menu — anchored to the More button, slides up above it ---- */
 .more-menu {
   position: fixed;

@@ -264,7 +264,9 @@ figcaption { margin-top: 12px; font-size: 14px; color: var(--muted); }
 .chart-title { font-weight: 800; font-size: 16px; letter-spacing: -0.01em; }
 .chart-sub { font-size: 14px; color: var(--muted); margin: 2px 0 18px; }
 .chart svg text { font-family: "Manrope", system-ui, sans-serif; }
-[data-chart="ensemble"] svg { width: 100%; max-width: 720px; margin: 0 auto; }
+.chart-ensemble svg { width: 100%; max-width: 720px; margin: 0 auto; }
+/* The chart scales to ~55% on phones; enlarge its labels so they stay readable (~9.5px rendered) */
+@media (max-width: 600px) { .chart-ensemble svg text { font-size: 17px; } }
 .chart-legend { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 13px; color: var(--ink-2); font-weight: 600; margin-top: 14px; }
 .chart-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
 

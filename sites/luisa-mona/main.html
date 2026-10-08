@@ -123,10 +123,16 @@
       .side-nav a { font-size: 9px; letter-spacing: 0.1em; }
       #hero-frame { aspect-ratio: 3/4; }
     }
+    /* Phones: side columns leave the hero too narrow, so stack the navs as rows above and below it */
     @media (max-width: 540px) {
-      .side-nav { width: 68px; padding: 0 0 0 10px; gap: 0; }
-      .side-nav.right { padding: 0 10px 0 0; }
-      .side-nav a { font-size: 8px; padding: 7px 0; letter-spacing: 0.06em; }
+      #store-body { flex-direction: column; }
+      .side-nav, .side-nav.right {
+        width: auto; flex-direction: row; flex-wrap: wrap; justify-content: center;
+        align-items: center; gap: 0 16px; padding: 6px 16px;
+      }
+      .side-nav a { font-size: 10px; padding: 6px 0; letter-spacing: 0.1em; }
+      #hero-wrap { padding: 4px 16px; min-height: 0; }
+      #hero-frame { max-height: 100%; max-width: 100%; }
       #ticker-wrap { height: 68px; }
       .ticker-thumb { width: 38px; height: 48px; }
     }

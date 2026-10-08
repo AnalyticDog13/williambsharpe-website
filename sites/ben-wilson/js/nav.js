@@ -2,6 +2,13 @@
 var moreBtn  = document.getElementById('moreBtn');
 var moreMenu = document.getElementById('moreMenu');
 
+// On narrow screens the bottom nav scrolls sideways; start it centered on the current page's tab
+var bottomNav = document.querySelector('.bottom-nav');
+var activeTab = bottomNav && bottomNav.querySelector('.nav-btn.active');
+if (activeTab && bottomNav.scrollWidth > bottomNav.clientWidth) {
+  bottomNav.scrollLeft = activeTab.offsetLeft - (bottomNav.clientWidth - activeTab.offsetWidth) / 2;
+}
+
 function positionMenu() {
   if (!moreBtn || !moreMenu) return;
   var btnRect = moreBtn.getBoundingClientRect();

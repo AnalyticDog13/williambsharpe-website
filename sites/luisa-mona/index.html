@@ -36,6 +36,11 @@
       width: 245px;
     }
 
+    /* Phones: the centered logo collides with MENU / CONTACT, so drop it below that row */
+    @media (max-width: 600px) {
+      #logo { top: 64px; width: 210px !important; }
+    }
+
     #logo path {
       stroke: #F1ECE4;
       stroke-width: 8;
@@ -453,7 +458,8 @@
 
         /* align MENU + right group vertically with logo center */
         var rLogo  = logo.getBoundingClientRect();
-        var logoCY = rLogo.top + rLogo.height / 2;
+        /* on phones the logo sits below the header row, so keep the row at its default top */
+        var logoCY = window.innerWidth <= 600 ? 47 : rLogo.top + rLogo.height / 2;
         var rightGroup = document.getElementById('hdr-right-group');
         if (rightGroup) { rightGroup.style.top = (logoCY - 15) + 'px'; rightGroup.style.fontSize = fs + 'px'; }
         contactBtn.style.fontSize = fs + 'px';

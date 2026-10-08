@@ -35,7 +35,7 @@ def ensemble_svg(compact: bool) -> str:
     lo, hi = 54, 71
     r = 6 if compact else 6.5
     gap = r * 2 + (2 if compact else 2.4)
-    pad_l, pad_b, pad_t = (20, 18, 30) if compact else (36, 44, 40)
+    pad_l, pad_b, pad_t = (20, 18, 30) if compact else (36, 48, 40)
     col_w = gap + (4 if compact else 13)
     max_n = max(ENSEMBLE.values())
     W = pad_l * 2 + (hi - lo) * col_w
@@ -68,13 +68,13 @@ def ensemble_svg(compact: bool) -> str:
         for t in range(lo, hi + 1, 2):
             out.append(f'<text x="{x(t):.1f}" y="{base + 20:.1f}" text-anchor="middle" font-size="12" '
                        f'fill="#6a7b8d" font-weight="600" {txt}>{t}°</text>')
-        out.append(f'<text x="{W / 2:.1f}" y="{base + 36:.1f}" text-anchor="middle" font-size="12" fill="#6a7b8d" '
+        out.append(f'<text x="{W / 2:.1f}" y="{base + 40:.1f}" text-anchor="middle" font-size="12" fill="#6a7b8d" '
                    f'font-weight="700" {txt}>Forecast daily high, Chicago (°F)</text>')
         out.append(f'<text x="{band_x + 8:.1f}" y="{pad_t - 10}" font-size="12.5" fill="#2a68b1" font-weight="800" '
                    f'{txt}>Market: high ≥ 62°F</text>')
         out.append(f'<text x="{x(lo):.1f}" y="{pad_t - 10}" font-size="12.5" fill="#6a7b8d" font-weight="700" '
                    f'{txt}>44 members below</text>')
-        out.append(f'<text x="{x(hi) + col_w / 2 - 6:.1f}" y="{pad_t + 12}" text-anchor="end" font-size="12.5" '
+        out.append(f'<text x="{x(hi) + col_w / 2 - 6:.1f}" y="{pad_t + 18}" text-anchor="end" font-size="12.5" '
                    f'fill="#2a68b1" font-weight="700" {txt}>95 members above</text>')
     out.append("</svg>")
     return "".join(out)
