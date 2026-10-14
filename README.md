@@ -9,6 +9,7 @@ assets/css/style.css           all styles (Manrope, white + calm blue)
 assets/js/main.js              optional enhancements: slide deck viewer, inline YouTube player
 tools/build_charts.py          pre-renders the Kalshi charts into the HTML (not deployed)
 404.html                       not-found page (Vercel serves it automatically)
+robots.txt, sitemap.xml         crawl rules and page list for search engines (update lastmod when pages change)
 assets/img, assets/slides      screenshots and Marko pitch-deck slides (webp)
 assets/media                   Marko pitch deck PDF
 sites/ben-wilson, sites/luisa-mona   copies of client sites, embedded live on the agency page (noindex)
