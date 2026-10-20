@@ -13,6 +13,16 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   });
 
+  /* Local time in the profile overview. */
+  safely(() => {
+    document.querySelectorAll('[data-time]').forEach((el) => {
+      const fmt = new Intl.DateTimeFormat('en-US', { hour: '2-digit', minute: '2-digit', timeZone: el.dataset.time });
+      const tick = () => { el.textContent = fmt.format(new Date()); };
+      tick();
+      setInterval(tick, 30000);
+    });
+  });
+
   /* Slide deck: without JS it's a swipeable strip; with JS, one slide at a time. */
   document.querySelectorAll('.deck').forEach((deck) => safely(() => {
     const slides = [...deck.querySelectorAll('.deck-stage img')];
