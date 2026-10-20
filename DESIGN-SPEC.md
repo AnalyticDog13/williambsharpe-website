@@ -84,7 +84,7 @@ Order from top to bottom:
 ## 5. Photo carousel
 
 - **Frame:** `aspect-ratio: 16/9`, `overflow: hidden`, 6px radius, `--muted` background. It is focusable (`tabindex=0`, `role=group`, `aria-label="Photo gallery"`), with a 1px fg/30% focus ring. Images use `object-fit: cover`, and each photo can set its own `object-position`.
-- **Bottom shade:** a 56px band along the bottom edge, `linear-gradient(to top, rgba(0,0,0,.35), transparent)`, with `backdrop-filter: blur(1.5px)` masked to fade upward. It makes the controls readable on any photo.
+- **Bottom shade:** a 96px band along the bottom edge: `linear-gradient(to top, rgba(0,0,0,.38), rgba(0,0,0,.12) 55%, transparent)` with `backdrop-filter: blur(4px)`, masked so it fades in from 25% up. It blends the photo into the controls and keeps them readable. rajan.sh uses a 56px band with a 1.5px blur, but William's brighter photos needed a taller, softer band to get the same blended look.
 - **Controls**, centered 10px above the bottom edge, white at 75% opacity:
   - `←` and `→` buttons, each 24×24 with a 16px glyph. Hover makes them full white.
   - Between the arrows sit the dots: 6px circles 6px apart. The current dot is white. The others are white at 55%, and 80% on hover. Each dot has an `aria-label` of "Show photo N".
