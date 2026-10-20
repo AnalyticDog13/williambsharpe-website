@@ -5,6 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>marko - William Sharpe</title>
   <meta name="description" content="marko: indoor AR navigation from a single phone, with no beacons. 2nd place of 60 teams at BigRed//Hacks 2026.">
+  <link rel="canonical" href="https://williambsharpe.com/projects/marko">
+  <meta name="author" content="William Sharpe">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="William Sharpe">
+  <meta property="og:title" content="marko - William Sharpe">
+  <meta property="og:description" content="marko: indoor AR navigation from a single phone, with no beacons. 2nd place of 60 teams at BigRed//Hacks 2026.">
+  <meta property="og:url" content="https://williambsharpe.com/projects/marko">
+  <meta property="og:image" content="https://williambsharpe.com/img/og/marko.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="marko - William Sharpe">
+  <meta name="twitter:description" content="marko: indoor AR navigation from a single phone, with no beacons. 2nd place of 60 teams at BigRed//Hacks 2026.">
+  <meta name="twitter:image" content="https://williambsharpe.com/img/og/marko.jpg">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "CreativeWork", "name": "marko", "description": "marko: indoor AR navigation from a single phone, with no beacons. 2nd place of 60 teams at BigRed//Hacks 2026.", "url": "https://williambsharpe.com/projects/marko", "image": "https://williambsharpe.com/img/og/marko.jpg", "author": {"@type": "Person", "name": "William Sharpe", "url": "https://williambsharpe.com/"}}</script>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,7 +66,7 @@
             <button type="button" class="fig-btn" data-k="play">Replay</button>
           </div>
           <canvas data-k="canvas" role="img" aria-label="Floor 2 of PSB and Clark seen from above. A walked trajectory draws itself, and the walkable grid fills in around it."></canvas>
-          <input class="fig-range" data-k="scrub" type="range" min="0" max="1000" value="1000" aria-label="Replay the Capture Walk">
+          <input class="fig-range" name="walk-progress" data-k="scrub" type="range" min="0" max="1000" value="1000" aria-label="Replay the Capture Walk">
           <div class="fig-legend">
             <span><i class="stroke" style="color:var(--fig-1)"></i>Capture Walk trajectory</span>
             <span><i style="background:var(--fig-3);opacity:.55"></i>Walkable space</span>
@@ -71,8 +87,8 @@
 
         <figure class="fig cursor" data-fig="router">
           <div class="fig-bar">
-            <select class="fig-select" data-k="from" aria-label="From"></select>
-            <select class="fig-select" data-k="to" aria-label="To"></select>
+            <select class="fig-select" name="from" data-k="from" aria-label="From"></select>
+            <select class="fig-select" name="to" data-k="to" aria-label="To"></select>
             <button type="button" class="fig-btn" data-k="shuffle">Shuffle</button>
             <span class="grow"></span>
             <button type="button" class="fig-btn" data-k="raw" aria-pressed="false">Grid path</button>
@@ -154,11 +170,11 @@
           <div class="phone-views">
             <div>
               <p class="fig-label">Phone up: route ribbon</p>
-              <img src="../img/marko/follow.webp" alt="Route ribbon view: a green trail on the corridor floor, 35 m, turn right at 294 Clark" loading="lazy">
+              <img src="../img/marko/follow.webp" width="640" height="1391" alt="Route ribbon view: a green trail on the corridor floor, 35 m, turn right at 294 Clark" loading="lazy">
             </div>
             <div>
               <p class="fig-label">Phone down: guidance arrow</p>
-              <img src="../img/marko/down.webp" alt="Guidance arrow view: a ring arrow points ahead, 23 m, bear left at 120 PSB Seminar Room" loading="lazy">
+              <img src="../img/marko/down.webp" width="640" height="1390" alt="Guidance arrow view: a ring arrow points ahead, 23 m, bear left at 120 PSB Seminar Room" loading="lazy">
             </div>
           </div>
         </div>

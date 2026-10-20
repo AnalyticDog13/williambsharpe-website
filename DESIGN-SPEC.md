@@ -79,7 +79,7 @@ Order from top to bottom:
    - LinkedIn: https://www.linkedin.com/in/williambsharpe/
    - GitHub: https://github.com/AnalyticDog13
    - "email me": `mailto:ws527@cornell.edu`
-5. **Photo carousel** (section 5), in a `.breakout` with a 32px top margin. It is the last thing on the page.
+5. **Photo carousel** (section 5), in a `.breakout` with a 32px top margin. It is the last thing on the page. Below 640px wide (phones) it is hidden, and the page ends after the contact paragraph.
 
 ## 5. Photo carousel
 
@@ -213,3 +213,12 @@ sites/                   client sites linked from the agency page
 ```
 
 Assets use relative paths. The client sites are linked from the root (`/sites/ben-wilson/`, `/sites/luisa-mona/`).
+
+## 11. SEO and security
+
+- **Head tags:** every page has a unique `<title>`, a description of up to about 160 characters, a canonical URL on williambsharpe.com, Open Graph and Twitter `summary_large_image` tags, and a 1200×630 share image from `img/og/`.
+- **Structured data:** the home page carries schema.org `WebSite` + `Person` data (LinkedIn and GitHub as `sameAs`). Project pages carry `CreativeWork` data.
+- **Crawling:** `sitemap.xml` lists the five pages, and `robots.txt` points to it. The client sites in `sites/` are `noindex`. `404.html` uses the site layout and is `noindex`.
+- **Security headers** (`vercel.json`): every path gets `nosniff`, `strict-origin-when-cross-origin`, `X-Frame-Options: SAMEORIGIN`, and a restrictive `Permissions-Policy`.
+  - Everything outside `sites/` also gets a CSP that allows only this origin, Google Fonts, and the youtube-nocookie embed. It sets `frame-ancestors 'none'` and blocks objects, forms and inline script.
+  - Adding any new third-party resource means updating the CSP.

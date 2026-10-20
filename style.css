@@ -176,6 +176,10 @@ td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
   .phones, .phone-views { grid-template-columns: repeat(2, 1fr); }
   .phone-views { gap: 1rem; }
 }
+/* Phones: no photo carousel on the home page. */
+@media (max-width: 39.99rem) {
+  .carousel { display: none; }
+}
 @media (min-width: 40rem) {
   .scan-side { grid-template-columns: 10rem 1fr; }
 }
