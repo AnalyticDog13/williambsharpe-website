@@ -1,19 +1,19 @@
 # williambsharpe.com
 
-Personal portfolio for William Sharpe. Plain HTML, CSS and a little vanilla JS. No build step.
+Personal portfolio for William Sharpe. Plain HTML, CSS and vanilla JS. No build step. The design is specified in `DESIGN-SPEC.md` (modeled on rajan.sh).
 
 ```
-index.html                     home: intro, work, about, contact
+index.html                     home: intro, contact, photo carousel with hue backdrop
+projects.html                  project list
 projects/*.html                one page per project
-assets/css/style.css           all styles (Manrope, white + calm blue)
-assets/js/main.js              optional enhancements: slide deck viewer, inline YouTube player
-tools/build_charts.py          pre-renders the Kalshi charts into the HTML (not deployed)
-404.html                       not-found page (Vercel serves it automatically)
-robots.txt, sitemap.xml         crawl rules and page list for search engines (update lastmod when pages change)
-assets/img, assets/slides      screenshots and Marko pitch-deck slides (webp)
-assets/media                   Marko pitch deck PDF
-sites/ben-wilson, sites/luisa-mona   copies of client sites, embedded live on the agency page (noindex)
-project_imgs/                  full-size images for LinkedIn (not deployed, see .vercelignore)
+style.css                      all styles
+site.js                        hue backdrop (WebGL) + carousel
+marko-figures.js               interactive figures on the marko page (adapted from mdelriolanse.com/blog/marko)
+img/                           project images; img/marko/ holds the marko map data and media
+photos/                        carousel slides, 16:9 at 1600x900 (originals kept but not deployed)
+sites/ben-wilson, sites/luisa-mona   client sites linked from the agency page (noindex)
+project_imgs/                  full-size images for LinkedIn (not deployed)
+robots.txt, sitemap.xml        crawl rules and page list (update lastmod when pages change)
 ```
 
 ## Run locally
@@ -27,9 +27,3 @@ npx serve .
 ## Deploy
 
 Import the repo in Vercel with the "Other" framework preset, no build command, and output directory `.`.
-
-## Editing
-
-- Project copy lives directly in each `projects/*.html` file.
-- Kalshi chart data lives in `tools/build_charts.py`. After editing it, run `python tools/build_charts.py` to re-inline the charts.
-- No animations. Every page works with JavaScript disabled: the charts are static, the deck becomes a swipeable strip, and the demo video links to YouTube.

@@ -1,10 +1,9 @@
 project_imgs/
-assets/raw/
-tools/
 README.md
-# carousel originals (HEIC/MOV); the site uses the converted .webp/.mp4
-new/photos/*.HEIC
-new/photos/*.MOV
-new/photos/README.txt
-new/photos/*.JPEG
-new/photos/*.JPG
+DESIGN-SPEC.md
+# carousel originals; the site uses the converted .webp/.mp4
+photos/*.HEIC
+photos/*.MOV
+photos/*.JPEG
+photos/*.JPG
+photos/README.txt

@@ -2,14 +2,13 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/projects", "destination": "/#work", "permanent": true },
-    { "source": "/contact", "destination": "/#contact", "permanent": true },
-    { "source": "/about", "destination": "/#about", "permanent": true },
+    { "source": "/contact", "destination": "/", "permanent": true },
+    { "source": "/about", "destination": "/", "permanent": true },
     { "source": "/index", "destination": "/", "permanent": true }
   ],
   "headers": [
     {
-      "source": "/assets/(.*)",
+      "source": "/(img|photos)/(.*)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }]
     },
     {

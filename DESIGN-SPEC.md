@@ -1,6 +1,6 @@
 # Design spec: William Sharpe portfolio (modeled on rajan.sh)
 
-This spec is the only source of design decisions for the site in `new/`. The old site at the repo root is used for **content only** (project text, dates, links, images). None of its styles, fonts, colors or layout are reused.
+This spec is the only source of design decisions for this site. It was built in `new/` and moved to the repo root on 2026-10-20, replacing the old site. The old site was used for **content only** (project text, dates, links, images). None of its styles, fonts, colors or layout were reused.
 
 Everything below was measured from https://www.rajan.sh/ on 2026-10-20 (computed styles, the live WebGL shader source, and the carousel component), at 1440px and 390px wide.
 
@@ -93,7 +93,7 @@ Order from top to bottom:
 - **Transition:** the incoming photo fades in over the current one (opacity 0→1, **450ms ease-out**), then becomes the current photo. Under reduced motion the swap is instant.
 - **Input:** the ← and → keys work when the frame has focus. Swipes of 44px or more work on touch screens.
 - **Palette:** every photo has a two-color palette `[primary, secondary]`. When a photo is shown, the hue backdrop eases toward its palette.
-- **Slides** live in `new/photos/` and are cropped to 16:9 (1600×900 WebP) before publishing. Each crop is chosen per photo so the subject stays in frame, which leaves `object-fit: cover` nothing to cut.
+- **Slides** live in `photos/` and are cropped to 16:9 (1600×900 WebP) before publishing. Each crop is chosen per photo so the subject stays in frame, which leaves `object-fit: cover` nothing to cut.
   - Each slide's palette is picked from its own colors: a cool tone for the left, and a warm or contrasting tone for the right, as on rajan.sh.
   - A slide can be a video: muted, looping, `playsinline`, `preload="none"`, with a poster frame and no audio. It plays only while it is the current slide, and under reduced motion it shows its poster. Keep video clips short (about 5 s, 1280px H.264 MP4). A GIF of the same clip is about 5× larger.
 
@@ -197,21 +197,19 @@ The marko page carries four live figures that run on the building's real map. Th
 ## 10. Files
 
 ```
-new/
-  DESIGN-SPEC.md         this file
-  index.html             home
-  projects.html          project list
-  projects/marko.html
-  projects/kalshi-weather-bot.html
-  projects/web-design-agency.html
-  style.css              all styles
-  site.js                hue backdrop + carousel (home)
-  marko-figures.js       interactive marko figures (spec 8.1)
-  favicon.svg
-  img/                   project images, copied from the old site (content only)
-  photos/                William's carousel photos (to be added)
+DESIGN-SPEC.md           this file
+index.html               home
+projects.html            project list
+projects/marko.html
+projects/kalshi-weather-bot.html
+projects/web-design-agency.html
+style.css                all styles
+site.js                  hue backdrop + carousel (home)
+marko-figures.js         interactive marko figures (spec 8.1)
+favicon.svg
+img/                     project images; img/marko/ holds the marko map data and media
+photos/                  carousel slides (originals kept, excluded from deploy)
+sites/                   client sites linked from the agency page
 ```
 
-Assets inside `new/` use relative paths, so the folder works wherever it is served. Two large shared resources are linked from the site root instead of being copied:
-- the marko pitch-deck PDF (`/assets/media/marko-pitch-deck.pdf`)
-- the live client sites (`/sites/ben-wilson/`, `/sites/luisa-mona/`)
+Assets use relative paths. The client sites are linked from the root (`/sites/ben-wilson/`, `/sites/luisa-mona/`).
