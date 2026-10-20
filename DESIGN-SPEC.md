@@ -75,7 +75,7 @@ Order from top to bottom:
 3. **Intro**, two paragraphs, 20px apart, 16/28 muted-fg. From 640px up they are justified (`text-align: justify; text-align-last: left; text-justify: inter-word`).
    - P1: "I'm a sophomore studying Operations Research and Information Engineering at [Cornell University], currently working on bringing my ideas to life through independent projects and startup collaboration (namely [marko])." Cornell links to cornell.edu, and marko links to the marko project page.
    - P2: "I'm from Los Angeles and love playing the piano, the guitar, traveling, exploring outdoors, and all things entrepreneurship, AI, and data science."
-4. **Contact paragraph**, directly under the intro (William asked for it above the photos, unlike the reference), 20px top margin, 16/28 muted-fg, `text-wrap: pretty` (not justified): "Reach out to me if you have fun ideas, would like to collaborate on a project, or want to go rock climbing. You can find me on [LinkedIn], [GitHub], or email me at [ws527@cornell.edu]."
+4. **Contact paragraph**, directly under the intro (William asked for it above the photos, unlike the reference), 20px top margin, 16/28 muted-fg, justified from 640px up like the intro: "Reach out to me if you have fun ideas, would like to collaborate on a project, or want to go rock climbing. You can find me on [LinkedIn], [GitHub], or email me at [ws527@cornell.edu]."
    - LinkedIn: https://www.linkedin.com/in/williambsharpe/
    - GitHub: https://github.com/AnalyticDog13
    - "ws527@cornell.edu": `mailto:ws527@cornell.edu`

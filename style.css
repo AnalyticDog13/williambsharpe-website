@@ -192,7 +192,7 @@ td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
   .content { padding-top: 3rem; }
   .site-header { flex-direction: row; align-items: center; gap: 1.5rem; }
   .site-header nav { gap: 1rem; }
-  .intro p { text-align: justify; text-align-last: left; text-justify: inter-word; }
+  .intro p, .contact { text-align: justify; text-align-last: left; text-justify: inter-word; }
 }
 
 @media (min-width: 64rem) {
