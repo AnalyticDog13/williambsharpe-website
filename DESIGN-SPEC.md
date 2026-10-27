@@ -122,11 +122,12 @@ This mirrors rajan.sh/engineering.
 - The header nav shows `projects` in fg (active).
 - Page header: h1 "Projects", then the subtitle "Things I've built" (the reference page has a one-line subtitle in the same spot).
 - A 32px gap, then an `<ol>` of projects with 28px between items, newest first:
-  1. **marko**: "Indoor AR wayfinding built from a floor plan and a single phone scan. No beacons, no QR codes." Meta: `Oct 2026 · 2nd place, BigRed//Hacks 2026`
-  2. **AI-Powered Web Design Agency**: "An AI pipeline that finds local businesses with weak websites, scores them, and pitches a better one." Meta: `May 2026 · Founder, Los Angeles`
-  3. **Kalshi Weather Trading Bot**: "A bot that prices weather markets in 5 cities from 139-member ensemble forecasts and trades the gap." Meta: `Mar 2026 · Solo build, ran live`
+  1. **rightnow-ai**: "A self-hosted, open-source cold-email platform: mailbox warm-up, campaigns, a unified inbox and a CRM." Meta: `Oct 2026 · Open source, verified live`
+  2. **marko**: "Indoor AR wayfinding built from a floor plan and a single phone scan. No beacons, no QR codes." Meta: `Oct 2026 · 2nd place, BigRed//Hacks 2026`
+  3. **AI-Powered Web Design Agency**: "An AI pipeline that finds local businesses with weak websites, scores them, and pitches a better one." Meta: `May 2026 · Founder, Los Angeles`
+  4. **Kalshi Weather Trading Bot**: "A bot that prices weather markets in 5 cities from 139-member ensemble forecasts and trades the gap." Meta: `Mar 2026 · Solo build, ran live`
 - Each title links to that project's page in `projects/`. On rajan.sh the titles link straight out to GitHub. Here they open an in-site page, and the repo is linked from there.
-- rajan.sh splits pinned items from a "More" list under a hairline rule. With three projects there is only one list. If the list grows past about five, add `<section>` with a 40px top margin, `border-top: 1px solid var(--border)`, 32px top padding, and a "More" label (12px, 500 weight, fg).
+- rajan.sh splits pinned items from a "More" list under a hairline rule. With four projects there is only one list. If the list grows past about five, add `<section>` with a 40px top margin, `border-top: 1px solid var(--border)`, 32px top padding, and a "More" label (12px, 500 weight, fg).
 - The page ends with a small credit line, 64px below the list, in 12/20 sans at muted-fg 60%: "this website is heavily inspired by the work of [Rajan Agarwal]" (lowercase, the name underlined and linked to linkedin.com/in/rajansagarwal).
 
 ## 8. Project pages (`projects/*.html`)
@@ -200,6 +201,7 @@ The marko page carries four live figures that run on the building's real map. Th
 DESIGN-SPEC.md           this file
 index.html               home
 projects.html            project list
+projects/rightnow-ai.html
 projects/marko.html
 projects/kalshi-weather-bot.html
 projects/web-design-agency.html
@@ -218,7 +220,7 @@ Assets use relative paths. The client sites are linked from the root (`/sites/be
 
 - **Head tags:** every page has a unique `<title>`, a description of up to about 160 characters, a canonical URL on williambsharpe.com, Open Graph and Twitter `summary_large_image` tags, and a 1200×630 share image from `img/og/`.
 - **Structured data:** the home page carries schema.org `WebSite` + `Person` data (LinkedIn and GitHub as `sameAs`). Project pages carry `CreativeWork` data.
-- **Crawling:** `sitemap.xml` lists the five pages, and `robots.txt` points to it. The client sites in `sites/` are `noindex`. `404.html` uses the site layout and is `noindex`.
+- **Crawling:** `sitemap.xml` lists the six pages, and `robots.txt` points to it. The client sites in `sites/` are `noindex`. `404.html` uses the site layout and is `noindex`.
 - **Security headers** (`vercel.json`): every path gets `nosniff`, `strict-origin-when-cross-origin`, `X-Frame-Options: SAMEORIGIN`, and a restrictive `Permissions-Policy`.
   - Everything outside `sites/` also gets a CSP that allows only this origin, Google Fonts, and the youtube-nocookie embed. It sets `frame-ancestors 'none'` and blocks objects, forms and inline script.
   - Adding any new third-party resource means updating the CSP.

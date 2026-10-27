@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>rightnow-ai - William Sharpe</title>
+  <meta name="description" content="A self-hosted, open-source cold-email platform: mailbox warm-up, multi-step campaigns, a unified inbox and a CRM, verified with real mailboxes.">
+  <link rel="canonical" href="https://williambsharpe.com/projects/rightnow-ai">
+  <meta name="author" content="William Sharpe">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="William Sharpe">
+  <meta property="og:title" content="rightnow-ai - William Sharpe">
+  <meta property="og:description" content="A self-hosted, open-source cold-email platform: mailbox warm-up, multi-step campaigns, a unified inbox and a CRM, verified with real mailboxes.">
+  <meta property="og:url" content="https://williambsharpe.com/projects/rightnow-ai">
+  <meta property="og:image" content="https://williambsharpe.com/img/og/home.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="rightnow-ai - William Sharpe">
+  <meta name="twitter:description" content="A self-hosted, open-source cold-email platform: mailbox warm-up, multi-step campaigns, a unified inbox and a CRM, verified with real mailboxes.">
+  <meta name="twitter:image" content="https://williambsharpe.com/img/og/home.jpg">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "CreativeWork", "name": "rightnow-ai", "description": "A self-hosted, open-source cold-email platform: mailbox warm-up, multi-step campaigns, a unified inbox and a CRM, verified with real mailboxes.", "url": "https://williambsharpe.com/projects/rightnow-ai", "image": "https://williambsharpe.com/img/og/home.jpg", "author": {"@type": "Person", "name": "William Sharpe", "url": "https://williambsharpe.com/"}}</script>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400..700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <main>
+    <header class="site-header container">
+      <a class="site-name" href="../">William Sharpe</a>
+      <nav aria-label="Primary"><a href="../projects.html" aria-current="page">projects</a></nav>
+    </header>
+
+    <div class="content container">
+      <header>
+        <h1 class="page-title">rightnow-ai</h1>
+        <p class="page-sub">A self-hosted, open-source cold-email platform: warm-up, campaigns, a unified inbox and a CRM.</p>
+        <div class="page-meta">
+          <div>Solo developer, directing a team of Claude Code agents</div>
+          <div class="row"><time>Oct 2026</time><span class="dot">&middot;</span><span>Complete, verified with real mailboxes</span><span class="dot">&middot;</span><a class="u" href="https://github.com/AnalyticDog13/rightnow-ai" target="_blank" rel="noopener">Code on GitHub &#8599;</a></div>
+        </div>
+      </header>
+
+      <article>
+        <p>Cold-email tools are usually monthly subscriptions that hold your mailbox logins and your lead lists. rightnow-ai does the same job on your own machine or server. You connect your own Gmail, Microsoft 365 or IMAP/SMTP mailboxes, warm them up, run multi-step campaigns, answer every reply in one inbox, and track deals in a built-in CRM. It is open source under the MIT license.</p>
+        <p>It is finished: all 8 build phases are done, about 1,290 automated tests and the browser tests pass in CI, and sending has been verified live with real mailboxes. It covers 311 of the 316 items on the feature checklist I wrote before starting.</p>
+
+        <h2>Built in 8 phases</h2>
+        <table>
+          <thead><tr><th>Phase</th><th>What it added</th></tr></thead>
+          <tbody>
+            <tr><td>1. Foundation</td><td>Monorepo, database, encryption, sign-in and workspaces, background worker, Docker setup with backups</td></tr>
+            <tr><td>2. Mailbox connections</td><td>Gmail, Microsoft 365 and IMAP/SMTP, with encrypted credentials and a shared test suite every provider must pass</td></tr>
+            <tr><td>3. Campaigns</td><td>Lead import, sequences, schedules, quotas, account rotation and a send queue that can't double-send</td></tr>
+            <tr><td>4. Incoming mail</td><td>Inbox sync, threading, reply classification, stop-on-reply rules, open and click tracking, unified inbox</td></tr>
+            <tr><td>5. Deliverability</td><td>DNS checks, health scores with automatic slow-down, warm-up, inbox placement tests, re-warm-up for idle mailboxes</td></tr>
+            <tr><td>6. CRM and analytics</td><td>Kanban pipeline, revenue tracked back to campaigns, dashboards and CSV exports</td></tr>
+            <tr><td>7. Advanced</td><td>Automations, signed webhooks, AI drafting with human approval, 2FA, GDPR export and erasure, accessibility pass</td></tr>
+            <tr><td>8. Final verification</td><td>Cross-system review, a crash-and-resume drill, license check, live tests with real mailboxes</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Sending you can trust</h2>
+        <p>The hard part of a cold-email tool isn't writing the email. It's never sending the wrong one. Everything runs on a single PostgreSQL database, including the job and send queues, so there is no second system to drift out of sync.</p>
+        <ul>
+          <li><strong>No double sends.</strong> A worker claims a message and reserves that mailbox's daily quota in the same transaction, so parallel workers can't overshoot a limit or send twice.</li>
+          <li><strong>Catch up before sending.</strong> After a crash, an outage or a laptop waking from sleep, a mailbox must sync its replies, bounces and unsubscribes before it may send again. Nobody gets a follow-up after they already replied.</li>
+          <li><strong>Unknown means hold.</strong> If the app can't tell whether a send went through, it checks the Sent folder. If the copy isn't there, the message is held for a person to decide, never resent blindly.</li>
+          <li><strong>Honest by design.</strong> Every campaign email carries a working unsubscribe, and warm-up never fakes opens or pulls mail out of spam. It sends plainly labelled messages between your own mailboxes and measures where they land.</li>
+        </ul>
+
+        <h2>How it was built</h2>
+        <p>I wrote the spec and acted as the orchestrator: Claude Code agents implemented each of the 76 tasks test-first, and a separate reviewer agent checked every task before it was merged. Each phase ended with a whole-branch review and a fix round. CI runs the full test suite, a real IMAP/SMTP mail server test and a Docker Compose smoke test on every push. Every design decision and its reason is written down in the repo, about 50 of them in all.</p>
+
+        <h2>Skills applied</h2>
+        <p>TypeScript, Next.js, React, PostgreSQL, Prisma, concurrency and transactional queues, OAuth (Google and Microsoft), the Gmail and Microsoft Graph APIs, IMAP/SMTP, email deliverability (SPF, DKIM, DMARC), encryption at rest, Docker, CI with GitHub Actions, Vitest, Playwright, and orchestrating AI coding agents.</p>
+
+        <h2>Links</h2>
+        <ul>
+          <li><a href="https://github.com/AnalyticDog13/rightnow-ai" target="_blank" rel="noopener">Code on GitHub</a></li>
+          <li><a href="https://github.com/AnalyticDog13/rightnow-ai#how-to-use-it" target="_blank" rel="noopener">How to set it up and use it</a></li>
+        </ul>
+      </article>
+    </div>
+  </main>
+</body>
+</html>

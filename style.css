@@ -86,8 +86,6 @@ main { position: relative; z-index: 10; min-height: 100vh; overflow: hidden; }
 /* Project list */
 .projects { list-style: none; margin-top: 2rem; }
 .projects li + li { margin-top: 1.75rem; }
-.section-label { margin-top: 2.5rem; }
-.section-label + .projects { margin-top: .75rem; }
 .projects .name { font: 500 16px/28px var(--serif); color: var(--fg); }
 .projects .name a { text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 3px; }
 .projects .name a:hover { text-decoration-color: var(--fg); }
