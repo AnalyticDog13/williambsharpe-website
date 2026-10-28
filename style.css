@@ -36,6 +36,7 @@ main { position: relative; z-index: 10; min-height: 100vh; overflow: hidden; }
 /* Home */
 .intro p { color: var(--muted-fg); line-height: 28px; }
 .intro p + p { margin-top: 1.25rem; }
+.mobile-projects { display: none; }
 .contact { margin-top: 1.25rem; color: var(--muted-fg); line-height: 28px; text-wrap: pretty; }
 
 /* Hue backdrop */
@@ -176,9 +177,10 @@ td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
   .phones, .phone-views { grid-template-columns: repeat(2, 1fr); }
   .phone-views { gap: 1rem; }
 }
-/* Phones: no photo carousel on the home page. */
+/* Phones: no photo carousel on the home page; the projects link moves below the text, in bold. */
 @media (max-width: 39.99rem) {
-  .carousel { display: none; }
+  .carousel, .site-header .home-nav { display: none; }
+  .mobile-projects { display: block; margin-top: 2rem; font-weight: 700; color: var(--fg); }
 }
 @media (min-width: 40rem) {
   .scan-side { grid-template-columns: 10rem 1fr; }
