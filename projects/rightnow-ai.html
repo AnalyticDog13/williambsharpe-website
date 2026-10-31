@@ -48,6 +48,43 @@
         <p>Cold-email tools are usually monthly subscriptions that hold your mailbox logins and your lead lists. rightnow-ai does the same job on your own machine or server. You connect your own Gmail, Microsoft 365 or IMAP/SMTP mailboxes, warm them up, run multi-step campaigns, answer every reply in one inbox, and track deals in a built-in CRM. It is open source under the MIT license.</p>
         <p>It is finished: all 8 build phases are done, about 1,290 automated tests and the browser tests pass in CI, and sending has been verified live with real mailboxes. It covers 311 of the 316 items on the feature checklist I wrote before starting.</p>
 
+        <div class="figure">
+          <a href="/sites/rightnow-ai/index.html" target="_blank" rel="noopener"><img class="rounded" src="../img/rightnow-landing.webp" alt="rightnow-ai launch page: the headline 'Open-source cold email you run yourself' with buttons to view the code on GitHub and set it up" width="1600" height="1000"></a>
+          <p class="caption"><em><a href="/sites/rightnow-ai/index.html" target="_blank" rel="noopener">Explore the launch page</a>. It explains how to use rightnow-ai, how to set it up on a laptop or a VPS, and where the code lives. There is no sign-up or paid plan: you run it yourself.</em></p>
+        </div>
+
+        <h2>The launch page</h2>
+        <p>The project is only self-hosted, so its website has one job: show how the tool works and how to run it. To design it, I had agents study 16 open-source and sales-software landing pages (AppFlowy, Attio, Supabase, PostHog, Instantly and others), write a design spec for each, then combine them into one spec for rightnow-ai. Another agent built the page from that spec as plain HTML, CSS and JavaScript, with real screenshots of the app.</p>
+        <p>It has three hands-on demos that run in the browser, all with sample data and the app's real rules: follow one lead through a campaign and see what happens when they reply, bounce or unsubscribe, or when the laptop is asleep; sort sample replies in a small inbox and watch the CRM update; and plan how much you can send, using the same daily limits and warm-up defaults the app uses.</p>
+
+        <div class="figure">
+          <a href="/sites/rightnow-ai/index.html#simulator" target="_blank" rel="noopener"><img class="rounded" src="../img/rightnow-simulator.webp" alt="Campaign simulator on the launch page: a sample lead replies interested, step 3 is cancelled and a CRM deal opens" loading="lazy" width="1600" height="1000"></a>
+          <p class="caption"><em>The campaign simulator: pick what the lead does and watch the rules the app applies. (Sample data.)</em></p>
+        </div>
+
+        <h2>Inside the app</h2>
+        <p>Screenshots of the real app, running with sample mailboxes and made-up leads.</p>
+
+        <div class="figure">
+          <img class="rounded" src="../img/rightnow-dashboard.webp" alt="rightnow-ai dashboard: emails sent today against the daily allowance, reply and bounce rates, active campaigns and mailbox health" loading="lazy" width="1600" height="1000">
+          <p class="caption"><em>The dashboard: today's sending against each mailbox's limit, the last 7 days, and what needs attention.</em></p>
+        </div>
+
+        <div class="figure">
+          <img class="rounded" src="../img/rightnow-sequence.webp" alt="Campaign sequence editor showing step 1 of a campaign with its A/B variants and merge fields" loading="lazy" width="1600" height="1000">
+          <p class="caption"><em>Building a campaign: steps, delays, merge fields and A/B variants.</em></p>
+        </div>
+
+        <div class="figure">
+          <img class="rounded" src="../img/rightnow-inbox.webp" alt="Unified inbox showing a reply thread labelled interested, with replies from every connected mailbox in one list" loading="lazy" width="1600" height="1511">
+          <p class="caption"><em>The unified inbox: every mailbox's replies in one place, labelled and ready to answer.</em></p>
+        </div>
+
+        <div class="figure">
+          <img class="rounded" src="../img/rightnow-crm.webp" alt="CRM Kanban board with deals in stages from Contacted to Proposal Sent, each with a value and its source campaign" loading="lazy" width="1600" height="1000">
+          <p class="caption"><em>The CRM: deals from interested replies, with revenue tracked back to the campaign.</em></p>
+        </div>
+
         <h2>Built in 8 phases</h2>
         <table>
           <thead><tr><th>Phase</th><th>What it added</th></tr></thead>
@@ -80,6 +117,7 @@
 
         <h2>Links</h2>
         <ul>
+          <li><a href="/sites/rightnow-ai/index.html" target="_blank" rel="noopener">Launch page</a></li>
           <li><a href="https://github.com/AnalyticDog13/rightnow-ai" target="_blank" rel="noopener">Code on GitHub</a></li>
           <li><a href="https://github.com/AnalyticDog13/rightnow-ai#how-to-use-it" target="_blank" rel="noopener">How to set it up and use it</a></li>
         </ul>
