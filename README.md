@@ -7,7 +7,7 @@ index.html                     home: intro, contact, photo carousel with hue bac
 projects.html                  project list
 projects/*.html                one page per project
 style.css                      all styles
-site.js                        hue backdrop (WebGL) + carousel
+site.js                        hue backdrop (WebGL) + carousels (home photos, Stitch deck)
 marko-figures.js               interactive figures on the marko page (adapted from mdelriolanse.com/blog/marko)
 img/                           project images; img/marko/ holds the marko map data and media
 photos/                        carousel slides, 16:9 at 1600x900 (originals kept but not deployed)

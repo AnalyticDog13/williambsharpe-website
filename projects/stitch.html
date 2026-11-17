@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stitch - William Sharpe</title>
+  <meta name="description" content="Stitch: an IT department on every company Mac, run by local AI that keeps working offline. Finalist at the Local AI Hackathon at Cornell, Nov 2026.">
+  <link rel="canonical" href="https://williambsharpe.com/projects/stitch">
+  <meta name="author" content="William Sharpe">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="William Sharpe">
+  <meta property="og:title" content="Stitch - William Sharpe">
+  <meta property="og:description" content="Stitch: an IT department on every company Mac, run by local AI that keeps working offline. Finalist at the Local AI Hackathon at Cornell, Nov 2026.">
+  <meta property="og:url" content="https://williambsharpe.com/projects/stitch">
+  <meta property="og:image" content="https://williambsharpe.com/img/og/stitch.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Stitch - William Sharpe">
+  <meta name="twitter:description" content="Stitch: an IT department on every company Mac, run by local AI that keeps working offline. Finalist at the Local AI Hackathon at Cornell, Nov 2026.">
+  <meta name="twitter:image" content="https://williambsharpe.com/img/og/stitch.jpg">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "CreativeWork", "name": "Stitch", "description": "Stitch: an IT department on every company Mac, run by local AI that keeps working offline. Finalist at the Local AI Hackathon at Cornell, Nov 2026.", "url": "https://williambsharpe.com/projects/stitch", "image": "https://williambsharpe.com/img/og/stitch.jpg", "author": {"@type": "Person", "name": "William Sharpe", "url": "https://williambsharpe.com/"}}</script>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400..700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <main>
+    <header class="site-header container">
+      <a class="site-name" href="../">William Sharpe</a>
+      <nav aria-label="Primary"><a href="../projects.html" aria-current="page">projects</a></nav>
+    </header>
+
+    <div class="content container">
+      <header>
+        <h1 class="page-title">Stitch</h1>
+        <p class="page-sub">An IT department on every company Mac, run by local AI that keeps working with the wifi off.</p>
+        <div class="page-meta">
+          <div>Idea, on-device agent and pitch lead, team of 4</div>
+          <div class="row"><time>Nov 2026</time><span class="dot">&middot;</span><span>Finalist, Local AI Hackathon at Cornell</span><span class="dot">&middot;</span><a class="u" href="https://get-stitch.vercel.app/" target="_blank" rel="noopener">Website &#8599;</a><span class="dot">&middot;</span><a class="u" href="https://github.com/AnalyticDog13/stitch" target="_blank" rel="noopener">Code on GitHub &#8599;</a></div>
+        </div>
+      </header>
+
+      <article>
+        <div class="figure">
+          <div class="media breakout"><iframe src="https://www.youtube-nocookie.com/embed/2HI0-awVSLo" title="Stitch demo video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <p class="caption"><em>The demo, under two minutes: Stitch fixes a broken network with the internet down, teaches a new app on screen, and IT watches the rollout land in Stitch HQ. Everything on a screen is the real app.</em></p>
+        </div>
+
+        <p>Software changes every week, and AI is making it faster. A few people at a company learn each new tool. Everyone else keeps doing it the old way, and the company keeps paying for software its people never learned to use. Stitch is a small helper that lives on every employee's Mac. When IT rolls out a new tool, Stitch tells each person, installs it, and walks them through it by hopping from button to button on their own screen. Ask him a question and he answers from the company's own docs.</p>
+        <p>Every part of Stitch that thinks runs on the laptop: the language model, speech-to-text and the voice. Turn the wifi off and it keeps working. We built it overnight at the Local AI Hackathon at Cornell (November 14 to 15, 2026). It was one of the finalist teams that demoed live to the sponsors, and I presented it to more than 60 attendees and judges.</p>
+
+        <h2>The problem</h2>
+        <p>I came in with the idea and spent the start of the hackathon on the research behind it. The numbers say the same thing three ways: companies buy more software than their people can absorb, and there aren't enough IT people to teach it.</p>
+        <table>
+          <thead><tr><th>Stat</th><th>Source</th></tr></thead>
+          <tbody>
+            <tr><td><strong>53%</strong> of software licenses go unused or underused</td><td><a href="https://zylo.com/blog/saas-stats-it-strategy" target="_blank" rel="noopener">Zylo, 2026</a></td></tr>
+            <tr><td><strong>1 : 75</strong> IT staff to employees at the median company</td><td><a href="https://www.pave.com/blog-posts/how-big-should-your-it-team-be" target="_blank" rel="noopener">Pave, 1,856 companies</a></td></tr>
+            <tr><td><strong>49%</strong> of employees lose 1 to 5 hours a week to IT issues</td><td><a href="https://www.hrdive.com/news/employees-lose-hours-productivity-weekly-to-it-issues/645198/" target="_blank" rel="noopener">Unisys, 2023</a></td></tr>
+          </tbody>
+        </table>
+        <p>The diagnosis: the bottleneck isn't buying or installing software, it's teaching it. One IT person can't sit with 75 people every time a tool changes, so the fix has to live on every computer. And because IT problems are often network problems, and many companies (law, finance, healthcare) can't send screens or client files to a cloud AI, the helper has to run on the device.</p>
+
+        <div class="figure">
+          <a href="https://get-stitch.vercel.app/" target="_blank" rel="noopener"><img class="rounded" src="../img/stitch/site-hero.webp" alt="The Stitch website: the headline 'Every new tool, learned by everyone.' with buttons to get Stitch and try the demo" width="1600" height="842"></a>
+          <p class="caption"><em><a href="https://get-stitch.vercel.app/" target="_blank" rel="noopener">Explore the website</a>. It has an interactive tour of a Mac where Stitch notifies, teaches, answers and reports.</em></p>
+        </div>
+
+        <h2>What Stitch does</h2>
+        <ul>
+          <li><strong>Brings new software to everyone.</strong> IT writes a rollout once. Each Mac it targets gets a notification, Stitch installs the app from the company's software portal, and the rollout waits in his chat card until it's done.</li>
+          <li><strong>Teaches it on screen.</strong> Stitch hops to each button in the real app, rings it, says what it does, and moves on when you click it.</li>
+          <li><strong>Answers from the company's docs.</strong> Click him or press Option+S and type or ask out loud. Answers cite the doc sections they came from, and if the docs don't cover it, he says so instead of guessing.</li>
+          <li><strong>Does small jobs for you.</strong> Ask him to do something simple and he does it in the app in front of you, then checks that it worked. Option+A asks about any part of the screen.</li>
+          <li><strong>Reports back to IT.</strong> Every laptop reports where it is in each rollout, so Stitch HQ shows who's caught up and who needs help.</li>
+        </ul>
+
+        <div class="figure">
+          <a href="https://get-stitch.vercel.app/#tour" target="_blank" rel="noopener"><img class="rounded" src="../img/stitch/site-tour.webp" alt="The interactive tour on the Stitch website: a Mac desktop with Stitch, a round teal character, saying 'Hi, I'm Stitch. I live on every Mac at Acme and help with IT.'" loading="lazy" width="1600" height="842"></a>
+          <p class="caption"><em>The website's tour: four steps (notify, teach, ask, report) on a model of a Mac.</em></p>
+        </div>
+
+        <h2>The harness: seeing the screen and pointing at it</h2>
+        <p>Stitch is built on <a href="https://github.com/farzaa/clicky" target="_blank" rel="noopener">Clicky</a>, an open-source (MIT) macOS companion that sees your screen, talks, and points at things. I forked it with git and replaced every cloud call. Clicky sent screenshots to a cloud model and got back pixel coordinates to point at. Stitch instead reads the front app's controls through the <strong>macOS Accessibility API</strong>, the interface screen readers use, as a short list of each control's role and label.</p>
+        <ul>
+          <li><strong>Find the real button.</strong> Each lesson step names its target (for example the "New Expense" button). Stitch looks it up in the front window and gets its exact position on screen, wherever the window is.</li>
+          <li><strong>Point and highlight.</strong> The character flies to that control and holds there with a pulsing ring around it, with the step written beside it.</li>
+          <li><strong>Learn by doing.</strong> A global click monitor sees when you click the ringed control and moves on to the next step. If the button isn't on screen yet, Stitch says so and keeps looking.</li>
+        </ul>
+        <p>Accessibility labels are far more reliable than guessing from a screenshot. In the team's benchmark on 30 screens, pointing from pixels alone landed 10% of the time, while giving the model the list of labelled controls landed 90% of the time.</p>
+
+        <div class="figure">
+          <img class="rounded" src="../img/stitch/site-teach.webp" alt="A walkthrough in System Settings: the 'Acme IT Enrollment' row is ringed in teal, Stitch sits beside it saying 'Double-click the Acme IT profile', and a chat card answers a question about the step" loading="lazy" width="1600" height="842">
+          <p class="caption"><em>A walkthrough step: the target control is ringed, Stitch says what to do, and you can ask about the step without leaving it.</em></p>
+        </div>
+
+        <h2>Nudges: noticing the old habit</h2>
+        <p>Every rollout in the company brain lists the old way of doing the job as triggers: an app name, and optionally words in the window title. For the demo's expense rollout, that's Excel or Numbers with a window titled "Expenses".</p>
+        <ul>
+          <li><strong>Watch.</strong> Once a second, Stitch reads the frontmost app's name and its focused window's title through the Accessibility API. It only acts when that pair changes, so it costs nothing measurable.</li>
+          <li><strong>Match.</strong> A plain rules engine checks the pair against the active rollouts meant for this laptop's team. No model is involved, so the match is instant and repeatable.</li>
+          <li><strong>Redirect.</strong> On a match, Stitch shows a nudge card: "We're retiring the expense spreadsheet. Want me to set up Acme Expenses and show you how?" Yes installs the new app, opens it, and starts the walkthrough.</li>
+        </ul>
+        <p>Later that night the team decided interrupting people inside an app they were using was too pushy. New rollouts now arrive as a normal Mac notification, with reminders that come twice as often each time until the walkthrough is done, and the same trigger watch quietly counts opens of the old tool for IT ("Sam opened the old spreadsheet twice").</p>
+
+        <h2>Why it has to be local AI</h2>
+        <p>The hackathon's rules required the Bonsai models, and the demo turned the wifi off to prove nothing was in the cloud. I set up Bonsai-2 4B to run on each laptop through a local server that speaks the standard chat API, so the app works the same online and offline and the model can be swapped by changing one URL.</p>
+        <table>
+          <thead><tr><th>Where</th><th>Model</th><th>Job</th></tr></thead>
+          <tbody>
+            <tr><td>Employee Mac</td><td>Bonsai-2 4B</td><td>Answer questions grounded in one lesson and the cited doc sections; decide whether to answer or act</td></tr>
+            <tr><td>IT's Mac (HQ)</td><td>Bonsai-2 9B</td><td>Draft a rollout from one sentence; summarize adoption in plain English</td></tr>
+            <tr><td>Employee Mac</td><td>Argmax WhisperKit</td><td>Speech-to-text for spoken questions</td></tr>
+            <tr><td>Employee Mac</td><td>Argmax TTSKit</td><td>Optional spoken answers</td></tr>
+          </tbody>
+        </table>
+        <p>On an M5 Pro, the 4B model starts answering in about 146 ms and writes about 127 tokens a second. Small models make things up when asked to remember policy, so Stitch never asks them to. A rules engine picks at most one lesson and two doc sections, and the model only puts them into words, which keeps every prompt under about 1,500 tokens.</p>
+        <p>Company knowledge lives in a git repo, the "company brain": rollouts and lessons as YAML, docs as Markdown, and one status file per laptop. Pushing a commit pushes a policy to the whole company, with an audit trail and rollback for free. Git sync is the only thing that uses the network.</p>
+
+        <h2>Stitch HQ</h2>
+        <p>The IT and CEO view. Describe a change in plain English, Bonsai 9B drafts the rollout, push it to every laptop, then watch it land: who's enrolled, who's been notified, who's overdue, and how much of the software you pay for gets used. I designed the dashboard's charts and look.</p>
+
+        <div class="figure">
+          <a href="https://get-stitch.vercel.app/#hq" target="_blank" rel="noopener"><img class="rounded" src="../img/stitch/site-hq.webp" alt="Stitch HQ showing a device management enrollment rollout: 52 Macs in the rollout, 41 enrolled, 7 pending, 4 overdue, a chart of enrollments per day, recent activity and a table of devices with their status" loading="lazy" width="1600" height="1181"></a>
+          <p class="caption"><em>One rollout in Stitch HQ: every Mac reports back, so IT sees who's enrolled, who's pending and who's overdue. (Sample data.)</em></p>
+        </div>
+
+        <h2>The pitch</h2>
+        <p>I made the branding, the pitch deck, the market analysis and the business model, and I wrote and directed the demo video. The deck ties Stitch to the hackathon's theme, "Recreate": we recreated IT as an expert on every laptop, and recreated a cloud assistant to run fully offline.</p>
+
+        <div class="figure">
+          <div class="frame deck breakout" data-carousel data-item="slide" tabindex="0" role="group" aria-label="Stitch pitch deck slides">
+            <img class="slide" src="../img/stitch/deck-01-cover.webp" alt="Cover slide: 'stitch. Recreate your IT. Keep every employee at the frontier.' with the Stitch character" width="1600" height="900">
+            <img class="slide" src="../img/stitch/deck-02-purpose.webp" alt="Mission slide: every employee fluent in the software you already pay for, and three ways Stitch recreates IT" loading="lazy" width="1600" height="900">
+            <img class="slide" src="../img/stitch/deck-03-problem.webp" alt="Problem slide: 53% of software licenses go unused or underused; 1 IT person per 75 employees; 49% lose 1 to 5 hours a week to IT issues" loading="lazy" width="1600" height="900">
+            <img class="slide" src="../img/stitch/deck-06-local.webp" alt="Why local AI slide: works offline, stays confidential, always on" loading="lazy" width="1600" height="900">
+            <img class="slide" src="../img/stitch/deck-07-whynow.webp" alt="Why now slide: apps per desk worker went from 6 to 11, the average company runs 106 SaaS apps, and capable AI now fits in under 4 GB" loading="lazy" width="1600" height="900">
+            <img class="slide" src="../img/stitch/deck-08-market.webp" alt="Market slide: TAM $15.2B, SAM $1.7B, SOM $50M ARR, and three revenue scenarios for 2027 to 2031" loading="lazy" width="1600" height="900">
+            <img class="slide" src="../img/stitch/deck-09-competition.webp" alt="Competition slide: Stitch against digital adoption platforms, AI service desks, managed IT and AI copilots" loading="lazy" width="1600" height="900">
+            <img class="slide" src="../img/stitch/deck-10-business.webp" alt="Business model slide: $12 per device per month for teams, $8 for businesses, custom enterprise contracts" loading="lazy" width="1600" height="900">
+            <img class="slide" src="../img/stitch/deck-11-vision.webp" alt="Vision slide: every company adapts as fast as its software" loading="lazy" width="1600" height="900">
+            <div class="shade"></div>
+            <div class="controls">
+              <button type="button" data-prev aria-label="Previous slide">&larr;</button>
+              <div class="dots"></div>
+              <button type="button" data-next aria-label="Next slide">&rarr;</button>
+            </div>
+          </div>
+          <p class="caption"><em>Slides from the pitch deck. <a href="https://claude.ai/artifact/WtNfbjoykmrfG6tRncvqQB" target="_blank" rel="noopener">Open the full deck</a>.</em></p>
+        </div>
+
+        <table>
+          <thead><tr><th>Business model</th><th class="n">Price</th></tr></thead>
+          <tbody>
+            <tr><td>Team, up to 50 devices</td><td class="n">$12 / device / month</td></tr>
+            <tr><td>Business, 50+ devices, fleet reports, SSO</td><td class="n">$8 / device / month, yearly</td></tr>
+            <tr><td>Enterprise, on-site company brain, custom lessons</td><td class="n">Custom</td></tr>
+          </tbody>
+        </table>
+        <p>The market analysis sized IT service desks plus digital adoption tools at $15.2B worldwide, the Mac share Stitch can serve today at $1.7B, and a five-year target of $50M a year (3% of that, about 520,000 devices at $8 a month). One avoided help-desk ticket, about $15.56, pays for a seat for a month, and because the model runs on hardware the customer already owns, there's no cloud AI bill per seat. The competitors (WalkMe, Whatfix and Pendo for digital adoption; Moveworks and Aisera for AI service desks; Microsoft Copilot) all run in the cloud and mostly wait to be asked.</p>
+
+        <h2>My role</h2>
+        <ul>
+          <li>Came up with the idea, researched the problem and wrote the diagnosis the product is built around.</li>
+          <li>Built the harness that lets Stitch see the screen and point: forked Clicky with git, removed its cloud calls, and added Accessibility-based pointing and highlighting.</li>
+          <li>Connected the local Bonsai-2 4B model and got it running both online and offline.</li>
+          <li>Implemented the nudges: the frontmost-window watcher and the rules that match it to a rollout and send people to the new tool.</li>
+          <li>Designed the Stitch HQ dashboard's charts and look.</li>
+          <li>Made the branding and logo, the pitch deck, the market analysis and the business model, and wrote and directed the demo video.</li>
+          <li>Presented Stitch to more than 60 attendees and judges.</li>
+        </ul>
+
+        <h2>Skills applied</h2>
+        <p>On-device LLMs (Bonsai-2 through a local llama.cpp server), grounding small models with a deterministic rules engine, the macOS Accessibility API, extending open-source code with git, git as a sync layer, dashboard and data-visualization design, branding, market sizing, pricing, pitching, and directing AI coding agents with Claude Code.</p>
+
+        <h2>Links</h2>
+        <ul>
+          <li><a href="https://github.com/AnalyticDog13/stitch" target="_blank" rel="noopener">Code on GitHub</a></li>
+          <li><a href="https://get-stitch.vercel.app/" target="_blank" rel="noopener">Website: get-stitch.vercel.app</a></li>
+          <li><a href="https://youtu.be/2HI0-awVSLo" target="_blank" rel="noopener">Demo video on YouTube</a></li>
+          <li><a href="https://claude.ai/artifact/WtNfbjoykmrfG6tRncvqQB" target="_blank" rel="noopener">Pitch deck</a></li>
+          <li><a href="https://github.com/farzaa/clicky" target="_blank" rel="noopener">Clicky, the open-source project Stitch is built on</a></li>
+        </ul>
+      </article>
+    </div>
+  </main>
+  <script src="../site.js"></script>
+</body>
+</html>
