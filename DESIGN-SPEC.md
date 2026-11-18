@@ -121,10 +121,10 @@ This mirrors rajan.sh/engineering.
 
 - The header nav shows `projects` in fg (active).
 - Page header: h1 "Projects", then the subtitle "Things I've built" (the reference page has a one-line subtitle in the same spot).
-- A 32px gap, then an `<ol>` of projects with 28px between items, newest first:
-  1. **Stitch**: "An IT department on every company Mac: local AI that installs new software, points at the buttons and answers offline." Meta: `Nov 2026 · Finalist, Local AI Hackathon at Cornell`
-  2. **rightnow-ai**: "A self-hosted, open-source cold-email platform: mailbox warm-up, campaigns, a unified inbox and a CRM." Meta: `Oct 2026 · Open source, verified live`
-  3. **marko**: "Indoor AR wayfinding built from a floor plan and a single phone scan. No beacons, no QR codes." Meta: `Oct 2026 · 2nd place, BigRed//Hacks 2026`
+- A 32px gap, then an `<ol>` of projects with 28px between items: ongoing projects first, then newest first:
+  1. **marko**: "Indoor AR wayfinding built from a floor plan and a single phone scan. No beacons, no QR codes." Meta: `Oct 2026–Present · 2nd place, BigRed//Hacks 2026`
+  2. **Stitch**: "An IT department on every company Mac: local AI that installs new software, points at the buttons and answers offline." Meta: `Nov 2026 · Finalist, Local AI Hackathon at Cornell`
+  3. **rightnow-ai**: "A self-hosted, open-source cold-email platform: mailbox warm-up, campaigns, a unified inbox and a CRM." Meta: `Oct 2026 · Open source, verified live`
   4. **AI-Powered Web Design Agency**: "An AI pipeline that finds local businesses with weak websites, scores them, and pitches a better one." Meta: `May–Aug 2026 · Founder, Los Angeles`
   5. **Kalshi Weather Trading Bot**: "A bot that prices weather markets in 5 cities from 139-member ensemble forecasts and trades the gap." Meta: `Mar–Apr 2026 · Solo build, ran live`
 - Each title links to that project's page in `projects/`. On rajan.sh the titles link straight out to GitHub. Here they open an in-site page, and the repo is linked from there.
