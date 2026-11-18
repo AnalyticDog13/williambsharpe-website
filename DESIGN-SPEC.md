@@ -158,7 +158,7 @@ The template is rajan.sh's article page (for example /tinker or /multiplayer).
   - Numbers are right-aligned with `tabular-nums`.
   - Columns after the first get 16px of left padding, and a paragraph right after a table gets a 28px top margin.
 - `hr`: 1px `--border`, 32px vertical margin.
-- **Links section:** the last `h2` on every project page is "Links". It lists the GitHub repo (or repos) first, then demos and other resources, as a plain `ul` of underlined links. Together with the header meta line, this means the repo can be reached from the top and the bottom of the page. The exception is a private repo: marko's repo is private, so its page links only the demo, the 3D map and the deck.
+- **Links section:** the last `h2` on every project page is "Links". It lists the GitHub repo (or repos) first, then demos and other resources, as a plain `ul` of underlined links. Together with the header meta line, this means the repo can be reached from the top and the bottom of the page. The exception is a private repo: marko's repo is private, so its page links only the demo, the 3D map and the deck. The Stitch page has no Links section: William asked for no repeated content on it, and every link already appears once in the header, a caption or the text.
 - Video: a YouTube iframe (youtube-nocookie) inside a 16:9 frame with a 6px radius, lazy-loaded.
 - Autoplaying loop videos (muted, `playsinline`, with a poster frame) go in the same 16:9 frame.
 - There is no footer and no "next project" block. Navigation is the header, as on rajan.sh.

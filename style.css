@@ -112,6 +112,7 @@ article a:hover { text-decoration-color: var(--fg); }
 article hr { margin: 2rem 0; border: 0; border-top: 1px solid var(--border); }
 .figure { margin: 2rem 0 1.75rem; }
 .figure > img, .figure > a > img { width: 100%; height: auto; }
+.figure > a.breakout { display: block; }
 .figure .caption { margin: .75rem 0 0; }
 .media { position: relative; aspect-ratio: 16 / 9; border-radius: 6px; overflow: hidden; background: var(--muted); }
 .media iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
