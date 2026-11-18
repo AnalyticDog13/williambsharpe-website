@@ -125,8 +125,8 @@ This mirrors rajan.sh/engineering.
   1. **Stitch**: "An IT department on every company Mac: local AI that installs new software, points at the buttons and answers offline." Meta: `Nov 2026 · Finalist, Local AI Hackathon at Cornell`
   2. **rightnow-ai**: "A self-hosted, open-source cold-email platform: mailbox warm-up, campaigns, a unified inbox and a CRM." Meta: `Oct 2026 · Open source, verified live`
   3. **marko**: "Indoor AR wayfinding built from a floor plan and a single phone scan. No beacons, no QR codes." Meta: `Oct 2026 · 2nd place, BigRed//Hacks 2026`
-  4. **AI-Powered Web Design Agency**: "An AI pipeline that finds local businesses with weak websites, scores them, and pitches a better one." Meta: `May 2026 · Founder, Los Angeles`
-  5. **Kalshi Weather Trading Bot**: "A bot that prices weather markets in 5 cities from 139-member ensemble forecasts and trades the gap." Meta: `Mar 2026 · Solo build, ran live`
+  4. **AI-Powered Web Design Agency**: "An AI pipeline that finds local businesses with weak websites, scores them, and pitches a better one." Meta: `May–Aug 2026 · Founder, Los Angeles`
+  5. **Kalshi Weather Trading Bot**: "A bot that prices weather markets in 5 cities from 139-member ensemble forecasts and trades the gap." Meta: `Mar–Apr 2026 · Solo build, ran live`
 - Each title links to that project's page in `projects/`. On rajan.sh the titles link straight out to GitHub. Here they open an in-site page, and the repo is linked from there.
 - rajan.sh splits pinned items from a "More" list under a hairline rule. With five projects there is still one list. If the list grows past about five, add `<section>` with a 40px top margin, `border-top: 1px solid var(--border)`, 32px top padding, and a "More" label (12px, 500 weight, fg).
 - The page ends with a small credit line, 64px below the list, in 12/20 sans at muted-fg 60%: "this website is heavily inspired by the work of [Rajan Agarwal]" (lowercase, the name underlined and linked to linkedin.com/in/rajansagarwal).
